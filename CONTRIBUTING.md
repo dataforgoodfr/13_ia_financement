@@ -1,6 +1,6 @@
 ## Pour commencer
 1. [Rejoindre](https://dataforgood.fr/join) la communauté Data For Good
-2. Sur le slack Data For Good, rejoindre le canal _#13_potentiel_solaire_ et se présenter
+2. Sur le slack Data For Good, rejoindre le canal #13_ia_financement et se présenter
 3. Remplir le [formulaire](https://noco.services.dataforgood.fr/dashboard/#/nc/form/895fb8bb-df66-495a-b806-6a1d49a514f3)
 4. Demander un accès en écriture si je souhaite proposer une modification du code
 
