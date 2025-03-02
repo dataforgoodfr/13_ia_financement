@@ -8,6 +8,10 @@ Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) 
 - Un modèle d'IA générative open source pour le remplissage automatique des formulaires (POC + MVP)
 - Un livre blanc sur les bonnes pratiques d'utilisation de l'IA dans ce contexte
 
+# Architecture technique
+
+![architecture](https://github.com/user-attachments/assets/e6e671ea-4ed6-43ad-8cb5-7972ebabae13)
+
 # Contributing
 
 ## Pour commencer
