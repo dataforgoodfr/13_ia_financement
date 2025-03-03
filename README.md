@@ -10,7 +10,7 @@ Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) 
 
 # Architecture technique
 
-![architecture](https://github.com/user-attachments/assets/e6e671ea-4ed6-43ad-8cb5-7972ebabae13)
+![architecture](https://github.com/user-attachments/assets/5f81142a-a2b0-4984-8e6f-6e1b0fd8343a)
 
 # Contributing
 
