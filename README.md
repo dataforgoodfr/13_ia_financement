@@ -6,7 +6,7 @@ Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) 
 
 - Une interface web permettant le chargement des documents et la visualisation des résultats
 - Un modèle d'IA générative open source pour le remplissage automatique des formulaires (POC + MVP)
-- Un livre blanc sur les bonnes pratiques d'utilisation de l'IA dans ce contexte
+- Un livre blanc sur les bonnes pratiques opérationnelles d'un projet MLOps
 
 # Architecture technique
 
