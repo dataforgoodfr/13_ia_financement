@@ -4,6 +4,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Data
+data/*
+*.pdf 
+*.docx
+*.pptx
+
+
 # C extensions
 *.so
 
