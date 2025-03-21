@@ -87,26 +87,48 @@ net = Network(notebook=True, height='1080px', width='100%', bgcolor='white', fon
 # Convert NetworkX graph to Pyvis network
 net.from_nx(G)
 
+
+tableau_colors = [
+    "#4E79A7",  # Blue
+    "#F28E2B",  # Orange
+    "#E15759",  # Red
+    "#76B7B2",  # Teal
+    "#59A14F",  # Green
+    "#EDC949",  # Yellow
+    "#AF7AA1",  # Purple
+    "#FF9DA7",  # Pink
+    "#9C755F",  # Brown
+    #"#BAB0AC",  # Gray
+    "#8CD17D",  # Light Green
+    "#F1CE63",  # Light Yellow
+    "#B0AFC3",  # Lavender
+    "#FFBE7D",  # Peach
+    "#D3D3D3"   # Light Gray
+]
+
 # Define color mapping for node groups
-color_mapping = {
-    'entity': 'lightblue',
-    'relation': '#33FF57',
-    'default': '#808080'
-}
+color_mapping = {}
+entity_types_set=set(n["entity_type"] for n in net.nodes)
+for entity in entity_types_set:
+    if entity=="UNKNOWN":
+        color_mapping[entity]= "#BAB0AC"#gray
+    elif entity!="UNKNOWN" and len(tableau_colors)>0:
+        color_mapping[entity]= tableau_colors.pop()
+
 
 # Node customization with proper checks for attributes
-for node in net.nodes:
-    # Set node color based on group (if available)
-    if 'group' in node:
-        node['color'] = color_mapping.get(node['group'], color_mapping['default'])
-    else:
-        node['color'] = color_mapping['default']
+for node in net.nodes:#[:50]:
 
     # Example: Set node size based on degree
     node['size'] = G.degree[node['id']] * 2
 
+    # Set node color based on group (if available)
+    node['color'] = color_mapping[node['entity_type']]
+    
     # Add hover information (safely accessing attributes)
-    node_info = f"Node: {node.get('label', 'Unknown')}"
+    descr=node["description"].split("<SEP>")[0]
+    descr=descr+" ..." if len(descr)>100 else descr
+    node_info = f"Node: {node.get('label')}\nNode type: {node['entity_type']} \nDescr: {descr}"
     if 'group' in node:
         node_info += f"<br>Group: {node['group']}"
     node['title'] = node_info
