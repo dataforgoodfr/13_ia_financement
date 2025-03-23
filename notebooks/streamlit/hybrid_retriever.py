@@ -9,13 +9,14 @@ import os
 import json
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
-from langchain.vectorstores import Chroma, FAISS
+from langchain_community.vectorstores import Chroma, FAISS
+import datetime
 
 import dotenv
 
 dotenv.load_dotenv("/home/chougar/Documents/GitHub/Formation_datascientest/DL-NLP/.env")
 
-def process_pp(text):
+def process_pp(text, pp_name=None):
 
     #============vérif si PP traitée:    
     def check_pp_processed(text):
@@ -65,7 +66,6 @@ def process_pp(text):
 
     #====config llm
     model_qa_name="gpt-4o-mini"
-    model_qa_alias="gpt-4-mini"
     llm_qa = ChatOpenAI(model_name=model_qa_name, temperature=0.2)
     llm_evaluator = ChatOpenAI(model_name="gpt-4o", temperature=0.2)
 
@@ -86,30 +86,57 @@ def process_pp(text):
 
 
     #======create DB
-    def create_db(docs, text, id, embedding_model=embedding_model):
-        db_path = f"./vector_stores/{id}/"
+    def create_db(docs, text, id, embedding_model=embedding_model, pp_name=pp_name):
+        db_path = f"./vector_stores/{id}/"        
 
-        chroma_db = Chroma.from_documents(docs, embedding_model, persist_directory=db_path,)
-
-        faiss_db = FAISS.from_texts(docs, embedding_model, persist_directory=db_path,)   
+        faiss_db = FAISS.from_texts(docs, embedding_model,)   
+        faiss_db.save_local(db_path)
 
 
 
         # load existing hashes
         
         #@st.cache_data
-        def save_hash_trace_hashes(text):
+        def save_hash_trace_hashes(text, hash_title, pp_name):
             file_path="pp_hashes.json"
-            if os.path.exists(file_path):
-                exising_hashes={}
+            exising_hashes={}
+            if os.path.exists(file_path):                
                 with open(file_path, 'r') as f:
                     exising_hashes= json.load(f)                    
                     
-                exising_hashes[hash_text] = len(text)
-                with open(file_path, 'w') as f:
-                    json.dump(exising_hashes, f)            
+            exising_hashes[hash_text] = {
+                "Nom du PP": pp_name, 
+                "Titre auto": hash_title, 
+                "Taille du texte (en car)": len(text),
+                "Date de création": str(datetime.datetime.now())
+            }
+            with open(file_path, 'w') as f:
+                json.dump(exising_hashes, f)            
+        
+        # génerer un titre basé sur les 10000 premiers caractères
+        prompt_pp_title=f"""
+            Based on the folling context;\n
+                {text[:10000]}
 
-        return faiss_db
+            Generate a very short and representative title useful to store an embedding index of the text
+        """
+
+        prompt_pp_name=f"""
+            Based on the folling title;\n
+                {text[:10000]}
+
+            Generate a very short label, in 3 words max
+        """        
+        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+        hash_title=llm.invoke(prompt_pp_title)
+
+        if pp_name==None:
+            pp_name=llm.invoke(prompt_pp_name)
+            pp_name=pp_name.content
+            
+        save_hash_trace_hashes(text, hash_title.content, pp_name)
+        
+        return (faiss_db, hash_title.content)
 
     #=======load DB
 
@@ -138,13 +165,26 @@ def process_pp(text):
             hash_text=message[1]
             yield "Traitement du PP en cours"
             time.sleep(2)
-            yield "Fragmentation du PP"
+            
+            
+            yield "1. Fragmentation du PP"
             docs=chunk_text(text)
-            yield "Stockage du PP en base"
-            faiss_db=create_db(docs, text, id=hash_text)
-            print(faiss_db)
-            yield "Création du retriever hybride"
-            msg="Traitement terminé avec succès !"
+            
+            yield "2. Stockage du PP en base vectorielle"
+            faiss_db_args=create_db(docs, text, id=hash_text)
+            faiss_db=faiss_db_args[0]
+            faiss_db_title=faiss_db_args[1]
+
+            yield f"""
+                PP stocké sous: <br>
+                **Hash**: {hash_text}<br>
+                **Titre auto généré**: {faiss_db_title}<br>
+                **Nom donné**: {pp_name}
+            """
+
+            yield "3. Création du retriever hybride"
+            
+            msg="4. Traitement terminé avec succès !"
             print(msg)
             yield msg
             
