@@ -1,5 +1,5 @@
 import streamlit as st
-from hybrid_retriever import process_pp
+from hybrid_retriever import process_new_pp, process_existing_pp, QA_pipeline
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from io import StringIO
@@ -41,10 +41,12 @@ def load_pp_traces():
         st.dataframe(table)
 
         return table
+    else:
+        return []
 
 
 def main():
-    
+
     st.title("IA financement 13")
     st.sidebar.title("Sommaire")
     pages=[
@@ -59,6 +61,7 @@ def main():
     
     if page == pages[0]:
         st.write("### Guide")
+        st.write("Faire des millions :)")
 
     if page == pages[1]:
 
@@ -76,9 +79,11 @@ def main():
         with col1:
             btn_new_pp= st.button("Charger PP")
         with col2:
-            pp_name=st.text_input(label="Nom du PP", placeholder="ex: Mahakam project")
+            pp_name=st.text_input(label="Nom du PP", placeholder="Saisie obligatoire")
         with col3:
             max_size=st.number_input(label='PP max size', step=10)
+
+        input_file= st.file_uploader(label="Charger un PP")
 
         st.markdown('<hr>', unsafe_allow_html=True)
 
@@ -86,7 +91,10 @@ def main():
         st.write('### Utiliser un PP existant')
         col4, col5 = st.columns(2, vertical_alignment="bottom", )
         with col4:
-            list_pp_names=df_existing_pp["Nom du PP"].unique()
+            list_pp_names=[]
+            if len(df_existing_pp)>0:
+                list_pp_names=df_existing_pp["Nom du PP"].unique()
+            
             existing_pp_name= st.selectbox(label="Choisir PP", options=list_pp_names)
         with col5:
             btn_existing_pp= st.button("Utiliser PP")
@@ -98,17 +106,32 @@ def main():
 
             messages=""
             print(f"pp_name: {pp_name}")
-            for message in process_pp(text[: len(text)-int(max_size)], pp_name):
-                messages=message+"<br>"
-                st.markdown(messages, unsafe_allow_html=True)  # Mettre à jour le contenu du conteneur                
-        
+            for message in process_new_pp(text[: len(text)-int(max_size)], pp_name):
+                if isinstance(message, str):
+                    messages=message+"<br>"
+                    st.markdown(messages, unsafe_allow_html=True)  # Mettre à jour le contenu du conteneur                
+
         elif btn_existing_pp:
             hash=df_existing_pp[df_existing_pp["Nom du PP"]==existing_pp_name].index.values[0]
-            print(hash)
+            for message in process_existing_pp(hash, existing_pp_name):
+                st.markdown(message, unsafe_allow_html=True)
 
 
-    if page == pages[2]:
-        st.write("### Remplir un AAP")
-
+    if page == pages[2]:        
+        st.write("#### Charger un AAP")
+        input_file= st.file_uploader(label="Charger un AAP")
+        st.markdown("------------", unsafe_allow_html=True)
+        st.write("#### Saisie manuelle")
+        query=[st.text_input(label="Votre question", placeholder="")]
+        launch_query=st.button(label="Chercher")
+        if launch_query:
+            for resp in QA_pipeline(query):
+                if isinstance(resp, dict):
+                    st.markdown(f"#### Réponse:\n {resp['answer']}", unsafe_allow_html=True)
+                    st.markdown("-----", unsafe_allow_html=True)
+                    for source in resp['sources']:
+                        st.markdown(f"#### Sources:\n {source}", unsafe_allow_html=True)
+                elif isinstance(resp, str):
+                    st.markdown(resp, unsafe_allow_html=True)
 if __name__ == "__main__":
     main()
