@@ -22,7 +22,7 @@ dotenv.load_dotenv("/home/chougar/Documents/GitHub/Formation_datascientest/DL-NL
 
 #====config llm
 model_qa_name="gpt-4o-mini"
-llm_qa = ChatOpenAI(model_name=model_qa_name, temperature=0.2)
+llm_qa = ChatOpenAI(model_name=model_qa_name, temperature=0.2, streaming=True)
 llm_evaluator = ChatOpenAI(model_name="gpt-4o", temperature=0.2)
 
 # Embeddings model definition
@@ -152,7 +152,7 @@ def hybrid_retriever(faiss_db, docs):
     
 
     @chain
-    def combine_retrievers(query, dense=dense, sparse=sparse, top_k=8):
+    def combine_retrievers(query, dense=dense, sparse=sparse, reranker_threshold=1, top_k=8):
         query = query["question"]
         dense_results = dense.get_relevant_documents(query)
         sparse_results = sparse.get_relevant_documents(query)
@@ -174,18 +174,20 @@ def hybrid_retriever(faiss_db, docs):
         sorted_results = sorted(reranked_results, key=lambda x: x[1], reverse=True)
 
         # Filtrage (score >= 5)
-        filtered_results = [doc for doc in sorted_results if doc[1] >= 5]
-
+        filtered_results = [doc for doc in sorted_results if doc[1] >= reranker_threshold]
+        pipeline_args["sources"]=filtered_results
         return [doc for doc, _ in filtered_results[:top_k]]
 
-    return combine_retrievers
+    sources= combine_retrievers    
+    return sources
+    
 
 #=======================
 
 
 
 #========create full rag pipeline
-def build_rag_pipeline(faiss_db, split_docs):
+def build_rag_pipeline(faiss_db, split_docs, llm=llm_qa):
     from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
     
     retriever= hybrid_retriever(faiss_db, split_docs)
@@ -206,18 +208,32 @@ def build_rag_pipeline(faiss_db, split_docs):
         Provide a clear, factual, and well-structured response based on the available context. Avoid speculation or adding external knowledge.  
     """)
 
+    # lcel_qa_chain = (
+    #     RunnableParallel({
+    #         # "context": retriever | (lambda split_docs: "\n\n".join(d.page_content for d in split_docs)),
+    #         "context": retriever | (lambda split_docs: "\n\n".join(d for d in split_docs)),
+    #         "sources": retriever,
+    #         "input": RunnablePassthrough(),
+    #     })
+    #     | (lambda inputs: {
+    #         "answer": (rag_prompt | llm | StrOutputParser()).invoke(inputs),
+    #         "sources": inputs["sources"]  
+    #     })
+    # )
+
+   # Chaîne principale avec streaming natif
     lcel_qa_chain = (
         RunnableParallel({
-            # "context": retriever | (lambda split_docs: "\n\n".join(d.page_content for d in split_docs)),
-            "context": retriever | (lambda split_docs: "\n\n".join(d for d in split_docs)),
-            "sources": retriever,
-            "input": RunnablePassthrough(),
+            "context": retriever,
+            # "sources": retriever,
+            "input": RunnablePassthrough()
         })
-        | (lambda inputs: {
-            "answer": (rag_prompt | llm_qa | StrOutputParser()).invoke(inputs),
-            "sources": inputs["sources"]  
-        })
+        | rag_prompt
+        | llm
+        | StrOutputParser()
     )
+
+        
 
     return lcel_qa_chain
 
@@ -443,9 +459,12 @@ def QA_pipeline(queries: list,):
         return 
     replies=[]
     for q in queries:        
-        resp=pipeline_args["final_chain"].invoke({"question": q})
-        replies.append(resp)
-        print(resp)
-        yield resp
+        stream_resp=pipeline_args["final_chain"].stream({"question": q})
+        yield stream_resp
+        
+        yield {"sources": pipeline_args["sources"]}
+        # for token in stream_resp:
+        #     resp+=token
+        #     yield token
         
 

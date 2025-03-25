@@ -6,6 +6,7 @@ from io import StringIO
 import os
 import pandas as pd
 import json
+import types
 
 
 def load_doc():
@@ -126,12 +127,21 @@ def main():
         launch_query=st.button(label="Chercher")
         if launch_query:
             for resp in QA_pipeline(query):
-                if isinstance(resp, dict):
-                    st.markdown(f"#### Réponse:\n {resp['answer']}", unsafe_allow_html=True)
+                # if isinstance(resp, dict):
+                if isinstance(resp, types.GeneratorType):
+                    #for r in resp:
+                    st.markdown(f"#### Réponse:\n", unsafe_allow_html=True)
+                    st.write_stream(stream=resp)
+                    # st.markdown(f"#### Réponse:\n {resp['answer']}", unsafe_allow_html=True)
                     st.markdown("-----", unsafe_allow_html=True)
-                    for source in resp['sources']:
-                        st.markdown(f"#### Sources:\n {source}", unsafe_allow_html=True)
-                elif isinstance(resp, str):
-                    st.markdown(resp, unsafe_allow_html=True)
+                    # for source in resp['sources']:
+                    #    st.write_stream(stream=source)
+                        # st.markdown(f"#### Sources:\n {source}", unsafe_allow_html=True)
+                elif isinstance(resp, dict):
+                    st.markdown(f"#### Sources:\n", unsafe_allow_html=True)
+                    
+                    for source in resp["sources"]:
+                        st.markdown(f"**Source**:<br>{source[0]}", unsafe_allow_html=True)
+                        st.markdown(f"**Score**: {source[1]}", unsafe_allow_html=True)
 if __name__ == "__main__":
     main()
