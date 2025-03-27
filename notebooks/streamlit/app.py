@@ -37,9 +37,10 @@ def load_pp_traces():
     file_path="pp_hashes.json"
     exising_hashes={}
     if os.path.exists(file_path):                
-        table=pd.read_json(file_path).T
+        table=pd.read_json(file_path,).T
         table=table.sort_values("Date de création", ascending=False)
-        st.dataframe(table)
+        table['Date de création'] = pd.to_datetime(table['Date de création']).dt.floor('s')
+        st.dataframe(table.reset_index(drop=True))
 
         return table
     else:
@@ -49,6 +50,8 @@ def load_pp_traces():
 def main():
 
     st.title("IA financement 13")
+
+    # menu
     st.sidebar.title("Sommaire")
     pages=[
         "Guide d'utilisation", 
@@ -60,21 +63,30 @@ def main():
     page=st.sidebar.radio("Aller vers", pages)
 
     
+    # page d'accueil
     if page == pages[0]:
         st.write("### Guide")
         st.write("Faire des millions :)")
 
+
+
+
+
+
+
+
+
+    # page chargement de la PP
     if page == pages[1]:
-
+      
         
-        
-
-
         # charger traces des PP existantes:
         df_existing_pp= load_pp_traces()
 
 
 
+
+        #======== UI Charger un nouveau PP
         st.write('### Charger un nouveau PP')    
         col1, col2, col3 = st.columns(3, vertical_alignment="bottom")
         with col1:
@@ -88,7 +100,13 @@ def main():
 
         st.markdown('<hr>', unsafe_allow_html=True)
 
+        #===============================================
 
+
+
+
+
+        #========UI Utiliser un PP existant
         st.write('### Utiliser un PP existant')
         col4, col5 = st.columns(2, vertical_alignment="bottom", )
         with col4:
@@ -99,7 +117,12 @@ def main():
             existing_pp_name= st.selectbox(label="Choisir PP", options=list_pp_names)
         with col5:
             btn_existing_pp= st.button("Utiliser PP")
+        #================================================
 
+
+
+
+        #========Interactions nouveau PP
         if btn_new_pp:
             text=load_doc()
             # Créer un conteneur pour afficher les messages
@@ -108,22 +131,35 @@ def main():
             messages=""
             print(f"pp_name: {pp_name}")
             for message in process_new_pp(text[: len(text)-int(max_size)], pp_name):
-                if isinstance(message, str):
-                    messages=message+"<br>"
-                    st.markdown(messages, unsafe_allow_html=True)  # Mettre à jour le contenu du conteneur                
-
+                #if isinstance(message, str):
+                messages=message+"<br>"
+                st.markdown(messages, unsafe_allow_html=True)  # Mettre à jour le contenu du conteneur                
+        #===============================================
+        
+        
+        #========Interactions PP existant
         elif btn_existing_pp:
             hash=df_existing_pp[df_existing_pp["Nom du PP"]==existing_pp_name].index.values[0]
             for message in process_existing_pp(hash, existing_pp_name):
                 st.markdown(message, unsafe_allow_html=True)
+        #===============================================
 
 
+
+
+
+
+
+    # chargement AAP
     if page == pages[2]:        
         st.write("#### Charger un AAP")
         input_file= st.file_uploader(label="Charger un AAP")
         st.markdown("------------", unsafe_allow_html=True)
         st.write("#### Saisie manuelle")
-        query=[st.text_input(label="Votre question", placeholder="")]
+        
+        
+        query=[st.text_input(label="Votre question", placeholder="")]        
+
         launch_query=st.button(label="Chercher")
         if launch_query:
             for resp in QA_pipeline(query):
@@ -132,11 +168,7 @@ def main():
                     #for r in resp:
                     st.markdown(f"#### Réponse:\n", unsafe_allow_html=True)
                     st.write_stream(stream=resp)
-                    # st.markdown(f"#### Réponse:\n {resp['answer']}", unsafe_allow_html=True)
                     st.markdown("-----", unsafe_allow_html=True)
-                    # for source in resp['sources']:
-                    #    st.write_stream(stream=source)
-                        # st.markdown(f"#### Sources:\n {source}", unsafe_allow_html=True)
                 elif isinstance(resp, dict):
                     st.markdown(f"#### Sources:\n", unsafe_allow_html=True)
                     
