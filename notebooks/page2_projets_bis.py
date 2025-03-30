@@ -5,14 +5,17 @@ import os
 import pandas as pd
 
 def load_doc(pdf_file_path):
+    # Load the PDF
     loader = PyPDFLoader(pdf_file_path)
     pages = loader.load()
 
+    # nettoyage
     bruits = ["Planète Urgence | FOREST Programme"]
     for doc in pages:
         for bruit in bruits:
             if bruit in doc.page_content:
                 doc.page_content = doc.page_content.replace(bruit, "")
+    # del empty docs
     pages = [doc for doc in pages if len(doc.page_content) > 0]
 
     full_text = "".join([p.page_content for p in pages])
@@ -37,12 +40,12 @@ def run():
     df_existing_pp = load_pp_traces()
 
     # Charger un nouveau PP
-    st.subheader("➕ Charger un nouveau document de projet")
+    st.subheader("➕ Charger un nouveau PP")
     col1, col2, col3 = st.columns(3)
     with col1:
         btn_new_pp = st.button("📤 Charger PP")
     with col2:
-        pp_name = st.text_input("Nom du PP", placeholder="Ex: Projet Mahakam")
+        pp_name = st.text_input("Nom du PP", placeholder="Saisie obligatoire")
     with col3:
         max_size = st.number_input("Taille max à indexer (caractères)", step=100, value=3000)
 
@@ -59,7 +62,7 @@ def run():
     with col5:
         btn_existing_pp = st.button("✅ Utiliser ce PP")
 
-    # Traitement d’un nouveau PP
+    # Interactions nouveau PP
     if btn_new_pp:
         if input_file is None or pp_name.strip() == "":
             st.error("Veuillez fournir un fichier PDF **et** un nom de projet.")
@@ -80,7 +83,7 @@ def run():
                 for message in process_new_pp(text_cut, pp_name):
                     st.markdown(message, unsafe_allow_html=True)
 
-    # Utiliser un PP existant
+    # Interactions PP existant
     elif btn_existing_pp:
         if existing_pp_name.strip() == "":
             st.warning("⚠️ Veuillez sélectionner un projet.")
