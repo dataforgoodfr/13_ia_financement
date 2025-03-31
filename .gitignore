@@ -161,3 +161,10 @@ cython_debug/
 
 # Precommit hooks: ruff cache
 .ruff_cache
+
+/data/
+ktem_app_data/
+*.log
+*.tmp
+build/
+dist/

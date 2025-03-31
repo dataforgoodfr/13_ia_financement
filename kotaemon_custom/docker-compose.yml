@@ -1,0 +1,16 @@
+services:
+  kotaemon_custom:
+    build: .
+    container_name: kotaemon_custom_container
+    volumes:
+      - ./ktem_app_data:/app/ktem_app_data
+      - ${DATA_ROOT:-./data}:/app/data
+    environment:
+      - LLM_MODE=${LLM_MODE:-falcon}
+      - EMBEDDING_MODE=${EMBEDDING_MODE:-none}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - FLOWSETTINGS_MODULE=sos_flowsettings
+      - GRADIO_SERVER_NAME=0.0.0.0
+      - GRADIO_SERVER_PORT=7860
+    ports:
+      - "7860:7860"
