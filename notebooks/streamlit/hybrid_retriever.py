@@ -1,6 +1,4 @@
 import pandas as pd
-import geopandas as gpd
-import numpy as np
 import time
 import streamlit as st
 import hashlib
@@ -8,6 +6,7 @@ from time import time as timing
 import os
 import json
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.schema import Document
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma, FAISS
 from langchain_core.prompts import ChatPromptTemplate
@@ -40,7 +39,12 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker):
     from pydantic import BaseModel, Field
     import string
 
-    docs=[Document(doc) for doc in docs]
+    if isinstance(docs[0], dict):
+        docs = [
+            Document(page_content=d["page_content"], metadata=d.get("metadata", {}))
+            for d in docs  # Assurez-vous que chaque dict a bien "page_content"
+        ]
+        
     dense = faiss_db.as_retriever(
         search_kwargs={
             "k": 8, 
@@ -173,15 +177,15 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker):
         query = query["question"]
 
         if selected_retriever=="all":
-            dense_results = dense.get_relevant_documents(query)
-            sparse_results = sparse.get_relevant_documents(query)
+            dense_results = dense.invoke(query)
+            sparse_results = sparse.invoke(query)
             lexical_results= lexical(query)
             # Fusionner
             results = dense_results + sparse_results + lexical_results
         elif selected_retriever=="dense":
-            results = dense.get_relevant_documents(query)                        
+            results = dense.invoke(query)                        
         elif selected_retriever=="sparse":
-            results = dense.get_relevant_documents(query)
+            results = dense.invoke(query)
         elif selected_retriever=="lexical":
             results = lexical(query)
 
@@ -207,7 +211,7 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker):
         
 
 
-        pipeline_args["sources"]=filtered_results
+        pipeline_args["sources"]=filtered_results[:top_k]
         return [doc for doc, _ in filtered_results[:top_k]]
 
     sources= combine_retrievers    
@@ -219,7 +223,7 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker):
 
 
 #========create full rag pipeline
-def build_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all", selected_reranker="llm", llm=llm_qa):
+def build_hybrid_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all", selected_reranker="llm", llm=llm_qa):
     """
     #### Inputs:
     * selected_retriever: combine dense, sparse and lexical retrievers. "all" by default \n
@@ -227,7 +231,8 @@ def build_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all", select
     from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 
     retriever= hybrid_retriever(faiss_db, split_docs, selected_retriever, selected_reranker)
-
+    pipeline_args["retriever"]=retriever
+    
     rag_prompt = ChatPromptTemplate.from_template("""
         Answer the question based **only** on the provided context.  
 
@@ -266,7 +271,7 @@ def build_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all", select
 
 
 pipeline_args={}
-def process_new_pp(text: str, pp_name: str):
+def process_new_doc_as_hybrid(pages: list, doc_name: str):
     """
     #### Function definition:
     Process a new document following these steps:
@@ -279,8 +284,8 @@ def process_new_pp(text: str, pp_name: str):
     3. Inform the user that the application is ready
 
     #### Inputs :
-    **text**: a document in docx or pdf format\n
-    **app_name**: a meaningful name given by the user
+    **pages**: a list of pages in langchain Document format\n
+    **doc_name**: a meaningful name given by the user
 
     #### Results:\n
     A generator function containing return information in str format.
@@ -289,7 +294,7 @@ def process_new_pp(text: str, pp_name: str):
     
 
     #============vérif si PP traitée:    
-    def check_pp_processed(text):
+    def check_doc_processed(text):
         # generate hash for curr text
         yield "Génération du hash"
         hash_text=hashlib.sha256(text.encode('utf-8')).hexdigest()
@@ -312,7 +317,7 @@ def process_new_pp(text: str, pp_name: str):
         # 1. hash exists, exit
         print("check hash")
         if hash_text in exising_hashes:
-            msg="Ce PP a déjà été traité"
+            msg="Ce document a déjà été traité"
             print(msg)
             print(hash_text)
             yield msg
@@ -321,7 +326,7 @@ def process_new_pp(text: str, pp_name: str):
         # 2. hash do not exist, return confirmation to streamlit and continue processins
         else:
             
-            msg="Nouveau PP identifié"
+            msg="Nouveau document identifié"
             yield msg
             print(msg)
             print(hash_text)
@@ -337,18 +342,19 @@ def process_new_pp(text: str, pp_name: str):
 
 
     #=====chunk text
-    def chunk_text(text):
+    def chunk_text(pages):
         chunk_size=500
         text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_size*0.2)
-        return text_splitter.split_text(text)            
+        splited_docs= text_splitter.split_documents(pages)
+        return splited_docs
     #===============
 
 
     #======create DB
-    def create_db(docs, text, id, embedding_model=embedding_model, pp_name=pp_name):
-        db_path = f"./vector_stores/{id}/"        
+    def create_db(docs, text, id, embedding_model=embedding_model, doc_name=doc_name):
+        db_path = f"./storage/vector_stores/{id}/"        
 
-        faiss_db = FAISS.from_texts(docs, embedding_model,)   
+        faiss_db = FAISS.from_documents(docs, embedding_model,)   
         faiss_db.save_local(db_path)
 
 
@@ -356,7 +362,7 @@ def process_new_pp(text: str, pp_name: str):
         # load existing hashes
         
         #@st.cache_data
-        def save_hash_trace_hashes(text, hash_title, pp_name):
+        def save_hash_trace_hashes(text, hash_title, doc_name):
             file_path="pp_hashes.json"
             exising_hashes={}
             if os.path.exists(file_path):                
@@ -364,7 +370,7 @@ def process_new_pp(text: str, pp_name: str):
                     exising_hashes= json.load(f)                    
                     
             exising_hashes[hash_text] = {
-                "Nom du PP": pp_name, 
+                "Nom du PP": doc_name, 
                 "Titre auto": hash_title, 
                 "Taille du texte (en car)": len(text),
                 "Date de création": str(datetime.datetime.now())
@@ -380,22 +386,22 @@ def process_new_pp(text: str, pp_name: str):
             Generate a very short and representative title useful to store an embedding index of the text
         """
 
-        prompt_pp_name=f"""
-            Based on the folling title;\n
-                {text[:10000]}
-
-            Generate a very short label, in 3 words max
-        """        
         llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
         hash_title=llm.invoke(prompt_pp_title)
 
-        if pp_name==None or pp_name=="":
-            pp_name=llm.invoke(prompt_pp_name)
-            pp_name=pp_name.content
+        if doc_name==None or doc_name=="":
+            prompt_doc_name=f"""
+                Based on the folling title;\n
+                    {hash_title.content}
+
+                Generate a very short label, in 3 words max
+            """        
+            doc_name=llm.invoke(prompt_doc_name)
+            doc_name=doc_name.content
             
-        save_hash_trace_hashes(text, hash_title.content, pp_name)
+        save_hash_trace_hashes(text, hash_title.content, doc_name)
         
-        return (faiss_db, hash_title.content, pp_name)
+        return (faiss_db, hash_title.content, doc_name)
 
 
 
@@ -403,9 +409,10 @@ def process_new_pp(text: str, pp_name: str):
     
     #===============
 
-    print("check_pp_processed")
+    print("check_doc_processed")
     # Appeler la fonction génératrice
-    generator = check_pp_processed(text)
+    full_text = "\n\n".join([doc.page_content for doc in pages])
+    generator = check_doc_processed(full_text)
 
     # Itérer sur le générateur pour exécuter le code et récupérer les messages
     for message in generator:
@@ -416,44 +423,42 @@ def process_new_pp(text: str, pp_name: str):
         elif isinstance(message, tuple):
             pp_processed=message[0]
             hash_text=message[1]
-            yield "Traitement du PP en cours"
-            time.sleep(2)
+            yield "Traitement du document en cours"
+
             
             
-            yield "1. Fragmentation du PP"
-            docs=chunk_text(text)
-            pipeline_args["split_docs"]=docs
+            yield "1. Fragmentation du document"
+            splitted_docs=chunk_text(pages)
+            pipeline_args["split_docs"]=splitted_docs
             
-            yield "2. Stockage du PP en base vectorielle"
-            faiss_db_args=create_db(docs, text, id=hash_text)
+            yield "2. Stockage du document en base vectorielle"
+            faiss_db_args=create_db(splitted_docs, full_text, id=hash_text)
             faiss_db=faiss_db_args[0]
             faiss_db_PPtitle=faiss_db_args[1]
-            faiss_db_PPname=faiss_db_args[1]
+            faiss_db_PPname=faiss_db_args[2]
             pipeline_args["db"]=faiss_db
 
             yield f"""
-                PP stocké sous: <br>
+                Document stocké sous: <br>
                 **Hash**: {hash_text}<br>
                 **Titre auto généré**: {faiss_db_PPtitle}<br>
                 **Nom donné**: {faiss_db_PPname}
             """
 
-            retriever=hybrid_retriever(faiss_db, docs, selected_retriever="all", selected_reranker="specialized")
-            pipeline_args["retriever"]=retriever                        
-            yield "3. Création du retriever hybride"
-
             
-            pipeline_args["final_chain"]=build_rag_pipeline(faiss_db, docs)
-            yield "4. Création de la chaîne QA finale"
+            pipeline_args["final_chain"]=build_hybrid_rag_pipeline(faiss_db, splitted_docs, selected_reranker="specialized")
+            yield "3. Création de la chaîne hybride RAG"
             
 
             msg="5. Traitement terminé avec succès ! Posez vos questions :)"
             print(msg)
             yield msg
 
+            yield {"pipeline_args": pipeline_args}
 
-@st.cache_resource
-def process_existing_pp(hash: str, pp_name: str):
+
+# @st.cache_resource
+def process_existing_pp_as_hybrid(hash: str, doc_name: str):
     """
     #### Function definition:
     Load a storage associated with an existing document by following these steps:
@@ -463,7 +468,7 @@ def process_existing_pp(hash: str, pp_name: str):
 
     #### Inputs :
         **hash**: the hash code in a str format associated with the document/storage, which corresponds to the PP name given by the user when the document was processed first, and the storage created
-    **pp_name**: the PP name of the document selected by the user
+    **doc_name**: the PP name of the document selected by the user
 
     #### Outputs:
         A generator function containing return information in str format.
@@ -474,7 +479,7 @@ def process_existing_pp(hash: str, pp_name: str):
     #=======load DB
 
     # 1. Spécifiez le chemin du dossier contenant les fichiers FAISS
-    db_path = f"./vector_stores/{hash}/"
+    db_path = f"./storage/vector_stores/{hash}/"
 
 
     # 2. Chargez la base FAISS
@@ -494,10 +499,24 @@ def process_existing_pp(hash: str, pp_name: str):
     docstore = faiss_db.docstore
 
     # Récupérer tous les IDs des documents
-    all_ids = docstore._dict.keys() 
+    # all_ids = docstore._dict.keys() 
 
     # Extraire les textes complets
-    split_docs = [docstore.search(doc_id).page_content for doc_id in all_ids]
+    # split_docs = [docstore.search(doc_id).page_content for doc_id in all_ids]
+
+    # 2. Récupérer tous les IDs des documents
+    all_ids = list(faiss_db.index_to_docstore_id.values())
+
+    # 3. Extraire les documents avec métadonnées
+    split_docs = []
+    for doc_id in all_ids:
+        doc = docstore.search(doc_id)
+        split_docs.append({
+            "page_content": doc.page_content,
+            "metadata": doc.metadata,
+            "page_number": doc.metadata.get("page", "N/A")  # Numéro de page spécifique
+        })
+
     pipeline_args["split_docs"]=split_docs
     #================================
 
@@ -506,58 +525,11 @@ def process_existing_pp(hash: str, pp_name: str):
 
 
     #==============charger la pipeline de rag
-    rag_pipeline= build_rag_pipeline(faiss_db, split_docs, selected_reranker="specialized")
+    rag_pipeline= build_hybrid_rag_pipeline(faiss_db, split_docs, selected_reranker="specialized")
     pipeline_args["final_chain"]=rag_pipeline
-    yield "2. Construction de la chaîne Question/Réponse"
+    yield "2. Création de la chaîne hybride RAG"
 
     yield "3. Traitement terminé avec succès ! Posez vos questions :)"
+
+    yield {"pipeline_args": pipeline_args}
     
-    
-def QA_pipeline(queries: list,):
-    """
-    ### Function definition:\n
-    Build rag pipeline and submit queries\n
-
-    ### Inputs:
-    **queries**: a list of user queries, where each element is the raw query in str format
-
-    ### Outputs:
-    A generator function that contains return information for three cases, in three distinct formats:\n
-    1. A str that informs that a PP document should be loaded first
-    2. A sub-generator function that streams the response of the llm \n
-    3. A dict that transmits the source documents produced by the rag pipeline
-    """    
-
-    if "final_chain" not in pipeline_args:
-        yield "Veuillez choisir un PP"
-        return 
-    replies=[]
-    for q in queries:        
-        # resp=pipeline_args["final_chain"].invoke({"question": q})        
-        # retievers_options=["dense", "sparse", "lexical"]
-        # retriever="all"
-        # while "i don't know" in resp.lower() and len(retievers_options)>0:            
-        #     retriever=retievers_options.pop(0)
-        #     print(f"LLM resp:\n{resp}")
-        #     msg=f"LLM says 'I don't know'. Try {retriever} retriever"
-        #     print(msg)
-        #     print("\n====================\n")
-        #     # yield msg
-
-        #     tmp_rag_pipeline= build_rag_pipeline(pipeline_args["db"], pipeline_args["split_docs"], selected_retriever=retriever)
-        #     resp=tmp_rag_pipeline.invoke({"question": q})
-
-        #     print(resp)
-
-        # final_rag_pipeline =build_rag_pipeline(pipeline_args["db"], pipeline_args["split_docs"], selected_retriever=retriever)
-        # stream_resp=final_rag_pipeline.stream({"question": q})    
-        
-        stream_resp=pipeline_args["final_chain"].stream({"question": q})    
-        yield stream_resp
-        
-        yield {"sources": pipeline_args["sources"]}
-        # for token in stream_resp:
-        #     resp+=token
-        #     yield token
-        
-
