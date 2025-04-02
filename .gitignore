@@ -163,8 +163,9 @@ cython_debug/
 .ruff_cache
 
 /data/
-ktem_app_data/
+
 *.log
 *.tmp
 build/
 dist/
+kotaemon_custom/ktem_app_data/
