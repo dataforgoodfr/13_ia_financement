@@ -1,6 +1,6 @@
 FROM ghcr.io/cinnamon/kotaemon:main-full
 
-RUN pip uninstall -y pydantic langchain langchain-core langchain-community accelerate || true
+RUN pip uninstall -y pydantic langchain langchain-core langchain-community accelerat llama-index || true
 RUN pip uninstall -y pydantic-settings langchain-openai langchain-embeddings langchain-embeddings-openai langchain-embeddings-huggingface langchain-embeddings-huggingface-transformers langchain-embeddings-huggingface-transformers-accelerate langchain-embeddings-huggingface-transformers-torch || true
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir \
@@ -15,6 +15,8 @@ RUN pip install --no-cache-dir \
     python-docx \
     pandas
 RUN pip install accelerate>=0.26.0
+
+
 
 COPY sos_app.py /app/sos_app.py
 COPY sos_pipeline.py /app/sos_pipeline.py

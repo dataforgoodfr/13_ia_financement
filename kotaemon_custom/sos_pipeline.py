@@ -2,10 +2,15 @@ import os
 import glob
 import PyPDF2
 import docx
+import gradio as gr
+import shutil
 from kotaemon.base import Document
 from kotaemon.storages import LanceDBDocumentStore
 from kotaemon.storages.vectorstores.chroma import ChromaVectorStore
 from kotaemon.embeddings import OpenAIEmbeddings
+from llama_index.core.vector_stores.types import VectorStoreQuery
+
+from sos_flowsettings import KH_CHAT_LLM, KH_VECTORSTORE
 
 # Chemins pour le docstore et le vector store
 DOCSTORE_PATH = "./ktem_app_data/user_data/docstore"
@@ -13,6 +18,7 @@ CHROMA_PATH   = "./ktem_app_data/user_data/chroma"
 
 # Récupère DATA_ROOT (monté dans /app/data)
 DATA_ROOT = os.environ.get("DATA_ROOT", "/app/data")
+print(f"[sos_pipeline] DATA_ROOT={DATA_ROOT}")
 
 # Mode d'embeddings : "openai", "local", ou "none"
 EMBEDDING_MODE = os.environ.get("EMBEDDING_MODE", "local").lower()
@@ -46,7 +52,7 @@ def main_ingest():
         persist_directory=CHROMA_PATH,
         collection_name="default"
     )
-    
+
     if EMBEDDING_MODE == "openai":
         print("[sos_pipeline] Using OpenAIEmbeddings for ingestion.")
         embedding_model = OpenAIEmbeddings(model="text-embedding-ada-002")
@@ -87,6 +93,61 @@ def main_ingest():
             )
 
     print("[sos_pipeline] Ingestion complete!")
+
+def reset_data():
+    try:
+        shutil.rmtree(DOCSTORE_PATH)
+        shutil.rmtree(CHROMA_PATH)
+        return "Docstore et vectorstore supprimés."
+    except Exception as e:
+        return f"Erreur : {str(e)}"
+
+def assistant_aap_ui():
+    with gr.Blocks() as demo:
+        gr.Markdown("## Assistant AAP - Génération de réponses à partir des documents")
+
+        with gr.Row():
+            aap_file = gr.File(label="AAP à remplir (.docx)", file_types=['.docx'])
+            pp_file = gr.File(label="PP associé (.pdf/.docx)", file_types=['.pdf', '.docx'])
+
+        question_output = gr.Textbox(label="Questions extraites", lines=10)
+        reponse_output = gr.Textbox(label="Réponses générées", lines=10)
+        bouton = gr.Button("Générer les réponses")
+        bouton.click(fn=lambda: ("à implémenter", "à implémenter"), outputs=[question_output, reponse_output])
+
+        with gr.Row():
+            reset_btn = gr.Button("Réinitialiser la base")
+            reset_output = gr.Textbox(label="Logs de reset", lines=2)
+            reset_btn.click(fn=reset_data, outputs=reset_output)
+
+    return demo
+
+def answer_question_with_context(question: str) -> str:
+    print(f"[sos_pipeline] Question reçue : {question}")
+
+    query_obj = VectorStoreQuery(
+        query_str=question,
+        similarity_top_k=3
+    )
+
+    results = KH_VECTORSTORE._client.query(query_obj)
+
+    if not results or not results.nodes:
+        return "Aucun contexte trouvé pour répondre à la question."
+
+    context = "\n\n".join([node.text for node in results.nodes])
+    prompt = f"""Réponds à la question suivante en te basant uniquement sur le contexte fourni.
+
+### Contexte :
+{context}
+
+### Question :
+{question}
+
+### Réponse :"""
+
+    response = KH_CHAT_LLM.invoke(prompt)
+    return response.content
 
 if __name__ == "__main__":
     main_ingest()

@@ -8,7 +8,7 @@ from huggingface_hub import login
 token = os.environ.get("HUGGINGFACE_HUB_TOKEN")
 if not token:
     raise EnvironmentError("HUGGINGFACE_HUB_TOKEN is missing from environment.")
-login(token=token)
+# login(token=token)
 
 
 class ChatFalcon:
@@ -24,6 +24,7 @@ class ChatFalcon:
         print("[ChatFalcon] Loading Falcon model")
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
+            revision="main",
             trust_remote_code=True,
             device_map="auto",
             torch_dtype=torch.float16

@@ -7,10 +7,8 @@ DOCSTORE_PATH = "./ktem_app_data/user_data/docstore"
 COLLECTION_NAME = "docstore"
 
 from sos_flowsettings import KH_DOCUMENTSTORE
-
 def load_documents():
     try:
-        # Accès direct au LanceDB table
         table = KH_DOCUMENTSTORE.db_connection.open_table(KH_DOCUMENTSTORE.collection_name)
         rows = table.to_arrow().to_pylist()
     except Exception as e:
@@ -22,11 +20,7 @@ def load_documents():
         doc_id = metadata.get("doc_id", row.get("id", "N/A"))
         source = metadata.get("source", "N/A")
         preview = (row["text"][:100] + "...") if row.get("text") and len(row["text"]) > 100 else row.get("text", "")
-        data.append({
-            "doc_id": doc_id,
-            "source": source,
-            "preview": preview
-        })
+        data.append((doc_id, source, preview))  # ← ici on met tuple au lieu de dict
 
     return data
 
