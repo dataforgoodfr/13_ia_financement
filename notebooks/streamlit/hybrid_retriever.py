@@ -247,6 +247,7 @@ def build_hybrid_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all",
 
         ### **Answer:**  
         Provide a clear, factual, and well-structured response based on the available context. Avoid speculation or adding external knowledge.  
+        Reply only in {query_language}
     """)
 
 
@@ -254,13 +255,14 @@ def build_hybrid_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all",
     lcel_qa_chain = (
         RunnableParallel({
             "context": retriever,
-            # "sources": retriever,
-            "input": RunnablePassthrough()
+            "input": RunnablePassthrough(),  # This will pass through the main input
+            "query_language": RunnableLambda(lambda x: x["query_language"])  # Extract from input
         })
         | rag_prompt
         | llm
         | StrOutputParser()
     )
+
 
         
 

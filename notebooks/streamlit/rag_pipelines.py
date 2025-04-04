@@ -241,7 +241,7 @@ def QA_pipeline(queries: list,):
         Build rag pipeline and submit queries\n
 
         ### Inputs:
-        **queries**: a list of user queries, where each element is either the raw query in str format, or a dict containing the raw qury and other features
+        **queries**: a list of user queries, where each element is either the raw query in str format, or a dict containing the raw query and other features
 
         ### Outputs:
         A generator function that contains return information for three cases, in three distinct formats:\n
@@ -571,36 +571,39 @@ def QA_pipeline(queries: list,):
         #============= déterminer la langue de la question et traduire si nécessaire
         #if asso_question.type=="yes":
         #1.=====langue de la question
-        source_language=get_source_langage().invoke({"text": query})
+        query_source_language=get_source_langage().invoke({"text": query})
 
 
         #2.======= traduire la question
         reverse_translation=False
-        if pipeline_args[f"{doc_category}_source_language"]!=source_language.type:
-            query=query_translator(query, source_language.type)
+        if pipeline_args[f"{doc_category}_source_language"]!=query_source_language.type:
+            query=query_translator(query, query_source_language.type)
             reverse_translation=True
 
         #3.======= améliorer la formulation de la question
-        enhanced_query=query_rewriter(query, source_language.type)
+        enhanced_query=query_rewriter(query, query_source_language.type)
 
         #===========================================================================
 
 
-
+        #normaliser question type à retourner
+        question_asso_or_pp= "asso" if asso_question.type =="yes" else "pp"
 
         # orienter vers la meilleure chaine rag
         if openORclose_question.type=='close':
 
-            stream_resp=pipeline_args[f'hybrid_pipeline_{doc_category}']["final_chain"].stream({"question": enhanced_query})    
+            stream_resp=pipeline_args[f'hybrid_pipeline_{doc_category}']["final_chain"].stream({
+                "question": enhanced_query, "query_language": query_source_language.type
+            })    
             yield stream_resp
             
-            yield {"sources": pipeline_args[f"hybrid_pipeline_{doc_category}"]["sources"]}
+            # yield {"sources": pipeline_args[f"hybrid_pipeline_{doc_category}"]["sources"]}
 
             yield {'uid': q["uid"], "question": q["question"], 
                    "enhanced_question": enhanced_query, 
-                   "question_is_open": openORclose_question.type,
-                    "question_on_asso": asso_question.type,
-                    "source_doc_language": source_language.type,
+                   "question_close_or_open": openORclose_question.type,
+                    "question_asso_or_pp": question_asso_or_pp,
+                    "source_doc_language": pipeline_args[f"{doc_category}_source_language"],
                     "translation_requiered": reverse_translation
                 }
 
@@ -609,9 +612,9 @@ def QA_pipeline(queries: list,):
 
             yield {
                     'uid': q['uid'], "question": q["question"], "enhanced_question": enhanced_query, 
-                    "question_is_open": openORclose_question.type,
-                    "question_on_asso": asso_question.type,
-                    "source_doc_language": source_language.type,
+                    "question_close_or_open": openORclose_question.type,
+                    "question_asso_or_pp": question_asso_or_pp,
+                    "source_doc_language": pipeline_args[f"{doc_category}_source_language"],
                     "translation_requiered": reverse_translation
                 }   
                 

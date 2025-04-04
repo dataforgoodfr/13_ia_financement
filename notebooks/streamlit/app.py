@@ -119,7 +119,7 @@ def main():
     ]
     
     page=st.sidebar.radio("Aller vers", pages)
-
+    st.session_state["selected_page"]=page
     
     # page d'accueil
     if page == pages[0]:
@@ -214,6 +214,7 @@ def main():
                 elif isinstance(resp, dict) and 'uid' in resp:
                     resp["response"]=st.session_state["full_response"]
                     st.markdown(f"**Metadata**: {resp}", unsafe_allow_html=True)
+                    print("metadata:", resp)
                 elif isinstance(resp, str):                    
                     st.markdown(f"{resp}", unsafe_allow_html=True)
 
