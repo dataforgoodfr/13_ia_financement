@@ -1,4 +1,4 @@
-from hybrid_retriever import process_new_doc_as_hybrid, process_existing_pp_as_hybrid
+from hybrid_retriever import process_new_doc_as_hybrid, process_existing_doc_as_hybrid
 from utils import install_libreoffice, verify_libreoffice_installation, convert_docx_to_pdf
 from io import StringIO, BytesIO
 from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader
@@ -49,9 +49,6 @@ def process_new_doc(uploaded_files, doc_name: str, doc_category: str):
         A generator function containing return information in str format.
 
     """
-
-    # if uploaded_files!=list:
-    #     uploaded_files=[uploaded_files]
     
     if doc_category=="" or doc_category not in ["pp", "asso"]:
         yield "Please provide a doc_category ('pp' or 'asso')"
@@ -137,19 +134,20 @@ def process_new_doc(uploaded_files, doc_name: str, doc_category: str):
 
 
 
-    if doc_category=='pp':
-        messages= process_new_doc_as_hybrid(all_pages, doc_name)
-    elif doc_category=="asso":
-        messages= process_new_doc_as_hybrid(all_pages, doc_name)
-
+    
+    messages= process_new_doc_as_hybrid(all_pages, doc_name, doc_category)
+    
     for feedback in messages:
         if isinstance(feedback, str):
             yield feedback
         elif isinstance(feedback, dict):
-            pipeline_args["hybrid_pipeline"]=feedback["pipeline_args"]
+            pipeline_args[f"hybrid_pipeline_{doc_category}"]=feedback["pipeline_args"]
+
+            source_language=get_source_langage_wrap(pages)
+            pipeline_args[f"{doc_category}_source_language"]=source_language
 
 
-def process_existing_pp(hash: str, pp_name: str):
+def process_existing_doc(hash: str, doc_name: str, doc_category: str):
     """
     #### Function definition:
     Load a storage associated with an existing document by following these steps:
@@ -167,34 +165,105 @@ def process_existing_pp(hash: str, pp_name: str):
     """
 
     #1. create vector db
-    for feedback in process_existing_pp_as_hybrid(hash, pp_name):
+    for feedback in process_existing_doc_as_hybrid(hash, doc_name, doc_category):
         if isinstance(feedback, str):
             yield feedback
         elif isinstance(feedback, dict):
-            pipeline_args["hybrid_pipeline"]=feedback["pipeline_args"]
+            pipeline_args[f"hybrid_pipeline_{doc_category}"]=feedback["pipeline_args"]
+
+            pages=feedback["pipeline_args"]["split_docs"]
+            source_language=get_source_langage_wrap(pages)
+            pipeline_args[f"{doc_category}_source_language"]=source_language
+
+
+
+
+def get_source_langage():
+    model_qa_name="gpt-4o-mini"
+    llm = ChatOpenAI(model_name=model_qa_name, temperature=0,)
+
+
+    sys_prompt="""
+        You are an assistant tasked with the detection of the language of a given text
+
+        Read the text carefully.            
+                                                
+        Your output should strictly be one of these labels;
+        "french": the text is written in french
+        "english": the text is written in english
+        "other": other language than french or english
+
+    """
+
+    # Data model
+    class DetectLanguage(BaseModel):
+        """Language detection"""
+
+        type: str = Field(
+            description="The language of the text is 'french', 'english' or 'other'"
+        )
+
+
+    # LLM with function call
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+    structured_llm_classifier = llm.with_structured_output(DetectLanguage)
+
+    # Prompt
+    grade_prompt = ChatPromptTemplate.from_messages(
+        [
+            ("system", sys_prompt),
+            ("human", "What is the language of the given text \n\n Text: {text}"),
+        ]
+    )
+
+    language_classifier = grade_prompt | structured_llm_classifier
+
+    return language_classifier
+
+
+def get_source_langage_wrap(pages):
+    text=""
+    for p in pages[:2]:
+        if isinstance(p, Document):
+            text+=p.page_content+"\nn"
+        elif 'page_content' in p:
+            text+=p["page_content"]+"\nn"            
+
+    source_language=get_source_langage().invoke({"text": text})
+    return source_language.type
+
+
 
 def QA_pipeline(queries: list,):
 
     """
-    ### Function definition:\n
-    Build rag pipeline and submit queries\n
+        ### Function definition:\n
+        Build rag pipeline and submit queries\n
 
-    ### Inputs:
-    **queries**: a list of user queries, where each element is the raw query in str format
+        ### Inputs:
+        **queries**: a list of user queries, where each element is either the raw query in str format, or a dict containing the raw qury and other features
 
-    ### Outputs:
-    A generator function that contains return information for three cases, in three distinct formats:\n
-    1. A str that informs that a PP document should be loaded first
-    2. A sub-generator function that streams the response of the llm \n
-    3. A dict that transmits the source documents produced by the rag pipeline
+        ### Outputs:
+        A generator function that contains return information for three cases, in three distinct formats:\n
+        1. A str that informs that a PP document should be loaded first
+        2. A sub-generator function that streams the response of the llm \n
+        3. A dict that transmits the source documents produced by the rag pipeline
     """    
 
+
+    if "hybrid_pipeline_pp" not in pipeline_args and "graph_pipeline" not in pipeline_args:
+        yield "Veuillez choisir un PP"
+        return     
+    elif 'hybrid_pipeline_asso' not in pipeline_args:
+        yield "Veuillez choisir une fiche asso"
+        return         
+    
     def rag_chain_switcher(classification_task):
         model_qa_name="gpt-4o-mini"
         llm = ChatOpenAI(model_name=model_qa_name, temperature=0,)
 
         if classification_task=="open/close question":
-            sys_prompt="""
+            sys_prompt_v1=sys_prompt_v2="""
                 You are an intelligent assistant tasked with classifying a given question into one of two categories: "open" or "close". Your decision must be based on the nature of the question:
 
                 Close Questions are those that ask for specific details or information. They are typically structured to elicit direct, concise answers. These questions include:
@@ -230,7 +299,7 @@ def QA_pipeline(queries: list,):
             """
 
                 # Data model
-
+            
             class ClassifyQuestion(BaseModel):
                 """Classfication for open/close questions"""
 
@@ -238,8 +307,55 @@ def QA_pipeline(queries: list,):
                     description="The question is open or close, output 'close' or 'open'"
                 )
         elif classification_task=="asso question":
-            sys_prompt="""
-                You are a classification model designed to analyze whether a question concerns the identification of an association (also called 'lead organisation') in a funding application form. 
+            "v1"
+            sys_prompt_v1="""
+                You are an AI model specializing in text classification. Your task is to determine whether a given question belongs to the category of "association identification."
+
+                A question belongs to "association identification" if it seeks information about the legal identity, structure, history, personnel, governance, financials, or network of an organization. This includes details about:
+
+                The organization's name, legal status, registration, and address
+
+                The organization's experience, mission, and primary focus
+
+                The number of employees, volunteers, and organizational structure
+
+                Financial information such as budget or income
+
+                The organization's partnerships and networks
+
+                The key contacts and representatives of the organization
+
+                A question does not belong to "association identification" if it asks about:
+
+                A specific project the organization is seeking funding for
+
+                The objectives, impact, or beneficiaries of a project
+
+                Details of a proposed intervention, methodology, or implementation plan
+
+                Output Format:
+                Respond only with "yes" if the question falls into this category.
+                Respond only with "no" if the question does not belong to this category.
+                Respond only with "uncertain" if the question the question is ambigious and may fall in both categories.
+
+                Example Inputs and Expected Outputs:
+
+                Input: "What is the legal status of your organization?"
+                Output: "Association Identification"
+
+                Input: "Describe the main goals and impact of your project."
+                Output: "Not Association Identification"
+
+                Input: "How many full-time employees does your organization have?"
+                Output: "Association Identification"
+
+                Input: "What is the main challenge your project aims to solve?"
+                Output: "Not Association Identification"
+            """
+            
+            "v2"
+            sys_prompt_v2="""
+                You are a classification model designed to analyze whether a question concerns the identification of an organization (also called 'lead organisation' or 'association') in a funding application form. 
                 A question belongs in the “yes” category if it seeks general information about the organization, such as its name, history, mission, partners or human and financial resources. 
                 A question falls into the “no” category if it concerns other aspects of the project or funding application that are not directly related to the organization's identity.
                 If the question is ambiguous and could reasonably fall into both categories, it should be classified as “uncertain”.
@@ -247,12 +363,12 @@ def QA_pipeline(queries: list,):
                 Instructions
                 If the question asks for information about the organization (name, history, mission, capabilities, members, partners, etc.), it should be classified as “uncertain”.
 
-                If the question does not concern the organization itself, but rather the project, the project context or detailed financial aspects, it is classified as “no”.
+                If the question does not concern the organization itself, but rather the project to fund, the project context or detailed implementaion aspects, it is classified as “no”.
 
-                If the question is ambiguous and may concern both the identity of the association and another area, it is classified as “uncertain”.
+                If the question is ambiguous and may concern both the identity of the organization and another area, it is classified as “uncertain”.
 
                 Commented examples
-                Category "yes" (question relating to the association's identity)
+                Category "yes" (question relating to the organization's identity)
                 "Lead organisation’s primary focus ?" → yes
 
                 "Lead organisation’s experience and expertise" → yes
@@ -305,6 +421,7 @@ def QA_pipeline(queries: list,):
                 Answer only yes, no or uncertain, without further explanation.
             """
 
+            
             class ClassifyQuestion(BaseModel):
                 """Classfication for yes/no questions"""
 
@@ -322,8 +439,8 @@ def QA_pipeline(queries: list,):
         # Prompt
         grade_prompt = ChatPromptTemplate.from_messages(
             [
-                ("system", sys_prompt),
-                ("human", "Classify the question as close or open \n\n User question: {question}"),
+                ("system", sys_prompt_v1),
+                ("human", "Classify the following question  \n\n User question: {question}"),
             ]
         )
 
@@ -331,7 +448,7 @@ def QA_pipeline(queries: list,):
 
         return question_classifier
         
-    def query_rewriter(question):
+    def query_rewriter(question, language):
 
         "v3"
         system="""
@@ -359,6 +476,7 @@ def QA_pipeline(queries: list,):
 
             #### Response Format:
             For each input question, rephrase it in a clear, concise, and interrogative form, optimized for vector store retrieval. Return only the reworked question.
+            Important: keep the source language of the query
         """
 
         re_write_prompt = ChatPromptTemplate.from_messages(
@@ -366,53 +484,134 @@ def QA_pipeline(queries: list,):
                 ("system", system),
                 (
                     "human",
-                    "Here is the initial question: \n\n {question} \n Formulate an improved question.",
+                    "Here is the initial question: \n\n {question} \n Formulate an improved question and keep its the source language which is {language}.",
                 ),
             ]
         )
         llm_rewriter = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.5)
         question_rewriter = re_write_prompt | llm_rewriter | StrOutputParser()
-        enhanced_query= question_rewriter.invoke({"question": question})    
+        enhanced_query= question_rewriter.invoke({"question": question, "language": language})    
 
         return enhanced_query
-    
-    
+   
+    def query_translator(question, language):
 
+            "v3"
+            system="""
+                You are an assistant specialized in text translation. 
+                Translate the input text accurately, preserving its full meaning and nuances.
+            """
+
+            translator_prompt = ChatPromptTemplate.from_messages(
+                [
+                    ("system", system),
+                    (
+                        "human",
+                        "Here is the initial text: \n\n {question} \n Perform a translation in {language}.",
+                    ),
+                ]
+            )
+            llm_translator = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
+            question_translator = translator_prompt | llm_translator | StrOutputParser()
+            translated_query= question_translator.invoke({"question": question, "language": language})    
+
+            return translated_query
+        
+    # instancier les classifiers de question open/close et asso
     question_classifier_openORclose=rag_chain_switcher(classification_task="open/close question")
     question_classifier_asso=rag_chain_switcher(classification_task="asso question")
 
-    if "hybrid_pipeline" not in pipeline_args and "graph_pipeline" not in pipeline_args:
-        yield "Veuillez choisir un PP"
-        return 
+
     
-    replies=[]
-    for q in queries:        
+    # déterminer le format des questions: formulaire app (dict) ou requête utilisateur directe
+    # 1. formulaire aap
+    queries_norm=[]
+    if isinstance(queries, dict):        
+        for key in queries.keys():
+            queries_norm.append({
+                "uid": key, "question": queries[key][0], 
+                "expected_reply_size": queries[key][1], 
+                "general_context": queries[key][2], 
+                "specific_context": queries[key][3],
+            })        
+    # 2. question directe
+    elif isinstance(queries, list):
+        for q in queries:
+            queries_norm.append({"uid": "xxx", "question": q})
+    
+    for q in queries_norm:
+
+        query=q["question"]
+        # déterminer les types de la question
+        #1. question ouverte/fermée
+        openORclose_question= question_classifier_openORclose.invoke({"question": query})
+        #2. question sur pp/asso
+        asso_question= question_classifier_asso.invoke({"question": query})
         
-        # déterminer le type de question
-        openORclose_question= question_classifier_openORclose.invoke({"question": q})
+        
+        if asso_question.type == 'no':
+            doc_category="pp" 
+        elif asso_question.type== "yes":
+            doc_category="asso"
+        elif asso_question.type=="uncertain":
+            yield "Impossible de détetminer le type de question asso/pp"
+            return 
 
-        enhanced_query=query_rewriter(q)
+
+        #======forcer vers le rag hybride en cas de question asso
+        # si la question porte sur l'asso, forcer le type de rag à hybride
+        if asso_question.type=="yes":
+            openORclose_question.type="close"
+
+        #==========================================================
+
+
+
+
+        #============= déterminer la langue de la question et traduire si nécessaire
+        #if asso_question.type=="yes":
+        #1.=====langue de la question
+        source_language=get_source_langage().invoke({"text": query})
+
+
+        #2.======= traduire la question
+        reverse_translation=False
+        if pipeline_args[f"{doc_category}_source_language"]!=source_language.type:
+            query=query_translator(query, source_language.type)
+            reverse_translation=True
+
+        #3.======= améliorer la formulation de la question
+        enhanced_query=query_rewriter(query, source_language.type)
+
+        #===========================================================================
+
+
+
+
+        # orienter vers la meilleure chaine rag
         if openORclose_question.type=='close':
-            
-            asso_question= question_classifier_asso.invoke({"question": q})
 
-            stream_resp=pipeline_args['hybrid_pipeline']["final_chain"].stream({"question": enhanced_query})    
+            stream_resp=pipeline_args[f'hybrid_pipeline_{doc_category}']["final_chain"].stream({"question": enhanced_query})    
             yield stream_resp
             
-            yield {"sources": pipeline_args["hybrid_pipeline"]["sources"]}
+            yield {"sources": pipeline_args[f"hybrid_pipeline_{doc_category}"]["sources"]}
 
-            yield {'uid': 'uid', "question": q, 
+            yield {'uid': q["uid"], "question": q["question"], 
                    "enhanced_question": enhanced_query, 
-                   "question_type": openORclose_question.type,
-                    "question_asso": asso_question.type   
+                   "question_is_open": openORclose_question.type,
+                    "question_on_asso": asso_question.type,
+                    "source_doc_language": source_language.type,
+                    "translation_requiered": reverse_translation
                 }
 
         elif openORclose_question.type=="open":
             yield 'Graphrag pipeline in progress'
 
             yield {
-                    'uid': 'uid', "question": q, "enhanced_question": enhanced_query, 
-                    "question_open_close": openORclose_question.type,
-                    "question_asso_yes_no": asso_question.type   
+                    'uid': q['uid'], "question": q["question"], "enhanced_question": enhanced_query, 
+                    "question_is_open": openORclose_question.type,
+                    "question_on_asso": asso_question.type,
+                    "source_doc_language": source_language.type,
+                    "translation_requiered": reverse_translation
                 }   
                 

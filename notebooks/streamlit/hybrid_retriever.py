@@ -271,7 +271,7 @@ def build_hybrid_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all",
 
 
 pipeline_args={}
-def process_new_doc_as_hybrid(pages: list, doc_name: str):
+def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
     """
     #### Function definition:
     Process a new document following these steps:
@@ -301,7 +301,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str):
 
     
         # load existing hashes
-        file_path="pp_hashes.json"
+        file_path="docs_hashes.json"
         #@st.cache_data
         def load_hashes(file_path=file_path):
             if os.path.exists(file_path):
@@ -362,8 +362,8 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str):
         # load existing hashes
         
         #@st.cache_data
-        def save_hash_trace_hashes(text, hash_title, doc_name):
-            file_path="pp_hashes.json"
+        def save_hash_trace_hashes(text, hash_title, doc_name, doc_category):
+            file_path="docs_hashes.json"
             exising_hashes={}
             if os.path.exists(file_path):                
                 with open(file_path, 'r') as f:
@@ -373,7 +373,8 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str):
                 "Nom du PP": doc_name, 
                 "Titre auto": hash_title, 
                 "Taille du texte (en car)": len(text),
-                "Date de création": str(datetime.datetime.now())
+                "Date de création": str(datetime.datetime.now()),
+                "doc_category": doc_category
             }
             with open(file_path, 'w') as f:
                 json.dump(exising_hashes, f)            
@@ -399,7 +400,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str):
             doc_name=llm.invoke(prompt_doc_name)
             doc_name=doc_name.content
             
-        save_hash_trace_hashes(text, hash_title.content, doc_name)
+        save_hash_trace_hashes(text, hash_title.content, doc_name, doc_category)
         
         return (faiss_db, hash_title.content, doc_name)
 
@@ -458,7 +459,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str):
 
 
 # @st.cache_resource
-def process_existing_pp_as_hybrid(hash: str, doc_name: str):
+def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
     """
     #### Function definition:
     Load a storage associated with an existing document by following these steps:
