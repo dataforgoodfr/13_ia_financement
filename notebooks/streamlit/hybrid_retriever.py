@@ -32,7 +32,7 @@ embedding_model = OpenAIEmbeddings(model=model_emb_name)
 
 
 #=======create retrievers
-def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, top_k=8):
+def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, pipeline_args, top_k=8):
     from langchain_community.retrievers import TFIDFRetriever
     from langchain_core.runnables import chain
     from langchain.schema import Document
@@ -162,7 +162,7 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, top_
 
         
     @chain
-    def combine_retrievers(query: str, dense=dense, sparse=sparse, selected_retriever=selected_retriever, selected_reranker=selected_reranker, reranker_threshold=5, top_k=top_k) -> list:
+    def combine_retrievers(query: str, dense=dense, sparse=sparse, selected_retriever=selected_retriever, selected_reranker=selected_reranker, reranker_threshold=5, top_k=top_k, pipeline_args=pipeline_args) -> list:
         """
             #### Inputs:
             * query: user query \n
@@ -223,15 +223,15 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, top_
 
 
 #========create full rag pipeline
-def build_hybrid_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all", selected_reranker="llm", llm=llm_qa):
+def build_hybrid_rag_pipeline(faiss_db, pipeline_args, split_docs=[], selected_retriever="all", selected_reranker="llm", llm=llm_qa):
     """
     #### Inputs:
     * selected_retriever: combine dense, sparse and lexical retrievers. "all" by default \n
     """
     from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 
-    retriever= hybrid_retriever(faiss_db, split_docs, selected_retriever, selected_reranker, top_k=18)
-    pipeline_args["retriever"]=retriever
+    retriever= hybrid_retriever(faiss_db, split_docs, selected_retriever, selected_reranker, top_k=18, pipeline_args=pipeline_args)
+    # pipeline_args["retriever"]=retriever
     
     rag_prompt = ChatPromptTemplate.from_template("""
         Answer the question based **only** on the provided context.  
@@ -272,7 +272,7 @@ def build_hybrid_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all",
 #====================================
 
 
-pipeline_args={}
+
 def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
     """
     #### Function definition:
@@ -294,7 +294,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
 
     """
     
-
+    pipeline_args={}
     #============vérif si PP traitée:    
     def check_doc_processed(text):
         # generate hash for curr text
@@ -449,7 +449,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
             """
 
             
-            pipeline_args["final_chain"]=build_hybrid_rag_pipeline(faiss_db, splitted_docs, selected_reranker="specialized")
+            pipeline_args["final_chain"]=build_hybrid_rag_pipeline(faiss_db, pipeline_args, splitted_docs, selected_reranker="specialized")
             yield "3. Création de la chaîne hybride RAG"
             
 
@@ -478,7 +478,7 @@ def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
 
     """
 
-
+    pipeline_args={}
     #=======load DB
 
     # 1. Spécifiez le chemin du dossier contenant les fichiers FAISS
@@ -498,14 +498,8 @@ def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
 
 
     #==============récup les chunks pour les retrievers sparse et lexical
-    # Accéder au magasin de documents (docstore)
+    #1. Accéder au magasin de documents (docstore)
     docstore = faiss_db.docstore
-
-    # Récupérer tous les IDs des documents
-    # all_ids = docstore._dict.keys() 
-
-    # Extraire les textes complets
-    # split_docs = [docstore.search(doc_id).page_content for doc_id in all_ids]
 
     # 2. Récupérer tous les IDs des documents
     all_ids = list(faiss_db.index_to_docstore_id.values())
@@ -528,7 +522,7 @@ def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
 
 
     #==============charger la pipeline de rag
-    rag_pipeline= build_hybrid_rag_pipeline(faiss_db, split_docs, selected_reranker="specialized")
+    rag_pipeline= build_hybrid_rag_pipeline(faiss_db, pipeline_args, split_docs, selected_reranker="specialized")
     pipeline_args["final_chain"]=rag_pipeline
     yield "2. Création de la chaîne hybride RAG"
 
