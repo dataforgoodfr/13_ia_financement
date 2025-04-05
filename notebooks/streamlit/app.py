@@ -35,7 +35,9 @@ def load_pp_traces(doc_category):
         return []
 
 
+
 def main():
+    
     def build_ui_pp_asso(doc_category: str):
         
         # charger traces des PP existantes:
@@ -117,6 +119,7 @@ def main():
         "Chargement asso",
         "Remplir un AAP", 
     ]
+    st.session_state["pages"]=pages
     
     page=st.sidebar.radio("Aller vers", pages)
     st.session_state["selected_page"]=page
@@ -153,8 +156,13 @@ def main():
         btn_process_aap=st.button(label="Traiter", key="process_aap")
         st.session_state["btn_process_aap"]=btn_process_aap
         st.markdown("------------", unsafe_allow_html=True)
+        #=======================================
         
-        
+
+
+
+
+
         #==========UI question directe==========
         st.write("#### Saisie manuelle")
         user_query=st.text_input(label="Votre question", placeholder="")
@@ -162,34 +170,46 @@ def main():
         
         btn_process_user_query=st.button(label="Chercher", key="process_user_query")
         st.session_state["btn_process_user_query"]=btn_process_user_query
+        #=======================================
+
+
+
+
 
 
         #============Gestion des interactions===========
+        # vérifier qu'une question est posée
         if (user_query!="" and btn_process_user_query) or (uploaded_aap is not None and btn_process_aap):
             st.session_state["user_query"]=user_query
             #====== déterminer si requête manuelle ou process AAP
             #1. requête manuelle
             if btn_process_user_query:
-                queries=[user_query]
+                queries=[{"question": user_query}]
             #2. process AAP
             elif btn_process_aap:
                 raw_values=uploaded_aap.getvalue()
                 queries=json.loads(raw_values)
                 
 
+            #======parcourir les questions et les transmettre à QA pipeline
             for resp in QA_pipeline(queries):
 
-                if isinstance(resp, types.GeneratorType):
-                    #for r in resp:
-                    st.markdown(f"#### Réponse:\n", unsafe_allow_html=True)
-                    # st.write_stream(stream=resp)
+                # QA_pipeline va retourner plusieurs types de messages
+
+                # 1. la réponse sous forme de flux à diffuser sur l'UI, + la question initiale posée
+                if isinstance(resp, dict) and "response_stream" in resp:
+                    # rappel de la question
+                    st.markdown(f"#### Question:\n", unsafe_allow_html=True)
+                    st.markdown(resp["question"])
                     
+
+                    st.markdown(f"#### Réponse:\n", unsafe_allow_html=True)                
                     
                     # 1. Créer un buffer pour accumuler la réponse
                     response_buffer = StringIO()
                     response_container = st.empty()  # Conteneur vide pour mise à jour dynamique
 
-                    for chunk in resp:
+                    for chunk in resp["response_stream"]:
                     # Ajouter le token au buffer
                         response_buffer.write(chunk)
                         # Mettre à jour le conteneur avec le contenu accumulé
@@ -203,14 +223,16 @@ def main():
                     st.markdown("-----", unsafe_allow_html=True)
 
                     
-                    print("Full response:", st.session_state["full_response"])                    
-
+                    
+                # 2. les sources utilisées par le rag
                 elif isinstance(resp, dict) and 'sources' in resp:
                     st.markdown(f"#### Sources:\n", unsafe_allow_html=True)
                     
                     for source in resp["sources"]:
                         st.markdown(f"**Source**:<br>{source[0]}", unsafe_allow_html=True)
                         st.markdown(f"**Score**: {source[1]}", unsafe_allow_html=True)
+
+                # 3. les métadonnées (uid, question, type), et la réponse complète du flux 1 ci dessus
                 elif isinstance(resp, dict) and 'uid' in resp:
                     resp["response"]=st.session_state["full_response"]
                     st.markdown(f"**Metadata**: {resp}", unsafe_allow_html=True)

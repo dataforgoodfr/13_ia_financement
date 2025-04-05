@@ -234,7 +234,7 @@ def get_source_langage_wrap(pages):
 
 
 
-def QA_pipeline(queries: list,):
+def QA_pipeline(queries: list, return_sources=True):
 
     """
         ### Function definition:\n
@@ -242,6 +242,7 @@ def QA_pipeline(queries: list,):
 
         ### Inputs:
         **queries**: a list of user queries, where each element is either the raw query in str format, or a dict containing the raw query and other features
+        **return_sources**: a boolean flag to get back used sources
 
         ### Outputs:
         A generator function that contains return information for three cases, in three distinct formats:\n
@@ -523,25 +524,20 @@ def QA_pipeline(queries: list,):
 
 
     
-    # déterminer le format des questions: formulaire app (dict) ou requête utilisateur directe
-    # 1. formulaire aap
+    # normaliser le format des questions selon formulaire app ou requête utilisateur directe    
     queries_norm=[]
-    if isinstance(queries, dict):        
-        for key in queries.keys():
-            queries_norm.append({
-                "uid": key, "question": queries[key][0], 
-                "expected_reply_size": queries[key][1], 
-                "general_context": queries[key][2], 
-                "specific_context": queries[key][3],
-            })        
-    # 2. question directe
-    elif isinstance(queries, list):
+    # question directe
+    if "uid" not in queries[0]:
         for q in queries:
-            queries_norm.append({"uid": "xxx", "question": q})
-    
+            queries_norm.append({"uid": "xxx", "question": q["question"]})
+    else:
+        queries_norm=queries
+
+
     for q in queries_norm:
 
         query=q["question"]
+        
         # déterminer les types de la question
         #1. question ouverte/fermée
         openORclose_question= question_classifier_openORclose.invoke({"question": query})
@@ -554,9 +550,8 @@ def QA_pipeline(queries: list,):
         elif asso_question.type== "yes":
             doc_category="asso"
         elif asso_question.type=="uncertain":
-            yield "Impossible de détetminer le type de question asso/pp"
-            return 
-
+            yield "Impossible de détetminer le type de question asso/pp"            
+            return
 
         #======forcer vers le rag hybride en cas de question asso
         # si la question porte sur l'asso, forcer le type de rag à hybride
@@ -576,12 +571,13 @@ def QA_pipeline(queries: list,):
 
         #2.======= traduire la question
         reverse_translation=False
-        if pipeline_args[f"{doc_category}_source_language"]!=query_source_language.type:
-            query=query_translator(query, query_source_language.type)
+        doc_source_language=pipeline_args[f"{doc_category}_source_language"]
+        if doc_source_language!=query_source_language.type:
+            query=query_translator(query, doc_source_language)
             reverse_translation=True
 
         #3.======= améliorer la formulation de la question
-        enhanced_query=query_rewriter(query, query_source_language.type)
+        enhanced_query=query_rewriter(query, doc_source_language)
 
         #===========================================================================
 
@@ -595,9 +591,11 @@ def QA_pipeline(queries: list,):
             stream_resp=pipeline_args[f'hybrid_pipeline_{doc_category}']["final_chain"].stream({
                 "question": enhanced_query, "query_language": query_source_language.type
             })    
-            yield stream_resp
+            #yield stream_resp
+            yield {'question': q["question"], "response_stream": stream_resp}
             
-            # yield {"sources": pipeline_args[f"hybrid_pipeline_{doc_category}"]["sources"]}
+            if return_sources:
+                yield {"sources": pipeline_args[f"hybrid_pipeline_{doc_category}"]["sources"]}
 
             yield {'uid': q["uid"], "question": q["question"], 
                    "enhanced_question": enhanced_query, 

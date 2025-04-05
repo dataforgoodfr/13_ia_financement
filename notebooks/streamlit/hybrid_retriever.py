@@ -32,7 +32,7 @@ embedding_model = OpenAIEmbeddings(model=model_emb_name)
 
 
 #=======create retrievers
-def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker):
+def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, top_k=8):
     from langchain_community.retrievers import TFIDFRetriever
     from langchain_core.runnables import chain
     from langchain.schema import Document
@@ -162,7 +162,7 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker):
 
         
     @chain
-    def combine_retrievers(query: str, dense=dense, sparse=sparse, selected_retriever=selected_retriever, selected_reranker=selected_reranker, reranker_threshold=5, top_k=8) -> list:
+    def combine_retrievers(query: str, dense=dense, sparse=sparse, selected_retriever=selected_retriever, selected_reranker=selected_reranker, reranker_threshold=5, top_k=top_k) -> list:
         """
             #### Inputs:
             * query: user query \n
@@ -230,7 +230,7 @@ def build_hybrid_rag_pipeline(faiss_db, split_docs=[], selected_retriever="all",
     """
     from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 
-    retriever= hybrid_retriever(faiss_db, split_docs, selected_retriever, selected_reranker)
+    retriever= hybrid_retriever(faiss_db, split_docs, selected_retriever, selected_reranker, top_k=18)
     pipeline_args["retriever"]=retriever
     
     rag_prompt = ChatPromptTemplate.from_template("""
@@ -372,7 +372,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
                     exising_hashes= json.load(f)                    
                     
             exising_hashes[hash_text] = {
-                "Nom du PP": doc_name, 
+                "Nom du doc": doc_name, 
                 "Titre auto": hash_title, 
                 "Taille du texte (en car)": len(text),
                 "Date de création": str(datetime.datetime.now()),
