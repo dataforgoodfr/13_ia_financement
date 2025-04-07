@@ -1,3 +1,12 @@
+
+
+"""
+sos_flowsettings.py
+
+Module de configuration pour le stockage des documents, le vector store
+et le LLM (local Falcon ou OpenAI).
+"""
+
 import os
 from kotaemon.storages import LanceDBDocumentStore
 from kotaemon.storages.vectorstores.chroma import ChromaVectorStore
@@ -7,13 +16,13 @@ from sos_chat_falcon import ChatFalcon
 LLM_MODE = os.environ.get("LLM_MODE", "falcon").lower()
 print(f"[sos_flowsettings] LLM_MODE={LLM_MODE}")
 
-# --- Patch : Ajout de la méthode similarity_search ---
+# Ajout d'une méthode custom pour la recherche de similarité
 class CustomChromaVectorStore(ChromaVectorStore):
     def similarity_search(self, query: str, k: int = 3):
-        """Ajout de la méthode manquante pour la recherche de similarité"""
+        """Méthode personnalisée pour la recherche de similarité."""
         results = self._client.query(query=query, top_k=k)
         docs = results["documents"]
-        metadatas = results.get("metadatas", [{}]*len(docs))
+        metadatas = results.get("metadatas", [{}] * len(docs))
         return [
             {
                 "text": doc[0] if isinstance(doc, list) else doc,

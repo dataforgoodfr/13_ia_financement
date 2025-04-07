@@ -1,7 +1,8 @@
+# Configuration de service (docker-compose)
 services:
   kotaemon_custom:
     build: .
-    runtime: nvidia  # ← Cela fonctionnera une fois que Docker reconnaît le runtime
+    runtime: nvidia  # Cela fonctionnera une fois que Docker reconnaîtra le runtime
     container_name: kotaemon_custom_container
     ports:
       - "7860:7860"
