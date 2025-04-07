@@ -30,9 +30,9 @@ embedding_model = OpenAIEmbeddings(model=model_emb_name)
 #===============
 
 
-
+hybrid_pipeline_args={}
 #=======create retrievers
-def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, pipeline_args, top_k=8):
+def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, doc_category, top_k=8):
     from langchain_community.retrievers import TFIDFRetriever
     from langchain_core.runnables import chain
     from langchain.schema import Document
@@ -75,27 +75,33 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, pipe
             Only provide the extracted keywords, without additional text or explanations.
         """
 
-        system_prompt_synonyms="""
-            Extract the most relevant keywords from the following text to facilitate searching for important documents.  
+        system_prompt_synonyms = """
+        You are a helpful assistant tasked with extracting the most relevant keywords and their closest synonyms from a given question.
 
-            - For each extracted keyword, also include its closest synonyms.  
-            - Return all keywords and synonyms in a **single flat list**, without categorization, explanations, or additional text.  
-            - Ensure the extracted terms are meaningful and relevant to the text's context.  
+        Instructions:
+        - Identify key concepts, entities, or technical terms in the question.
+        - For each keyword, provide at least 3 closely related synonyms.
+        - Output all keywords and their synonyms in a **single comma-separated flat list**, without explanations or grouping.
+        - Ensure the synonyms are semantically meaningful and related to the original context.
 
-            ### **Output Format:**  
-            A **comma-separated** flat list of keywords and their closest synonyms.  
+        ### Example:
+        Input: "Quels sont les moyens de financement pour une association à but non lucratif ?"
+        Output: financement, moyens, ressources, financement participatif, association, organisation, but non lucratif, ONG
+
+        Return only the flat list.
         """
 
-        prompt_extract_keyworks = ChatPromptTemplate.from_messages(
+        prompt_extract_keywords = ChatPromptTemplate.from_messages(
             [
-                ("system", system_prompt_exact),
+                ("system", system_prompt_synonyms),
                 ("human", "{question}"),
             ]
         )
-        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0)
-        llm_extract_keyworks = prompt_extract_keyworks | llm | StrOutputParser()            
-        query_keywords = llm_extract_keyworks.invoke({"question":query})
-        
+
+        llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.3)  # More deterministic output
+        llm_extract_keywords = prompt_extract_keywords | llm | StrOutputParser()
+        query_keywords = llm_extract_keywords.invoke({"question": query})
+
         query_keywords = remove_punctuation(query_keywords)  # Liste des mots-clés dans la requête
         if print_keywords:
             print(query_keywords)
@@ -118,7 +124,9 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, pipe
 
         # Trier les résultats par score
         ranked_results = sorted(results, key=lambda x: x[1], reverse=True)
-        return [doc for doc, _ in ranked_results[:top_k]]
+        ranked_results= [doc for doc, _ in ranked_results[:top_k]]
+
+        return ranked_results
 
     def build_llm_reranker():
 
@@ -162,7 +170,11 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, pipe
 
         
     @chain
-    def combine_retrievers(query: str, dense=dense, sparse=sparse, selected_retriever=selected_retriever, selected_reranker=selected_reranker, reranker_threshold=5, top_k=top_k, pipeline_args=pipeline_args) -> list:
+    def combine_retrievers(
+        query: str, dense=dense, sparse=sparse, selected_retriever=selected_retriever, 
+        selected_reranker=selected_reranker, reranker_threshold=4, top_k=top_k, 
+        doc_category=doc_category
+    ) -> list:
         """
             #### Inputs:
             * query: user query \n
@@ -211,7 +223,7 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, pipe
         
 
 
-        pipeline_args["sources"]=filtered_results[:top_k]
+        hybrid_pipeline_args[f"rag_{doc_category}"]["sources"]=filtered_results[:top_k]
         return [doc for doc, _ in filtered_results[:top_k]]
 
     sources= combine_retrievers    
@@ -223,15 +235,15 @@ def hybrid_retriever(faiss_db, docs, selected_retriever, selected_reranker, pipe
 
 
 #========create full rag pipeline
-def build_hybrid_rag_pipeline(faiss_db, pipeline_args, split_docs=[], selected_retriever="all", selected_reranker="llm", llm=llm_qa):
+def build_hybrid_rag_pipeline(faiss_db, doc_category, split_docs, selected_retriever="all", selected_reranker="specialized", llm=llm_qa):
     """
     #### Inputs:
     * selected_retriever: combine dense, sparse and lexical retrievers. "all" by default \n
     """
     from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 
-    retriever= hybrid_retriever(faiss_db, split_docs, selected_retriever, selected_reranker, top_k=18, pipeline_args=pipeline_args)
-    # pipeline_args["retriever"]=retriever
+    retriever= hybrid_retriever(faiss_db, split_docs, selected_retriever, selected_reranker, top_k=16, doc_category=doc_category)
+    
     
     rag_prompt = ChatPromptTemplate.from_template("""
         Answer the question based **only** on the provided context.  
@@ -294,7 +306,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
 
     """
     
-    pipeline_args={}
+    
     #============vérif si PP traitée:    
     def check_doc_processed(text):
         # generate hash for curr text
@@ -431,15 +443,19 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
             
             
             yield "1. Fragmentation du document"
-            splitted_docs=chunk_text(pages)
-            pipeline_args["split_docs"]=splitted_docs
+            split_docs=chunk_text(pages)
+
+            # init store pipelines
+            hybrid_pipeline_args[f"rag_{doc_category}"]={}
+
+            hybrid_pipeline_args[f"rag_{doc_category}"]["split_docs"]=split_docs
             
             yield "2. Stockage du document en base vectorielle"
-            faiss_db_args=create_db(splitted_docs, full_text, id=hash_text)
+            faiss_db_args=create_db(split_docs, full_text, id=hash_text)
             faiss_db=faiss_db_args[0]
             faiss_db_PPtitle=faiss_db_args[1]
             faiss_db_PPname=faiss_db_args[2]
-            pipeline_args["db"]=faiss_db
+            hybrid_pipeline_args[f"rag_{doc_category}"]["db"]=faiss_db
 
             yield f"""
                 Document stocké sous: <br>
@@ -449,7 +465,8 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
             """
 
             
-            pipeline_args["final_chain"]=build_hybrid_rag_pipeline(faiss_db, pipeline_args, splitted_docs, selected_reranker="specialized")
+            hybrid_pipeline_args[f"rag_{doc_category}"]["final_chain"]=build_hybrid_rag_pipeline(
+                faiss_db, split_docs=split_docs, doc_category=doc_category, selected_reranker="llm")
             yield "3. Création de la chaîne hybride RAG"
             
 
@@ -457,7 +474,7 @@ def process_new_doc_as_hybrid(pages: list, doc_name: str, doc_category):
             print(msg)
             yield msg
 
-            yield {"pipeline_args": pipeline_args}
+            yield {"pipeline_args": hybrid_pipeline_args[f"rag_{doc_category}"]}
 
 
 # @st.cache_resource
@@ -471,14 +488,14 @@ def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
 
     #### Inputs :
         **hash**: the hash code in a str format associated with the document/storage, which corresponds to the PP name given by the user when the document was processed first, and the storage created
-    **doc_name**: the PP name of the document selected by the user
+        **doc_name**: the PP name of the document selected by the user
 
     #### Outputs:
         A generator function containing return information in str format.
 
     """
 
-    pipeline_args={}
+    
     #=======load DB
 
     # 1. Spécifiez le chemin du dossier contenant les fichiers FAISS
@@ -491,7 +508,8 @@ def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
         embeddings=embedding_model,
         allow_dangerous_deserialization=True
     )
-    pipeline_args["db"]=faiss_db
+    hybrid_pipeline_args[f"rag_{doc_category}"]={}
+    hybrid_pipeline_args[f"rag_{doc_category}"]["db"]=faiss_db
 
     yield "1. Chargement de la DB associée"
     #==============
@@ -514,7 +532,7 @@ def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
             "page_number": doc.metadata.get("page", "N/A")  # Numéro de page spécifique
         })
 
-    pipeline_args["split_docs"]=split_docs
+    hybrid_pipeline_args[f"rag_{doc_category}"]["split_docs"]=split_docs
     #================================
 
 
@@ -522,11 +540,29 @@ def process_existing_doc_as_hybrid(hash: str, doc_name: str, doc_category: str):
 
 
     #==============charger la pipeline de rag
-    rag_pipeline= build_hybrid_rag_pipeline(faiss_db, pipeline_args, split_docs, selected_reranker="specialized")
-    pipeline_args["final_chain"]=rag_pipeline
+    rag_pipeline= build_hybrid_rag_pipeline(faiss_db, split_docs=split_docs, doc_category=doc_category, selected_reranker="specialized")
+    hybrid_pipeline_args[f"rag_{doc_category}"]["final_chain"]=rag_pipeline
     yield "2. Création de la chaîne hybride RAG"
 
     yield "3. Traitement terminé avec succès ! Posez vos questions :)"
 
-    yield {"pipeline_args": pipeline_args}
+    yield {"pipeline_args": hybrid_pipeline_args[f"rag_{doc_category}"]}
+    
+
+def update_hybrid_pipeline_args(selected_reranker, top_k, doc_category):
+
+    #==============recharger la pipeline de rag
+    if "rag_pp" not in hybrid_pipeline_args:
+        return "Veuillez charger un PP"
+    elif "rag_asso" not in hybrid_pipeline_args:
+        return "Veuillez charger une fiche asso"    
+    else:
+        faiss_db=hybrid_pipeline_args[f"rag_{doc_category}"]["db"]
+        split_docs=hybrid_pipeline_args[f"rag_{doc_category}"]["split_docs"]
+        rag_pipeline= build_hybrid_rag_pipeline(faiss_db, split_docs=split_docs, doc_category=doc_category, selected_reranker=selected_reranker)
+
+        hybrid_pipeline_args[f"rag_{doc_category}"]["final_chain"]=rag_pipeline    
+        hybrid_pipeline_args[f"rag_{doc_category}"]["selected_reranker"]=selected_reranker
+
+        return {"pipeline_args": hybrid_pipeline_args[f"rag_{doc_category}"]}
     

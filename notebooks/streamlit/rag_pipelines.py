@@ -1,4 +1,4 @@
-from hybrid_retriever import process_new_doc_as_hybrid, process_existing_doc_as_hybrid
+from hybrid_retriever import process_new_doc_as_hybrid, process_existing_doc_as_hybrid, update_hybrid_pipeline_args
 from utils import install_libreoffice, verify_libreoffice_installation, convert_docx_to_pdf
 from io import StringIO, BytesIO
 from langchain_community.document_loaders import PyPDFLoader, Docx2txtLoader
@@ -233,8 +233,22 @@ def get_source_langage_wrap(pages):
     return source_language.type
 
 
+def update_hybrid_rag_wrapper(selected_reranker, top_k):
+    for doc in ["pp", "asso"]:    
+        feedback = update_hybrid_pipeline_args(selected_reranker, None, doc)
+        if isinstance(feedback, str):
+            return feedback
+        
+        pipeline_args[f"hybrid_pipeline_{doc}"]=feedback["pipeline_args"]
 
-def QA_pipeline(queries: list, return_sources=True):
+        print("selected reranker:", pipeline_args[f"hybrid_pipeline_{doc}"]["selected_reranker"])
+    
+    return "Chaine RAG mise à jour"
+
+
+
+
+def QA_pipeline(queries: list, return_sources=False):
 
     """
         ### Function definition:\n
@@ -552,7 +566,6 @@ def QA_pipeline(queries: list, return_sources=True):
         elif asso_question.type=="uncertain":
             yield "Impossible de détetminer le type de question asso/pp"            
             return
-
         #======forcer vers le rag hybride en cas de question asso
         # si la question porte sur l'asso, forcer le type de rag à hybride
         if asso_question.type=="yes":
