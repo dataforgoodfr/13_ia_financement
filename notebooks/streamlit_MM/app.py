@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import json
 import types
-from read_answer_aap import Read_Questions_in_docx
+from read_answer_aap import Read_Questions_in_docx, Write_Answers_in_docx
 import tempfile
 from pathlib import Path
 
@@ -196,26 +196,27 @@ def main():
                 TagQStart = "<>"
                 TagQEnd = "</>"
 
-                with tempfile.TemporaryDirectory(dir="temp") as tmpdirname:
-                    file_path = os.path.join(tmpdirname, uploaded_aap.name)
-                    with open(file_path, "wb") as f:
-                        f.write(uploaded_aap.getbuffer())
-                    log_dir = os.path.join(tmpdirname, "logs")
-                    os.makedirs(log_dir, exist_ok=True)
+                #with tempfile.TemporaryDirectory(dir="temp") as tmpdirname:
+                output_aap="output_aap"
+                file_path = os.path.join(output_aap, uploaded_aap.name)
+                with open(file_path, "wb") as f:
+                    f.write(uploaded_aap.getbuffer())
+                log_dir = os.path.join(output_aap, "logs")
+                os.makedirs(log_dir, exist_ok=True)
 
-                    with st.spinner("🔍 Extraction des questions en cours..."):
-                        extracted_questions = Read_Questions_in_docx(
-                            PathFolderSource=tmpdirname + "/",
-                            PathForOutputsAndLogs=log_dir,
-                            list_of_SizeWords_OK=list_of_SizeWords_OK,
-                            list_of_SizeWords_KO=list_of_SizeWords_KO,
-                            TagQStart=TagQStart,
-                            TagQEnd=TagQEnd
-                        )
+                with st.spinner("🔍 Extraction des questions en cours..."):
+                    extracted_questions = Read_Questions_in_docx(
+                        PathFolderSource=output_aap + "/",
+                        PathForOutputsAndLogs=log_dir,
+                        list_of_SizeWords_OK=list_of_SizeWords_OK,
+                        list_of_SizeWords_KO=list_of_SizeWords_KO,
+                        TagQStart=TagQStart,
+                        TagQEnd=TagQEnd
+                    )
 
-                    st.success("✅ Extraction terminée")
-                    st.write(f"Nombre de questions détectées : {len(extracted_questions)}")
-                    queries = extracted_questions
+                st.success("✅ Extraction terminée")
+                st.write(f"Nombre de questions détectées : {len(extracted_questions)}")
+                queries = extracted_questions
 
         # === Lancer QA_pipeline si des questions sont prêtes ===
         if queries:
@@ -245,6 +246,11 @@ def main():
 
                 # ✅ Cas avec UID et métadonnées uniquement
                 elif isinstance(resp, dict) and "uid" in resp:
+                    if resp["question_close_or_open"]=="open":
+                        resp["response"]="Graphrag pipeline à venir"
+                    else:
+                        resp["response"]=st.session_state["full_response"]
+                    Write_Answers_in_docx(PathFolderSource=output_aap, PathForOutputsAndLogs=output_aap, List_UIDQuestionsSizeAnswer=resp)
                     st.markdown("##### Métadonnées :")
                     st.json(resp)
 
