@@ -103,13 +103,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# --- Couleurs & Utilitaires ---
-COLOR_SIDERO = "red"
-COLOR_ERYTHRO = "blue"
-colors_dict = {
-    "Sideroblastes en couronne": COLOR_SIDERO,
-    "Érythroblastes": COLOR_ERYTHRO
-}
+
 
 # Sidebar avec sommaire et images centrées
 st.sidebar.title("Sommaire")
