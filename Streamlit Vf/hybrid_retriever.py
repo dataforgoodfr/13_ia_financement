@@ -15,7 +15,7 @@ import datetime
 
 import dotenv
 
-dotenv.load_dotenv("/home/chougar/Documents/GitHub/Formation_datascientest/DL-NLP/.env")
+dotenv.load_dotenv(".env")
 
 
 

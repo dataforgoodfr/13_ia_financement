@@ -42,3 +42,4 @@ def test_QA_pipeline_with_mock(
     assert len(results) > 0
     for r in results:
         print("Résultat:", r)
+

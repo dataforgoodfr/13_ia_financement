@@ -11,6 +11,7 @@ Format d echange de dictionnaire :
 """
 # Import des bibliothèques
 import docx
+from docx import Document
 from docx.document import Document as DocxDocumentType
 from docx.oxml.table import CT_Tbl
 from docx.oxml.text.paragraph import CT_P
@@ -61,90 +62,61 @@ def OneOfTheWords_Is_InTheParagraph (TheText, list_of_Words_OK, list_of_Words_KO
 
 
 # Fonction pour insérer du texte dans un paragraphe
-def Insert_Text_Paragraph (block_item, TextStart, TextEnd):
+def Insert_Text_Paragraph(block_item, TextStart, TextEnd):
     """
-    Args:
-        block_item : the paragraph in which we insert the text
-        TextStart : the text to be inserted at the beginning of the paragraph
-        TextEnd : the text to be inserted at the end of the paragraph
+    Insère un texte au début et à la fin d'un paragraphe.
+    Cette version modifie directement le paragraphe complet.
     """
-    if block_item.runs == []:
-        block_item.text = TextStart + block_item.text + TextEnd 
-    else: 
-        block_item.runs[0].text = block_item.runs[0].text.replace("", TextStart,1) 
-        NbRuns = block_item.runs.__len__()
-        block_item.runs[NbRuns-1].text = block_item.runs[NbRuns-1].text.replace(block_item.runs[NbRuns-1].text, block_item.runs[NbRuns-1].text + TextEnd,1)
+    block_item.text = f"{TextStart}{block_item.text}{TextEnd}"
 
-    return
 
 
 # Fonction pour supprimer du texte dans un paragraphe
-def Delete_Text_Paragraph (block_item, Text_to_delete):
+def Delete_Text_Paragraph(block_item, Text_to_delete):
     """
     Args:
-        block_item : the paragraph in which we insert the tags
-        Text_to_delete : the text to be deleted in the paragraph
+        block_item : Paragraph (docx paragraph object)
+        Text_to_delete : String à supprimer (ex: "??", "<>", "</>", ou un UID)
     """
-    Text_to_delete2 =""
-    if block_item.runs == []: 
-        block_item.text = block_item.text.replace(Text_to_delete, "") 
+    
+    special_tags = {
+        "??": r"\?\?",
+        "<>": r"\<\>",
+        "</>": r"\<\/\>"
+    }
 
-    else: 
-        if Text_to_delete =="??": 
-            Text_to_delete2 = r'\?\?'
-        if Text_to_delete =="<>":
-            Text_to_delete2 = r'\<\>'
-        if Text_to_delete =="</>":
-            Text_to_delete2 = r'\<\/\>'
-        
-        NbRuns = block_item.runs.__len__()
-        for i in range(NbRuns):  
-            MyRun = block_item.runs[i]
-            if Text_to_delete2 !="": 
-                if re.search(Text_to_delete2, MyRun.text, flags=0)!= None :
-                    MyRun.text = MyRun.text.replace(Text_to_delete, '',1) 
-            else: 
-                if re.search(Text_to_delete, MyRun.text, flags=0)!= None :
-                    MyRun.text = MyRun.text.replace(Text_to_delete, '',1) 
-        if Text_to_delete2 !="" and re.search(Text_to_delete2, block_item.text, flags=0)!= None :
+    pattern = special_tags.get(Text_to_delete, re.escape(Text_to_delete))
 
-            NbRuns = block_item.runs.__len__()
-            MyFontName = block_item.runs[NbRuns-1].font.name
-            MyFontSize = block_item.runs[NbRuns-1].font.size
-            MyFontBold = block_item.runs[NbRuns-1].font.bold
-            MyFontItalic = block_item.runs[NbRuns-1].font.italic
-            MyFontUnderline = block_item.runs[NbRuns-1].font.underline
-            MyFontColor = block_item.runs[NbRuns-1].font.color.rgb
-            block_item.text = block_item.text.replace(Text_to_delete, "") 
-            NbRuns = block_item.runs.__len__()
-            for i in range(NbRuns):  
-                MyRun = block_item.runs[i]
-                MyRun.font.name = MyFontName
-                MyRun.font.size = MyFontSize
-                MyRun.font.bold = MyFontBold
-                MyRun.font.italic = MyFontItalic
-                MyRun.font.underline = MyFontUnderline
-                MyRun.font.color.rgb = MyFontColor
+    found = False
 
-        if Text_to_delete2 =="" and re.search(Text_to_delete, block_item.text, flags=0)!= None :
-            NbRuns = block_item.runs.__len__()
-            MyFontName = block_item.runs[NbRuns-1].font.name
-            MyFontSize = block_item.runs[NbRuns-1].font.size
-            MyFontBold = block_item.runs[NbRuns-1].font.bold
-            MyFontItalic = block_item.runs[NbRuns-1].font.italic
-            MyFontUnderline = block_item.runs[NbRuns-1].font.underline
-            MyFontColor = block_item.runs[NbRuns-1].font.color.rgb
-            block_item.text = block_item.text.replace(Text_to_delete, "")
-            NbRuns = block_item.runs.__len__()
-            for i in range(NbRuns): 
-                MyRun = block_item.runs[i]
-                MyRun.font.name = MyFontName
-                MyRun.font.size = MyFontSize
-                MyRun.font.bold = MyFontBold
-                MyRun.font.italic = MyFontItalic
-                MyRun.font.underline = MyFontUnderline
-                MyRun.font.color.rgb = MyFontColor
+    for run in block_item.runs:
+        if re.search(pattern, run.text):
+            run.text = re.sub(pattern, "", run.text, count=1)
+            found = True
 
+    if found is False and re.search(pattern, block_item.text):
+
+        if block_item.runs:
+            last_run = block_item.runs[-1]
+            font_name = last_run.font.name
+            font_size = last_run.font.size
+            font_bold = last_run.font.bold
+            font_italic = last_run.font.italic
+            font_underline = last_run.font.underline
+            font_color = last_run.font.color.rgb
+        else:
+            font_name = font_size = font_bold = font_italic = font_underline = font_color = None
+
+        clean_text = re.sub(pattern, "", block_item.text)
+        block_item.clear()
+        new_run = block_item.add_run(clean_text)
+
+        new_run.font.name = font_name
+        new_run.font.size = font_size
+        new_run.font.bold = font_bold
+        new_run.font.italic = font_italic
+        new_run.font.underline = font_underline
+        new_run.font.color.rgb = font_color
 
     return
 
@@ -435,100 +407,90 @@ def Read_Questions_in_docx ( PathFolderSource, PathForOutputsAndLogs, list_of_Si
 
 
 # Fonction pour écrire les réponses dans l aap et dans un doc Q&A
-def Write_Answers_in_docx (List_UIDQuestionsSizeAnswer, PathFolderSource,  PathForOutputsAndLogs, TagQStart = "<>", TagQEnd = "</>" ):
+def Write_Answers_in_docx(List_UIDQuestionsSizeAnswer, PathFolderSource, PathForOutputsAndLogs, TagQStart="<>", TagQEnd="</>"):
     """
-    Args:
-        List_UIDQuestionsSizeAnswer: List of dictionaries, each containing the UID + question + Answer
-        PathFolderSource: Path to the folder containing the files to be read
-        PathForOutputsAndLogs: Path to the folder containing the log file
-        TagQStart = "<>" Tag indicating the beginning of a Multi-paragraphs question (question with context below)
-        TagQEnd = "</>" Tag indicating the end of a Multi-paragraphs question (question with context below) 
+    Remplace les UIDs dans les fichiers Word traités par les réponses correspondantes.
+    Génère un fichier Word annoté + un fichier récapitulatif Q/A.
     """
 
-    FilesWithPath = []
-    for file in glob.glob(PathFolderSource +'*.*'):
-        FilesWithPath.append(file)
+    import os
+    import glob
+    from datetime import datetime
+    from docx import Document
+    from docx.shared import RGBColor
 
-    for file in FilesWithPath:
-        TheExtension = file [-4:] 
-        match TheExtension:
-            case 'docx':
-                try:
-                    f = open(file, 'rb')
-                    document = Document(f)
-                    NameOfDocument = file.split('/')[-1] 
-                    if re.search(r'UID', NameOfDocument, flags=0)!= None :     
-                        for docpara in document.paragraphs:
-                            if "??" in docpara.text: 
-                                Delete_Text_Paragraph (docpara, "??")
-                            if TagQStart in docpara.text: 
-                                Delete_Text_Paragraph (docpara, TagQStart)
+    for file in glob.glob(os.path.join(PathFolderSource, '*.docx')):
+        if "UID" not in os.path.basename(file):
+            continue  # On ne traite que les fichiers avec UID
 
-                            if TagQEnd in docpara.text: 
-                                Delete_Text_Paragraph (docpara, TagQEnd)
-                        for docpara in document.paragraphs:
-                            for value in List_UIDQuestionsSizeAnswer :
-                                if value ["uid"] in docpara.text: 
-                                    Insert_Text_Paragraph (docpara, "" , '\n' + value ["response"] )
-                                    Delete_Text_Paragraph (docpara, value ["uid"])
-    
-                        for index, table in enumerate(document.tables):
-                            for row in range(len(table.rows)):
-                                for col in range(len(table.columns)):
-                                    if "??" in table.cell(row, col).text: 
-                                        Delete_Text_Cell (table.cell(row, col), "??")
-                                    if TagQStart in table.cell(row, col).text: 
-                                        Delete_Text_Cell (table.cell(row, col), TagQStart)
-                                    if TagQEnd in table.cell(row, col).text: 
-                                        Delete_Text_Cell (table.cell(row, col), TagQEnd)
+        try:
+            with open(file, 'rb') as f:
+                document = Document(f)
 
-                        for index, table in enumerate(document.tables):
-                            for value in List_UIDQuestionsSizeAnswer :
-                                for row in range(len(table.rows)):
-                                    for col in range(len(table.columns)):
-                                        if value ["uid"] in table.cell(row, col).text:
-                                            Insert_Text_Cell (table.cell(row, col),  "" ,  value ["response"] )
-                                            Delete_Text_Cell (table.cell(row, col), value ["uid"])
-                                           
-                        print("==========    DICTIONNAIRE AVEC ANSWERS :   ======")
-                        print(List_UIDQuestionsSizeAnswer)
+            NameOfDocument = os.path.basename(file)
 
-                        document.save(PathForOutputsAndLogs+ r'/' + NameOfDocument[:-13] + "_with_answers" + '_' + str(datetime.now())[:-16] + '-' +  str(datetime.now())[-15:-13]+ 'h' + str(datetime.now())[-12:-10]+ 'mn'+ str(datetime.now())[-9:-7]+ 's'+ '.docx' )
+            # === Nettoyage des balises dans les paragraphes
+            for para in document.paragraphs:
+                for marker in ["??", TagQStart, TagQEnd]:
+                    if marker in para.text:
+                        Delete_Text_Paragraph(para, marker)
 
-                        documentQA = Document()
-                        documentQA.add_heading('List of questions and answers of file : '+ '\n' + NameOfDocument[:-14] + '\n' + 'Time : '+ str(datetime.now())[:-16] + '-' +  str(datetime.now())[-15:-13]+ 'h'+ str(datetime.now())[-12:-10]+ 'mn'+ str(datetime.now())[-9:-7]+ 's' + '\n')
+            # === Remplacement des UIDs par réponses dans les paragraphes
+            for para in document.paragraphs:
+                for value in List_UIDQuestionsSizeAnswer:
+                    if value["uid"] in para.text:
+                        Insert_Text_Paragraph(para, "", "\n" + value["response"])
+                        Delete_Text_Paragraph(para, value["uid"])
 
+            # === Nettoyage et remplacement dans les tables
+            for table in document.tables:
+                for row in table.rows:
+                    for cell in row.cells:
+                        for marker in ["??", TagQStart, TagQEnd]:
+                            if marker in cell.text:
+                                Delete_Text_Cell(cell, marker)
+
+            for table in document.tables:
+                for row in table.rows:
+                    for cell in row.cells:
                         for value in List_UIDQuestionsSizeAnswer:
-                            p = documentQA.add_paragraph()
-                            if "??" in value ["question"]: 
-                                value ["question"] = value ["question"].replace("??", "") 
-                            if TagQStart in value["question"]: 
-                                value["question"] = value["question"].replace(TagQStart, "") 
-                            if TagQEnd in value["question"]: 
-                                value["question"] = value["question"].replace(TagQEnd, "") 
-                            Therun = p.add_run(value["question"])
-                            Therun.bold = True
-                            Therun.font.color.rgb = RGBColor(255, 0, 0)
-                            documentQA.add_paragraph('\n' + value ["response"] + '\n')
-                        
-                        documentQA.save(Path_where_we_put_Outputs+ r'/' + NameOfDocument[:-14]+ '_Q-A' + '_' + str(datetime.now())[:-16] + '-' +  str(datetime.now())[-15:-13]+ 'h'+ str(datetime.now())[-12:-10]+ 'mn'+ str(datetime.now())[-9:-7]+ 's'+ '.docx' )
-                
-                except IOError:
-                        MessageError = str(datetime.now()) + ' Error encountered when opening for writing the Word docx file ' + file
-                        logging.error(MessageError)
-                        print(MessageError)
-                finally:        
-                    f.close()
+                            if value["uid"] in cell.text:
+                                Insert_Text_Cell(cell, "", value["response"])
+                                Delete_Text_Cell(cell, value["uid"])
 
-    print('End of the write program')
-    return
+            # === Sauvegarde du fichier final avec réponses
+            timestamp = datetime.now().strftime("%Y-%m-%d_%Hh%Mmn%Ss")
+            output_filename = f'{NameOfDocument.replace("-with UID", "")}_with_answers_{timestamp}.docx'
+            document.save(os.path.join(PathForOutputsAndLogs, output_filename))
+
+            # === Génération du document Q&A séparé
+            documentQA = Document()
+            documentQA.add_heading(
+                f'Liste des questions/réponses pour :\n{NameOfDocument}\nHeure : {timestamp}\n', level=1
+            )
+
+            for value in List_UIDQuestionsSizeAnswer:
+                p = documentQA.add_paragraph()
+                question_clean = value["question"].replace("??", "").replace(TagQStart, "").replace(TagQEnd, "")
+                run = p.add_run(question_clean)
+                run.bold = True
+                run.font.color.rgb = RGBColor(255, 0, 0)
+                documentQA.add_paragraph('\n' + value["response"] + '\n')
+
+            qa_filename = f'{NameOfDocument.replace("-with UID", "")}_Q-A_{timestamp}.docx'
+            documentQA.save(os.path.join(PathForOutputsAndLogs, qa_filename))
+
+        except Exception as e:
+            print(f"[ERREUR] Problème avec le fichier {file} : {e}")
+
+    print('✅ Fin du programme d’écriture des réponses dans les fichiers.')
 
 
 # Fonctions à lancer dans le main 
 
 ## Définition des arguments de la fonction Read_Questions
-Path_where_we_put_Outputs = r'C:\Users\Administrateur\Documents\POC\D4G - IA financement\13_ia_financement\Streamlit Vf\LOG'
-Folder_where_the_files_are = r'C:\Users\Administrateur\Documents\POC\D4G - IA financement\13_ia_financement\Streamlit Vf\AAP'
+Path_where_we_put_Outputs = r'./LOG'
+Folder_where_the_files_are = r'./AAP'
 
 list_of_SizeWords_OK = [
      " MAX", " MIN", " CARACT", " CHARACT", " LIGNE", " LINE", " SIGN", " PAGE",  " PAS EXC", " NOT EXCEED", " MOTS", " WORDS"
@@ -542,19 +504,6 @@ list_of_SizeWords_KO = [
 TagQStart = "<>"
 TagQEnd = "</>"
 
-logging.basicConfig(filename=Path_where_we_put_Outputs + r'/logs-IA_for_Asso.txt')
+# logging.basicConfig(filename=Path_where_we_put_Outputs + r'/logs-IA_for_Asso.txt')
 
 
-List_UIDQuestionsSize = Read_Questions_in_docx ( Folder_where_the_files_are, Path_where_we_put_Outputs, list_of_SizeWords_OK, list_of_SizeWords_KO, TagQStart , TagQEnd )
-
-"""# TODO : Send DictQuestionsSizeAnswers to Streamlit
-
-# For the moment, we create a dictionary of answers with the same keys as the dictionary of questions
-# by just taking the question as the answer we just put "ANSWER TO: " + the question
-List_UIDQuestionsSizeAnswer = List_UIDQuestionsSize.copy()
-for value in List_UIDQuestionsSizeAnswer :
-    value ["response"] = "ANSWER TO " + value ["question"]
-
-Write_Answers_in_docx (List_UIDQuestionsSizeAnswer, Folder_where_the_files_are, Path_where_we_put_Outputs, TagQStart , TagQEnd )
-
-"""

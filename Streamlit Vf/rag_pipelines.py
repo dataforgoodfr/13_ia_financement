@@ -24,7 +24,7 @@ import dotenv
 
 
 
-dotenv.load_dotenv("/home/chougar/Documents/GitHub/Formation_datascientest/DL-NLP/.env")
+dotenv.load_dotenv(".env")
 
 
 pipeline_args={}
@@ -616,5 +616,4 @@ def QA_pipeline(queries: list, return_sources=True):
                     "question_asso_or_pp": question_asso_or_pp,
                     "source_doc_language": pipeline_args[f"{doc_category}_source_language"],
                     "translation_requiered": reverse_translation
-                }   
-                
+                }  

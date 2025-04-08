@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import json
 import types
-from read_answer_aap import Read_Questions_in_docx
+from read_answer_aap import Read_Questions_in_docx, Write_Answers_in_docx
 import tempfile
 from pathlib import Path
 
@@ -21,7 +21,17 @@ import pandas as pd
 import json
 import types
 
+# correction erreur pytorch
+import sys
+import types
 
+# Patch torch.classes pour éviter l'erreur de Streamlit
+import torch
+
+# torch.classes n'a pas de __path__, donc on le remplace par un faux module
+if isinstance(torch.classes, types.ModuleType):
+    torch.classes.__path__ = []
+## fin correction
 
 # chargement du log des documents dispo en DB
 def load_pp_traces(doc_category):
@@ -196,34 +206,42 @@ def main():
                 TagQStart = "<>"
                 TagQEnd = "</>"
 
-                with tempfile.TemporaryDirectory(dir="temp") as tmpdirname:
-                    file_path = os.path.join(tmpdirname, uploaded_aap.name)
-                    with open(file_path, "wb") as f:
-                        f.write(uploaded_aap.getbuffer())
-                    log_dir = os.path.join(tmpdirname, "logs")
-                    os.makedirs(log_dir, exist_ok=True)
+                #with tempfile.TemporaryDirectory(dir="temp") as tmpdirname:
+                output_aap = "output_aap"
+                safe_name = os.path.basename(uploaded_aap.name)  # Nettoyer le nom du fichier
+                file_path = os.path.join(output_aap, safe_name)
 
-                    with st.spinner("🔍 Extraction des questions en cours..."):
-                        extracted_questions = Read_Questions_in_docx(
-                            PathFolderSource=tmpdirname + "/",
-                            PathForOutputsAndLogs=log_dir,
-                            list_of_SizeWords_OK=list_of_SizeWords_OK,
-                            list_of_SizeWords_KO=list_of_SizeWords_KO,
-                            TagQStart=TagQStart,
-                            TagQEnd=TagQEnd
-                        )
+                os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-                    st.success("✅ Extraction terminée")
-                    st.write(f"Nombre de questions détectées : {len(extracted_questions)}")
-                    queries = extracted_questions
+                with open(file_path, "wb") as f:
+                    f.write(uploaded_aap.getbuffer())
+
+                log_dir = os.path.join(output_aap, "logs")
+                os.makedirs(log_dir, exist_ok=True)
+
+                with st.spinner("🔍 Extraction des questions en cours..."):
+                    extracted_questions = Read_Questions_in_docx(
+                        PathFolderSource=output_aap + "/",
+                        PathForOutputsAndLogs=log_dir,
+                        list_of_SizeWords_OK=list_of_SizeWords_OK,
+                        list_of_SizeWords_KO=list_of_SizeWords_KO,
+                        TagQStart=TagQStart,
+                        TagQEnd=TagQEnd
+                    )
+
+                st.success("✅ Extraction terminée")
+                st.write(f"Nombre de questions détectées : {len(extracted_questions)}")
+                queries = extracted_questions
 
         # === Lancer QA_pipeline si des questions sont prêtes ===
         if queries:
             st.write("QA_pipeline lancé avec :", queries) #j affiche les questions censées etre extraites
-            responses = QA_pipeline(queries)
-            st.write("Réponses brutes reçues :", responses)# je n'ai pas de reponses
+            # responses = QA_pipeline(queries)
+            # st.write("Réponses brutes reçues :", responses)# je n'ai pas de reponses
 
-            for resp in responses:
+            all_responses_to_write = []
+
+            for resp in QA_pipeline(queries):
                 # ✅ Réponse avec un flux (stream)
                 if isinstance(resp, dict) and "response_stream" in resp:
                     question_text = resp.get("question", "Question inconnue")
@@ -245,6 +263,13 @@ def main():
 
                 # ✅ Cas avec UID et métadonnées uniquement
                 elif isinstance(resp, dict) and "uid" in resp:
+                    if resp["question_close_or_open"] == "open":
+                        resp["response"] = "Graphrag pipeline à venir"
+                    else:
+                        resp["response"] = st.session_state.get("full_response", "")
+
+                    all_responses_to_write.append(resp) 
+
                     st.markdown("##### Métadonnées :")
                     st.json(resp)
 
@@ -258,13 +283,20 @@ def main():
                     else:
                         st.info("ℹ️ Aucun document source n’a été utilisé ou trouvé.")
 
-                # ✅ Cas fallback si uniquement une question sans stream
-                elif isinstance(resp, dict) and "question" in resp:
-                    st.markdown(f"❓ Aucune réponse générée pour : **{resp['question']}**")
-
                 # ✅ Cas string brut
                 elif isinstance(resp, str):
                     st.markdown(resp, unsafe_allow_html=True)
+
+            # ✅ Une seule écriture à la fin
+            if all_responses_to_write:
+                Write_Answers_in_docx(
+                    PathFolderSource=output_aap,
+                    PathForOutputsAndLogs=output_aap,
+                    List_UIDQuestionsSizeAnswer=all_responses_to_write
+                )
+                st.success("📄 Les réponses ont été écrites dans le document.")
+            
+            
 
 if __name__ == "__main__":
     main()
