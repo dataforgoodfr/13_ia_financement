@@ -26,6 +26,7 @@ import glob
 import os
 
 
+
 # Fonction pour scanner les paragraphes et les tables 
 def iter_block_items(parent):
     if isinstance(parent, DocxDocumentType):
@@ -64,59 +65,89 @@ def OneOfTheWords_Is_InTheParagraph (TheText, list_of_Words_OK, list_of_Words_KO
 # Fonction pour insérer du texte dans un paragraphe
 def Insert_Text_Paragraph(block_item, TextStart, TextEnd):
     """
-    Insère un texte au début et à la fin d'un paragraphe.
-    Cette version modifie directement le paragraphe complet.
+    Args:
+        block_item : the paragraph in which we insert the text
+        TextStart : the text to be inserted at the beginning of the paragraph
+        TextEnd : the text to be inserted at the end of the paragraph
     """
-    block_item.text = f"{TextStart}{block_item.text}{TextEnd}"
+    if block_item.runs == []:
+        block_item.text = TextStart + block_item.text + TextEnd 
+    else: 
+        block_item.runs[0].text = block_item.runs[0].text.replace("", TextStart,1) 
+        NbRuns = block_item.runs.__len__()
+        block_item.runs[NbRuns-1].text = block_item.runs[NbRuns-1].text.replace(block_item.runs[NbRuns-1].text, block_item.runs[NbRuns-1].text + TextEnd,1)
+
+    return
 
 
 
 # Fonction pour supprimer du texte dans un paragraphe
-def Delete_Text_Paragraph(block_item, Text_to_delete):
+def Delete_Text_Paragraph (block_item, Text_to_delete):
     """
     Args:
-        block_item : Paragraph (docx paragraph object)
-        Text_to_delete : String à supprimer (ex: "??", "<>", "</>", ou un UID)
+        block_item : the paragraph in which we insert the tags
+        Text_to_delete : the text to be deleted in the paragraph
     """
-    
-    special_tags = {
-        "??": r"\?\?",
-        "<>": r"\<\>",
-        "</>": r"\<\/\>"
-    }
+    Text_to_delete2 =""
+    if block_item.runs == []: 
+        block_item.text = block_item.text.replace(Text_to_delete, "") 
 
-    pattern = special_tags.get(Text_to_delete, re.escape(Text_to_delete))
+    else: 
+        if Text_to_delete =="??": 
+            Text_to_delete2 = r'\?\?'
+        if Text_to_delete =="<>":
+            Text_to_delete2 = r'\<\>'
+        if Text_to_delete =="</>":
+            Text_to_delete2 = r'\<\/\>'
+        
+        NbRuns = block_item.runs.__len__()
+        for i in range(NbRuns):  
+            MyRun = block_item.runs[i]
+            if Text_to_delete2 !="": 
+                if re.search(Text_to_delete2, MyRun.text, flags=0)!= None :
+                    MyRun.text = MyRun.text.replace(Text_to_delete, '',1) 
+            else: 
+                if re.search(Text_to_delete, MyRun.text, flags=0)!= None :
+                    MyRun.text = MyRun.text.replace(Text_to_delete, '',1) 
+        if Text_to_delete2 !="" and re.search(Text_to_delete2, block_item.text, flags=0)!= None :
 
-    found = False
+            NbRuns = block_item.runs.__len__()
+            MyFontName = block_item.runs[NbRuns-1].font.name
+            MyFontSize = block_item.runs[NbRuns-1].font.size
+            MyFontBold = block_item.runs[NbRuns-1].font.bold
+            MyFontItalic = block_item.runs[NbRuns-1].font.italic
+            MyFontUnderline = block_item.runs[NbRuns-1].font.underline
+            MyFontColor = block_item.runs[NbRuns-1].font.color.rgb
+            block_item.text = block_item.text.replace(Text_to_delete, "") 
+            NbRuns = block_item.runs.__len__()
+            for i in range(NbRuns):  
+                MyRun = block_item.runs[i]
+                MyRun.font.name = MyFontName
+                MyRun.font.size = MyFontSize
+                MyRun.font.bold = MyFontBold
+                MyRun.font.italic = MyFontItalic
+                MyRun.font.underline = MyFontUnderline
+                MyRun.font.color.rgb = MyFontColor
 
-    for run in block_item.runs:
-        if re.search(pattern, run.text):
-            run.text = re.sub(pattern, "", run.text, count=1)
-            found = True
+        if Text_to_delete2 =="" and re.search(Text_to_delete, block_item.text, flags=0)!= None :
+            NbRuns = block_item.runs.__len__()
+            MyFontName = block_item.runs[NbRuns-1].font.name
+            MyFontSize = block_item.runs[NbRuns-1].font.size
+            MyFontBold = block_item.runs[NbRuns-1].font.bold
+            MyFontItalic = block_item.runs[NbRuns-1].font.italic
+            MyFontUnderline = block_item.runs[NbRuns-1].font.underline
+            MyFontColor = block_item.runs[NbRuns-1].font.color.rgb
+            block_item.text = block_item.text.replace(Text_to_delete, "")
+            NbRuns = block_item.runs.__len__()
+            for i in range(NbRuns): 
+                MyRun = block_item.runs[i]
+                MyRun.font.name = MyFontName
+                MyRun.font.size = MyFontSize
+                MyRun.font.bold = MyFontBold
+                MyRun.font.italic = MyFontItalic
+                MyRun.font.underline = MyFontUnderline
+                MyRun.font.color.rgb = MyFontColor
 
-    if found is False and re.search(pattern, block_item.text):
-
-        if block_item.runs:
-            last_run = block_item.runs[-1]
-            font_name = last_run.font.name
-            font_size = last_run.font.size
-            font_bold = last_run.font.bold
-            font_italic = last_run.font.italic
-            font_underline = last_run.font.underline
-            font_color = last_run.font.color.rgb
-        else:
-            font_name = font_size = font_bold = font_italic = font_underline = font_color = None
-
-        clean_text = re.sub(pattern, "", block_item.text)
-        block_item.clear()
-        new_run = block_item.add_run(clean_text)
-
-        new_run.font.name = font_name
-        new_run.font.size = font_size
-        new_run.font.bold = font_bold
-        new_run.font.italic = font_italic
-        new_run.font.underline = font_underline
-        new_run.font.color.rgb = font_color
 
     return
 
@@ -412,12 +443,6 @@ def Write_Answers_in_docx(List_UIDQuestionsSizeAnswer, PathFolderSource, PathFor
     Remplace les UIDs dans les fichiers Word traités par les réponses correspondantes.
     Génère un fichier Word annoté + un fichier récapitulatif Q/A.
     """
-
-    import os
-    import glob
-    from datetime import datetime
-    from docx import Document
-    from docx.shared import RGBColor
 
     for file in glob.glob(os.path.join(PathFolderSource, '*.docx')):
         if "UID" not in os.path.basename(file):
