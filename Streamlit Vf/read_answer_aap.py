@@ -478,7 +478,12 @@ def Write_Answers_in_docx(List_UIDQuestionsSizeAnswer, PathFolderSource, PathFor
                 documentQA.add_paragraph('\n' + value["response"] + '\n')
 
             qa_filename = f'{NameOfDocument.replace("-with UID", "")}_Q-A_{timestamp}.docx'
-            documentQA.save(os.path.join(PathForOutputsAndLogs, qa_filename))
+            path_output_doc = os.path.join(PathForOutputsAndLogs, output_filename)
+            path_qa_doc = os.path.join(PathForOutputsAndLogs, qa_filename)
+
+            documentQA.save(path_qa_doc)
+
+            return path_output_doc, path_qa_doc
 
         except Exception as e:
             print(f"[ERREUR] Problème avec le fichier {file} : {e}")
