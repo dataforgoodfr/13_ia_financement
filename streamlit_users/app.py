@@ -452,9 +452,10 @@ def main():
                 TagQEnd = "</>"
 
                 #with tempfile.TemporaryDirectory(dir="temp") as tmpdirname:
+                input_aap = "AAP"                
                 output_aap = "output_aap"
                 safe_name = os.path.basename(uploaded_aap.name)  # Nettoyer le nom du fichier
-                file_path = os.path.join(output_aap, safe_name)
+                file_path = os.path.join(input_aap, safe_name)
 
                 os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
@@ -466,8 +467,8 @@ def main():
 
                 with st.spinner("🔍 Extraction des questions en cours..."):
                     extracted_questions = Read_Questions_in_docx(
-                        # PathFolderSource= "AAP/",
-                        PathFolderSource=output_aap + "/",
+                        PathFolderSource= "AAP/",
+                        # PathFolderSource=output_aap + "/",
                         PathForOutputsAndLogs="LOG/",
                         list_of_SizeWords_OK=list_of_SizeWords_OK,
                         list_of_SizeWords_KO=list_of_SizeWords_KO,
@@ -575,31 +576,31 @@ def main():
 
             # ✅ Remplir AAP: Une seule écriture à la fin
             if (btn_process_aap and all_responses_to_write):
-                # output_file_path, qa_file_path = Write_Answers_in_docx(
-                #     PathFolderSource="LOG",
-                #     PathForOutputsAndLogs=output_aap,
-                #     List_UIDQuestionsSizeAnswer=all_responses_to_write
-                # )
+                output_file_path, qa_file_path = Write_Answers_in_docx(
+                    PathFolderSource="LOG",
+                    PathForOutputsAndLogs=output_aap,
+                    List_UIDQuestionsSizeAnswer=all_responses_to_write
+                )
 
-                # st.success("📄 Les réponses ont été écrites dans les documents.")
+                st.success("📄 Les réponses ont été écrites dans les documents.")
 
                 # Bouton pour télécharger le fichier Word avec réponses
-                # with open(output_file_path, "rb") as file:
-                #     st.download_button(
-                #         label="⬇️ Télécharger le document avec réponses",
-                #         data=file,
-                #         file_name=output_file_path.split("/")[-1],
-                #         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                #     )
+                with open(output_file_path, "rb") as file:
+                    st.download_button(
+                        label="⬇️ Télécharger le document avec réponses",
+                         data=file,
+                         file_name=output_file_path.split("/")[-1],
+                         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                     )
 
                 # # Bouton pour télécharger le fichier Q&A
-                # with open(qa_file_path, "rb") as file:
-                #     st.download_button(
-                #         label="⬇️ Télécharger le fichier Q&A",
-                #         data=file,
-                #         file_name=qa_file_path.split("/")[-1],
-                #         mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                #     )
+                with open(qa_file_path, "rb") as file:
+                    st.download_button(
+                        label="⬇️ Télécharger le fichier Q&A",
+                        data=file,
+                        file_name=qa_file_path.split("/")[-1],
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    )
 
 
 
