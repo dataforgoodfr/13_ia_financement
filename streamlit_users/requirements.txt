@@ -36,6 +36,8 @@ faiss-cpu
 sentence-transformers # pour reranker
 pypdf==5.4.0
 docx
+unstructured
+unstructured[docx]
 langchain
 langchain-openai
 langchain-unstructured
