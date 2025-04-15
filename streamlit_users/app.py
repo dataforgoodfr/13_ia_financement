@@ -213,6 +213,7 @@ def main():
                 
                 for message in process_new_doc(uploaded_doc, doc_named_user, doc_category):
                     st.markdown(message, unsafe_allow_html=True)
+            st.success("✅ Création terminée")
 
         #===============================================
         
@@ -226,6 +227,8 @@ def main():
             with st.spinner("Wait for it...", show_time=True):
                 for message in process_existing_doc(hash, selected_doc_name, doc_category):
                     st.markdown(message, unsafe_allow_html=True)
+            
+            st.success("✅ Chargement terminée")
         #===============================================
 
 
