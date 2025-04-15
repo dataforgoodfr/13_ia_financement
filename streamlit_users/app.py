@@ -54,6 +54,8 @@ torch._classes._Classes.__getattr__ = patched_getattr
 
 
 
+# Get the directory of the current script (e.g., app.py)
+SCRIPT_DIR = Path(__file__).parent.resolve()
 
 
 
@@ -99,8 +101,6 @@ def stream_hybridRAG_response(stream_resp, response_container):
 def load_pp_traces(doc_category: str):
     st.markdown(f"### Documents {doc_category.upper()} chargés:", unsafe_allow_html=True)
 
-    # Get the directory of the current script (e.g., app.py)
-    SCRIPT_DIR = Path(__file__).parent.resolve()
 
     # charger les hashes
     files_paths=[SCRIPT_DIR/ "hybridrag_hashes.json", SCRIPT_DIR/"graphrag_hashes.json"]
@@ -351,8 +351,16 @@ def main():
     
     
     with st.sidebar:
-        st.image("SOS.png")
-        st.image("D4G.png")
+        try:
+            img_1=SCRIPT_DIR/ "SOS.png"
+            img_2=SCRIPT_DIR/ "D4G.png"
+            st.image(img_1)
+            st.image(img_2)
+        except Exception as e:
+            st.write(e)
+            st.write(img_1)
+            st.write(img_2)
+
         st.write("### Projet DataForGood")
         
 
@@ -433,11 +441,7 @@ def main():
         elif btn_process_aap and uploaded_aap is not None:
             st.session_state["trigger_aap"] = False  # reset
 
-            if uploaded_aap.name.endswith(".json"):
-                raw_values = uploaded_aap.getvalue()
-                queries = json.loads(raw_values)
-
-            elif uploaded_aap.name.endswith(".docx"):
+            if uploaded_aap.name.endswith(".docx"):
                 st.info("📄 Traitement automatique du fichier AAP...")
 
                 list_of_SizeWords_OK = [
@@ -451,12 +455,27 @@ def main():
                 TagQStart = "<>"
                 TagQEnd = "</>"
 
-                #with tempfile.TemporaryDirectory(dir="temp") as tmpdirname:
-                output_aap = "output_aap"
-                safe_name = os.path.basename(uploaded_aap.name)  # Nettoyer le nom du fichier
-                file_path = os.path.join(output_aap, safe_name)
+                #========= modif chemins pour déploiement streamlit cloud
+                # output_aap = "output_aap"
+                # safe_name = os.path.basename(uploaded_aap.name)  # Nettoyer le nom du fichier
+                # file_path = os.path.join(output_aap, safe_name)
+                # os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-                os.makedirs(os.path.dirname(file_path), exist_ok=True)
+                # Construction du chemin absolu pour output_aap
+                output_aap = SCRIPT_DIR / "output_aap/"
+
+                # Nettoyage du nom de fichier
+                safe_name = Path(uploaded_aap.name).name  # Exemple : "PU_P01_AAP01 - sample.docx"
+
+                # Construction du chemin complet avec chemin absolu
+                file_path = output_aap / safe_name
+
+                # Création du dossier parent si nécessaire
+                file_path.parent.mkdir(parents=True, exist_ok=True)
+
+                print(f"Chemin absolu : {file_path}")
+
+                #==========================                
 
                 with open(file_path, "wb") as f:
                     f.write(uploaded_aap.getbuffer())
@@ -467,7 +486,7 @@ def main():
                 with st.spinner("🔍 Extraction des questions en cours..."):
                     extracted_questions = Read_Questions_in_docx(
                         # PathFolderSource= "AAP/",
-                        PathFolderSource=output_aap + "/",
+                        PathFolderSource=output_aap,# + "/",
                         PathForOutputsAndLogs="LOG/",
                         list_of_SizeWords_OK=list_of_SizeWords_OK,
                         list_of_SizeWords_KO=list_of_SizeWords_KO,

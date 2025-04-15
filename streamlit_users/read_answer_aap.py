@@ -24,7 +24,10 @@ import logging
 import uuid 
 import glob 
 import os
+from pathlib import Path
 
+# Get the directory of the current script (e.g., app.py)
+SCRIPT_DIR = Path(__file__).parent.resolve()
 
 
 # Fonction pour scanner les paragraphes et les tables 
@@ -257,7 +260,10 @@ def Delete_Text_Cell (tableCell, Text_to_delete):
                 MyRun.font.color.rgb = MyFontColor
 
 # Fonction pour lire les questions et la taille des réponses souhaitée
-def Read_Questions_in_docx ( PathFolderSource, PathForOutputsAndLogs, list_of_SizeWords_OK, list_of_SizeWords_KO, TagQStart = "<>", TagQEnd = "</>" ):
+def Read_Questions_in_docx ( 
+        PathFolderSource, PathForOutputsAndLogs, list_of_SizeWords_OK, 
+        list_of_SizeWords_KO, TagQStart = "<>", TagQEnd = "</>" 
+    ):
     """
     Args:
         PathFolderSource: Path to the folder containing the files to be read
@@ -276,10 +282,22 @@ def Read_Questions_in_docx ( PathFolderSource, PathForOutputsAndLogs, list_of_Si
     Go_DictionUID = False 
     Text_Question = ''
 
-    for file in glob.glob(PathFolderSource +'*.*'):
-        FilesWithPath.append(file)
+    # =========== modifs pour déploiement streamlit
+    # Conservation de votre variable originale
+    PathFolderSource = SCRIPT_DIR / 'output_aap'
+
+    PathForOutputsAndLogs = SCRIPT_DIR / PathForOutputsAndLogs  # Converti en objet Path
+
+    # Récupération des fichiers avec chemins absolus
+    FilesWithPath = [file.resolve() for file in PathFolderSource.glob('*.*')]
+
+    # Affichage des résultats (pour vérification)
+    print(FilesWithPath)
+
+    #===============================================
 
     for file in FilesWithPath:
+        file="/".join(file.parts).replace("//", "/")
         TheExtension = file [-4:]
         if TheExtension != "docx":
             EverythingOK = False
@@ -427,16 +445,35 @@ def Read_Questions_in_docx ( PathFolderSource, PathForOutputsAndLogs, list_of_Si
                                     ListDict.append ( new_dict ) 
                                     DictQuestions.clear() 
             print(ListDict)
-            docWork.save(os.path.join(PathForOutputsAndLogs, NameOfWorkDocument + '-with UID.docx'))
+            
+
+            # =============== modifs pour streamlit
+            # docWork.save(os.path.join(PathForOutputsAndLogs, NameOfWorkDocument + '-with UID.docx'))
+            output_path = PathForOutputsAndLogs / f"{NameOfWorkDocument}-with UID.docx"
+
+            # Sauvegarde du document
+            docWork.save(output_path)
+            
 
             # === Effacement des fichiers sources
-            try: 
-                for file in glob.glob(PathFolderSource +'*.*'):
-                    os.remove(file)
-            except FileNotFoundError: 
-                MessageError = str(datetime.now()) + ' Error encountered when deleting source docx file at the end of read_AAP function, please check' 
-                logging.error(MessageError)
-                print(MessageError)
+            # try: 
+            #     for file in glob.glob(PathFolderSource +'*.*'):
+            #         os.remove(file)
+            # except FileNotFoundError: 
+            #     MessageError = str(datetime.now()) + ' Error encountered when deleting source docx file at the end of read_AAP function, please check' 
+            #     logging.error(MessageError)
+            #     print(MessageError)
+
+
+            # Suppression des fichiers avec PathFolderSource existant
+            for file_path in PathFolderSource.glob('*.*'):
+                try:
+                    file_path.unlink()  # Méthode pathlib pour supprimer
+                    print(f"Supprimé : {file_path}")
+                except Exception as e:
+                    print(f"Erreur lors de la suppression de {file_path} : {e}")
+
+            #====================== fin modifs streamlit
 
         else:
             MessageError = str(datetime.now()) + ' Error encountered when reading Word docx file , please check type .docx and name of the file with no UID)' 

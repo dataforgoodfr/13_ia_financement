@@ -45,7 +45,7 @@ def check_doc_processed(text):
 
     # load existing hashes
     file_path="graphrag_hashes.json"
-    
+    file_path=SCRIPT_DIR/file_path
     def load_hashes(file_path=file_path):
         if os.path.exists(file_path):
             with open(file_path, 'r') as f:
@@ -84,6 +84,7 @@ def create_graphdb(pages: list, doc_name: str, doc_title: str, doc_category: str
     def save_hash_info(hash_text, doc_name, doc_title, doc_category, text):
         import datetime
         file_path="graphrag_hashes.json"
+        file_path=SCRIPT_DIR/file_path
         exising_hashes={}
         if os.path.exists(file_path):
             with open(file_path, 'r') as f:
@@ -152,13 +153,15 @@ def create_graphdb(pages: list, doc_name: str, doc_title: str, doc_category: str
             save_hash_info(hash_text, doc_name, doc_title, doc_category, text_to_insert)
 
             yield f"Création du visuel du graphe de connaissances"
-            build_knowledge_graph_vis(hash_text)
+            build_knowledge_graph_vis(hash_text, WORKING_DIR)
 
             graphrag_pipeline_args[f"rag_{doc_category}"]=rag
             
             yield {"pipeline_args": graphrag_pipeline_args[f"rag_{doc_category}"]}
 
 def load_existing_graphdb(hash, doc_category):
+
+
     # check existence du dossier corresondant au hash        
     if os.path.exists(f"{WORKING_DIR}/{hash}")==False:
         yield "Aucune base graph trouvée"
@@ -180,10 +183,12 @@ def load_existing_graphdb(hash, doc_category):
     yield {"pipeline_args": graphrag_pipeline_args[f"rag_{doc_category}"]}
 
 
-def build_knowledge_graph_vis(hash):
+def build_knowledge_graph_vis(hash, WORKING_DIR):
     
     # Load the GraphML file
     graphStore_path=WORKING_DIR/ f'{hash}/graph_chunk_entity_relation.graphml'
+    graphStore_path="/".join(graphStore_path.parts).replace("//", "/")
+
     G = nx.read_graphml(graphStore_path)
     # Create a Pyvis network
     net = Network(notebook=True, height='1080px', width='100%', bgcolor='white', font_color='black', cdn_resources='in_line')
@@ -257,7 +262,9 @@ def build_knowledge_graph_vis(hash):
 
     # Save and display the network    
     graphVis_path=WORKING_DIR/ f'{hash}/knowledge_graph.html'
-    net.save_graph(graphVis_path)    
+    graphVis_path="/".join(graphVis_path.parts).replace("//", "/")
+    
+    net.save_graph(graphVis_path)
 
 
 def load_knowledgeGraph_vis():

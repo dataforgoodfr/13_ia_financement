@@ -1,9 +1,13 @@
 import streamlit as st
 import os
+from pathlib import Path
+
+# Get the directory of the current script (e.g., app.py)
+SCRIPT_DIR = Path(__file__).parent.resolve()
 
 def run():
    
-    image_path = "D4G.jpeg"
+    image_path = SCRIPT_DIR/"D4G.jpeg"
     if os.path.exists(image_path):
         st.image(image_path)
     else:
