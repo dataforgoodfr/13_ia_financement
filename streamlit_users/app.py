@@ -99,7 +99,7 @@ def stream_hybridRAG_response(stream_resp, response_container):
 
 # chargement du log des documents dispo en DB
 def load_pp_traces(doc_category: str):
-    st.markdown(f"### Documents {doc_category.upper()} chargés:", unsafe_allow_html=True)
+    st.markdown(f"### Documents {doc_category.upper()} disponibles:", unsafe_allow_html=True)
 
 
     # charger les hashes
@@ -163,11 +163,17 @@ def main():
 
 
 
+        #========zone document en cours d'usage
+        zone_notif_doc_charge=st.empty()
+        if f"current_{doc_category}_in_use" in st.session_state:
+            zone_notif_doc_charge.success(f"""Document chargé: {st.session_state[f"current_{doc_category}_in_use"]}""")
+        else:
+            zone_notif_doc_charge.warning(f"Veuillez charger un document {doc_category.upper()}")
 
-        #======== UI Charger un nouveau doc
-
+        #======== UI Charger un nouveau doc    
         # UI définitive        
-        uploaded_doc= st.file_uploader(label=f"Charger un document {doc_category.upper()}", type=["pdf","docx"], accept_multiple_files=True, key="uploader_doc")
+        st.write(f'### Charger un nouveau document {doc_category.upper()}')
+        uploaded_doc= st.file_uploader(label=f"Zone de chargement {doc_category.upper()}", type=["pdf","docx"], accept_multiple_files=True, key="uploader_doc")
         st.session_state[f"uploaded_{doc_category}"]=uploaded_doc
 
         session_state=st.session_state
@@ -190,7 +196,7 @@ def main():
 
 
         #========UI Utiliser un doc existant
-        st.write(f'### Utiliser un document {doc_category.upper()} existant')
+        st.write(f'### Utiliser un document {doc_category.upper()} disponible')
         col4_existing_doc, col5_existing_doc = st.columns(2, vertical_alignment="bottom", )
         with col4_existing_doc:
             list_doc_names=[]
@@ -198,6 +204,11 @@ def main():
                 list_doc_names=df_existing_docs[f"Nom du doc"].unique()
             
             selected_doc_name= st.selectbox(label=f"Choisir un document {doc_category}", options=list_doc_names)
+
+            # col1_load_doc,col2_load_doc=st.columns(2, gap="small")
+            # with col2_load_doc:
+            btn_load_existing_doc=st.button(label="Charger", key='load_existing_doc')
+                
         # with col5_existing_doc:
         #     btn_existing_doc= st.button(f"Charger", key=f"btn_process_{doc_category}")
         #================================================
@@ -205,7 +216,7 @@ def main():
 
 
 
-        #========Interactions nouveau PP
+        #========Interactions nouveau doc
         # définitif
         if uploaded_doc is not None and doc_named_user!="" and btn_new_doc:
             st.session_state[f"uploaded_{doc_category}"]=uploaded_doc
@@ -213,14 +224,18 @@ def main():
                 
                 for message in process_new_doc(uploaded_doc, doc_named_user, doc_category):
                     st.markdown(message, unsafe_allow_html=True)
-            st.success("✅ Création terminée")
+
+            st.session_state[f"current_{doc_category}_in_use"]=doc_named_user
+            st.success(f"✅ Traitement de {doc_named_user} terminé")
+            with zone_notif_doc_charge:
+                st.success(f"""Document chargé: {st.session_state[f"current_{doc_category}_in_use"]}""")
 
         #===============================================
         
         
         #========Interactions PP existant
         
-        elif selected_doc_name:
+        elif btn_load_existing_doc and selected_doc_name:
             hash=df_existing_docs[df_existing_docs[f"Nom du doc"]==selected_doc_name].index.values[0]
             st.session_state["selected_pp_name"]=selected_doc_name
             
@@ -228,8 +243,12 @@ def main():
                 for message in process_existing_doc(hash, selected_doc_name, doc_category):
                     st.markdown(message, unsafe_allow_html=True)
             
-            st.success("✅ Chargement terminée")
-            
+            st.session_state[f"current_{doc_category}_in_use"]=selected_doc_name
+            st.success(f"✅ Chargement de {selected_doc_name} terminé")
+            with zone_notif_doc_charge:
+                st.success(f"""Document chargé: {st.session_state[f"current_{doc_category}_in_use"]}""")
+
+
         #===============================================
 
 
