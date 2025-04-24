@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d5" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d4" for="edge" attr.name="description" attr.type="string"/>
+<key id="d3" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d2" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d1" for="node" attr.name="description" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_type" attr.type="string"/>
+<graph edgedefault="directed"><node id="&quot;TENGIRI VI STREET NO.10&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Tengiri VI Street No.10 is the address of Pokja Pesisir, indicating their operational base in Balikpapan."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;BALIKPAPAN CITY&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Balikpapan City is a city in East Kalimantan Province, Indonesia, associated with coastal and marine ecosystem conservation efforts."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;INVESTMENT AGENCY&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"The District Pastor's Investment Agency is a local government body that oversees investment activities and reports on the local population in Adang Bay."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;YML&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"YML is an organization focused on restoring mangrove ecosystems and promoting sustainable aquaculture, benefiting local communities in the Mahakam Delta area."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;RED+ APPROACH&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"The REDD+ Approach (Reducing Emissions from Deforestation and Forest Degradation) refers to environmental strategies aimed at conserving forests while recognizing the rights of local communities."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;COASTAL GOVERNANCE&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Coastal governance refers to the policies and practices aimed at managing coastal resources sustainably, relevant to the strategies employed in East Kalimantan."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;HAMSURI&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Hamsuri serves as the Board of Trustee for Planète Urgence, overseeing projects and initiatives aimed at environmental conservation and community support."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;PLANÈTE URGENCE&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"Planète Urgence is an organization involved in conservation efforts, particularly focused on restoring and managing mangrove ecosystems in East Kalimantan Province, Indonesia."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;2009 – 2010 MANGROVE AND COASTAL AREA CONSERVATION&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"This event marks the period when Pokja Pesisir, supported by UNDP, engaged in conservation efforts in Teritip, Balikpapan."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;TFCA&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"TFCA refers to the Tropical Forest Conservation Act, which supports conservation initiatives, including proposals for conservation areas in coastal regions like Balikpapan Bay."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;1,506 PEOPLE&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"1,506 people represent the estimated population living in Adang Bay, primarily engaged in fishing and farming activities."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;MAHAKAM DELTA&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"The Mahakam Delta is a geographical area located on the eastern coast of Borneo, Indonesia, known for its rich biodiversity and significant aquaculture activities."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;FISHERMEN&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Fishermen in Adang Bay are members of the local community who primarily engage in fishing as their main source of livelihood."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;SAMARINDA&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Samarinda is a city in East Kalimantan, serving as the base for Yayasan Mangrove Lestari and involved in local conservation efforts."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;JAKARTA&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Jakarta is the capital city of Indonesia, from which significant governmental decisions, such as the capital relocation to East Kalimantan, are made."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;FOREST PROGRAMME&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"The FOREST Programme is a project initiated by Planète Urgence aimed at restoring degraded mangrove forests in East Kalimantan, contributing to climate change mitigation and the conservation of endangered species."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;2009 – 2016 COMMUNITY ORGANIZING&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"This event refers to Pokja Pesisir's efforts in organizing communities in Balikpapan’s coastal area for improved livelihoods and environmental practices."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;MANGROVE AND MARINE PROTECTION AREA&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Mangrove and Marine Protection Area is a program initiated by Pokja Pesisir focused on conserving mangrove ecosystems in Teritip Village, Balikpapan."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;COMMUNITY&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"The community in Adang Bay comprises local residents involved in various economic activities, particularly dependent on natural resources."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;UNDP&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"The United Nations Development Programme (UNDP) is an organization that supports various initiatives, including mangrove and marine protection in collaboration with local groups in Indonesia."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;FISH FARMERS&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Fish Farmers in Adang Bay are individuals involved in aquaculture, contributing to the local economy despite environmental impacts."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;MUARA BADAK&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Muara Badak is a location in Delta Mahakam where YML has a field secretariat aiding fish and shrimp farmers in sustainable aquaculture practices."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;BALIKPAPAN&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Balikpapan is a city in East Kalimantan, close to the new capital city area being developed, and it plays a role in the state's capital transition."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;DELTA MAHAKAM&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Delta Mahakam is a coastal area in East Kalimantan that is a vital mangrove habitat, but has been heavily impacted by land conversion for aquaculture, leading to ecological degradation."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;2016 – NOW MONITORING AND CAMPAIGN ON THE PROTECTION OF BALIKPAPAN BAY&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"This ongoing event involves monitoring and campaigning for the conservation of ecologically important areas in Balikpapan Bay."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;EAST KALIMANTAN PROVINCE&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"East Kalimantan Province is a region in Indonesia that is undergoing significant development changes with the construction of a new state capital near Balikpapan, impacting local ecosystems and communities."&lt;SEP&gt;"East Kalimantan Province is one of Indonesia's provinces, notable for its wealth in natural resources and its shifting economic activities towards sustainable practices like aquaculture."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431&lt;SEP&gt;chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;AQUACULTURE PONDS&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Aquaculture Ponds are constructed areas in Adang Bay for farming fish, which have contributed to the environmental degradation of mangrove forests."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;POKJA PESISIR&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"Pokja Pesisir, also known as the Coastal Area Working Group, is a non-profit organization formed by environmental activists to preserve coastal and marine ecosystems in Balikpapan City, East Kalimantan Province."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;SWALLOWERS&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Swallowers refer to local individuals in Adang Bay who likely harvest bird's nests, another source of livelihood in the area."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;PASER DISTRICT&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Paser District is a region located on the east coast of East Kalimantan Province, Indonesia, known for its coastal and conservation areas."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;PENAJAM PASER UTARA&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Penajam Paser Utara is a regency in East Kalimantan, noted as part of the planned site for Indonesia's new capital city development."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;YAYASAN MANGROVE LESTARI (YML)&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"Yayasan Mangrove Lestari is a local non-governmental organization focused on mangrove conservation and sustainable development practices in the Mahakam Delta, founded in 2012."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;STRENGTHENING OF CSO NETWORK ON MANGROVE CONSERVATION IN INDONESIA&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"This event includes the program implemented by Pokja Pesisir to strengthen networks focused on mangrove conservation in Indonesia."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;COASTAL AND FISHERMAN WORKING GROUP&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"The Coastal and Fisherman Working Group, initially formed in 2009, aims to advocate for the welfare of fishermen and improve coastal governance."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;KALIMANTAN PROVINCE&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Kalimantan Province is a province in Indonesia, known for its diverse ecosystems and coastal areas, including Paser District."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;MINISTRY OF FORESTRY&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"The Ministry of Forestry is a governmental body in Indonesia responsible for managing conservation areas, including those in Adang Bay."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;NASAL MONKEY&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"The Nasal Monkey, also known as the proboscis monkey, is an endemic and critically endangered species found in the mangrove habitats of Borneo."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;RÉONALDUS&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Réonaldus is the Indonesia National Delegate for YML, involved in efforts to promote mangrove restoration and sustainable development in East Kalimantan."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;CONSERVATION AREA PROPOSALS&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"This event refers to Pokja Pesisir's proposal to establish a conservation area in coastal regions of Balikpapan Bay, supported by TFCA."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;KECAMATAN BALIKPAPAN TIMUR&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Kecamatan Balikpapan Timur is an administrative district in Balikpapan City, East Kalimantan, relevant for its local governance and community activities."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;WORLD BANK'S FCPF&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"The World Bank's Forest Carbon Partnership Facility (FCPF) is a global initiative that funds projects focused on conserving forests and reducing emissions through sustainable practices."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;MANGROVE FOREST&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Mangrove Forest refers to the coastal ecosystem that has been impacted by the construction of aquaculture ponds in the Adang Bay area."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</node>
+<node id="&quot;ADANG BAY&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Adang Bay is a coastal area within Paser District, East Kalimantan, characterized by conservation efforts and aquaculture activities."&lt;SEP&gt;"Adang Bay is a coastal village in East Kalimantan Province that faces environmental challenges due to land conversion for aquaculture and abrasion issues, significant as part of conservation efforts."&lt;SEP&gt;"Adang Bay is a coastal village in the Paser District, situated within a conservation area managed by the Ministry of Forestry."</data>
+  <data key="d2">chunk-fb92c20601cdbce69a90f1b34baabbd4&lt;SEP&gt;chunk-e842e943eff17662a0ba25986e755431&lt;SEP&gt;chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<node id="&quot;MANGROVE ECOSYSTEM&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"The mangrove ecosystem is a crucial environmental system providing habitat for various species, playing a significant role in carbon sequestration and coastal protection."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;ACHMAD NURIYAWAN&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Achmad Nuriyawan is the Director of POKJA and contributes to environmental initiatives and policies supporting the mangrove ecosystem in East Kalimantan."</data>
+  <data key="d2">chunk-e842e943eff17662a0ba25986e755431</data>
+</node>
+<node id="&quot;KPHP&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"KPHP stands for Kesatuan Pengelolaan Hutan Produksi, the Ministry of Forestry's management unit, responsible for overseeing forest conservation efforts in Indonesia."</data>
+  <data key="d2">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</node>
+<edge source="&quot;INVESTMENT AGENCY&quot;" target="&quot;ADANG BAY&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"The District Pastor's Investment Agency reports on the economic status and population data relevant to Adang Bay."</data>
+  <data key="d5">"economic oversight, reporting"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;INVESTMENT AGENCY&quot;" target="&quot;WORLD BANK'S FCPF&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"The Investment Agency works in conjunction with the World Bank's FCPF to promote sustainable practices in the area, emphasizing partnership in development."</data>
+  <data key="d5">"sustainable development, partnership"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;YML&quot;" target="&quot;POKJA PESISIR&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Both YML and Pokja Pesisir are organizations focused on environmental conservation and sustainable practices in East Kalimantan, working to benefit local communities."</data>
+  <data key="d5">"collaboration, environmental focus"</data>
+  <data key="d6">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</edge>
+<edge source="&quot;PLANÈTE URGENCE&quot;" target="&quot;FOREST PROGRAMME&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"Planète Urgence facilitates the FOREST Programme which is aimed at restoring mangrove ecosystems in East Kalimantan, highlighting their environmental mission."</data>
+  <data key="d5">"environmental conservation, project implementation"</data>
+  <data key="d6">chunk-e842e943eff17662a0ba25986e755431</data>
+</edge>
+<edge source="&quot;TFCA&quot;" target="&quot;POKJA PESISIR&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"TFCA supports Pokja Pesisir in their proposals for conservation areas to protect local ecosystems in Balikpapan Bay."</data>
+  <data key="d5">"support, funding"</data>
+  <data key="d6">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</edge>
+<edge source="&quot;MAHAKAM DELTA&quot;" target="&quot;ADANG BAY&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"Mahakam Delta includes Adang Bay, where significant aquaculture activities and conservation efforts are taking place."</data>
+  <data key="d5">"aquaculture, conservation"</data>
+  <data key="d6">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</edge>
+<edge source="&quot;FISHERMEN&quot;" target="&quot;ADANG BAY&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"Fishermen are essential members of the Adang Bay community, relying on local marine resources for their livelihood."</data>
+  <data key="d5">"livelihood, community"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;COMMUNITY&quot;" target="&quot;FISHERMEN&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"The community includes fishermen who rely on natural resources for their livelihoods, establishing their interconnectedness."</data>
+  <data key="d5">"community dynamics, livelihoods"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;COMMUNITY&quot;" target="&quot;FISH FARMERS&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"The community also consists of fish farmers who contribute to the local economy through aquaculture, highlighting their role in resource management."</data>
+  <data key="d5">"economic contribution, resource management"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;COMMUNITY&quot;" target="&quot;SWALLOWERS&quot;">
+  <data key="d3">6.0</data>
+  <data key="d4">"The community encompasses swallowers who participate in local economic activities based on natural resource harvesting."</data>
+  <data key="d5">"economic participation, community roles"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;UNDP&quot;" target="&quot;POKJA PESISIR&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"UNDP collaborates with Pokja Pesisir in implementing conservation initiatives like the Mangrove and Marine Protection Area."</data>
+  <data key="d5">"collaboration, support"</data>
+  <data key="d6">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</edge>
+<edge source="&quot;FISH FARMERS&quot;" target="&quot;ADANG BAY&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"Fish Farmers contribute to the economic activities of Adang Bay, balancing local food production with environmental concerns."</data>
+  <data key="d5">"economic activity, community"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;DELTA MAHAKAM&quot;" target="&quot;YAYASAN MANGROVE LESTARI (YML)&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"YML's initiatives focus on the conservation of the mangrove ecosystems in Delta Mahakam, underscoring their local engagement."</data>
+  <data key="d5">"local conservation, ecological focus"</data>
+  <data key="d6">chunk-e842e943eff17662a0ba25986e755431</data>
+</edge>
+<edge source="&quot;EAST KALIMANTAN PROVINCE&quot;" target="&quot;FOREST PROGRAMME&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"The FOREST Programme operates within East Kalimantan Province, focusing on ecological restoration efforts relevant to the region's development challenges."</data>
+  <data key="d5">"regional impact, ecological restoration"</data>
+  <data key="d6">chunk-e842e943eff17662a0ba25986e755431</data>
+</edge>
+<edge source="&quot;AQUACULTURE PONDS&quot;" target="&quot;MANGROVE FOREST&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"The construction of aquaculture ponds has led to the destruction of the mangrove forest in the area, indicating an environmental impact relationship."</data>
+  <data key="d5">"environmental impact, degradation"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;POKJA PESISIR&quot;" target="&quot;MAHAKAM DELTA&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"Pokja Pesisir is actively involved in conservation efforts within the Mahakam Delta region, working to preserve its biodiversity and promote sustainable practices."</data>
+  <data key="d5">"conservation, regional focus"</data>
+  <data key="d6">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</edge>
+<edge source="&quot;POKJA PESISIR&quot;" target="&quot;BALIKPAPAN CITY&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Pokja Pesisir operates in Balikpapan City, advocating for coastal and marine ecosystem preservation."</data>
+  <data key="d5">"local impact, advocacy"</data>
+  <data key="d6">chunk-b1e9aa0db407756f5dcf7582717458d1</data>
+</edge>
+<edge source="&quot;SWALLOWERS&quot;" target="&quot;ADANG BAY&quot;">
+  <data key="d3">6.0</data>
+  <data key="d4">"Swallowers are part of Adang Bay’s economy, indicating their involvement in local resource utilization."</data>
+  <data key="d5">"resource utilization, local economy"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;PASER DISTRICT&quot;" target="&quot;ADANG BAY&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Adang Bay is a village located within the Paser District, signifying their geographical relationship."</data>
+  <data key="d5">"geographical relationship"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;YAYASAN MANGROVE LESTARI (YML)&quot;" target="&quot;PLANÈTE URGENCE&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"YML has collaborated with Planète Urgence on mangrove restoration activities, showcasing partnerships in conservation work."</data>
+  <data key="d5">"collaboration, partnership"</data>
+  <data key="d6">chunk-e842e943eff17662a0ba25986e755431</data>
+</edge>
+<edge source="&quot;RÉONALDUS&quot;" target="&quot;YAYASAN MANGROVE LESTARI (YML)&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"Réonaldus, as a delegate, is involved in YML's conservation efforts, linking leadership to local environmental initiatives."</data>
+  <data key="d5">"leadership, environmental advocacy"</data>
+  <data key="d6">chunk-e842e943eff17662a0ba25986e755431</data>
+</edge>
+<edge source="&quot;ADANG BAY&quot;" target="&quot;KALIMANTAN PROVINCE&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Adang Bay is a part of Kalimantan Province, indicating a regional relationship."</data>
+  <data key="d5">"regional relationship"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;ADANG BAY&quot;" target="&quot;MINISTRY OF FORESTRY&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"The Ministry of Forestry manages the conservation areas in Adang Bay, indicating a governing relationship."</data>
+  <data key="d5">"management, governance"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;ADANG BAY&quot;" target="&quot;WORLD BANK'S FCPF&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"The World Bank's FCPF funds conservation efforts in Adang Bay, demonstrating a financial relationship with the community’s sustainable practices."</data>
+  <data key="d5">"funding, sustainability"</data>
+  <data key="d6">chunk-fb92c20601cdbce69a90f1b34baabbd4</data>
+</edge>
+<edge source="&quot;ADANG BAY&quot;" target="&quot;YAYASAN MANGROVE LESTARI (YML)&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"YML aims to support sustainable practices in Adang Bay to mitigate environmental degradation caused by aquaculture."</data>
+  <data key="d5">"sustainable development, environmental mitigation"</data>
+  <data key="d6">chunk-e842e943eff17662a0ba25986e755431</data>
+</edge>
+<edge source="&quot;ACHMAD NURIYAWAN&quot;" target="&quot;YAYASAN MANGROVE LESTARI (YML)&quot;">
+  <data key="d3">7.0</data>
+  <data key="d4">"As the Director of POKJA, Achmad Nuriyawan collaborates with YML on conservation policies and initiatives in East Kalimantan."</data>
+  <data key="d5">"policy collaboration, environmental governance"</data>
+  <data key="d6">chunk-e842e943eff17662a0ba25986e755431</data>
+</edge>
+</graph></graphml>
