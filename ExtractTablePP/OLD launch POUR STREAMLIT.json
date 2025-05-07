@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Streamlit",
+            "type": "python",
+            "request": "launch",
+            "module": "streamlit",
+            "args": [
+                "run",
+                "${file}",  // Utilise le fichier actuellement ouvert dans VSCode
+                "--server.headless",
+                "true"
+            ],
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${fileDirname}"  // Utilise le répertoire du fichier actuellement ouvert
+        }
+    ]
+}
