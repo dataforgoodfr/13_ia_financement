@@ -5,6 +5,13 @@ from pdf2image import convert_from_path
 from openai import OpenAI
 from datetime import datetime
 import dotenv
+from PyPDF2 import PdfReader
+from docxtopdf import convert
+import traceback
+import sys
+
+ex="```json\n[\n    {\n        \"question\": \"Q2.1 Project title (Max 10 words)\",\n        \"section\": \"project\"\n    },\n    {\n        \"question\": \"Q2.2 Project summary NOTE: this summary may be published on the OCEAN website and used to promote your project if successful. (Max 150 words)\",\n        \"section\": \"project\"\n    },\n    {\n        \"question\": \"Q2.3 Blue Planet Fund outcomes Which Blue Planet Fund outcome(s) does your project address? Select all that apply. □ Marine Protected Areas (MPAs) and Other Effective Conservation Measures (OECMs) □ Illegal, Unreported, and Unregulated Fishing (IUU) □ International and large-scale fisheries □ Solid waste and other forms of marine pollution □ Critical marine habitats for coastal resilience □ Small-scale fisheries management □ Aquaculture □ None of the above. If so, please tell us how you address protecting the marine environment.\",\n        \"section\": \"project\"\n    },\n    {\n        \"question\": \"Q2.4 Marine ecosystems Does your project have a direct focus on any of the following marine ecosystem(s)? Select all that apply. □ Coral reefs □ Intertidal forests and shrublands (e.g., mangroves) □ Seagrass meadows □ Kelp forests □ Shellfish beds & reefs □ Coastal inlets, riverine estuaries and bays, coastal lakes and lagoons □ Coastal salt marsh or reedbed □ Ocean waters □ Deep sea floors □ Anthropogenic marine biome (artificial structures, marine aquafarms) □ Shorelines (rocky, muddy, sandy, boulder & cobble) □ Coastal Shrublands and Grasslands □ No direct focus on specific ecosystem(s)\",\n        \"section\": \"project\"\n    },\n    {\n        \"question\": \"Q2.5 Project region What region will your project work in? Select all that apply.\",\n        \"section\": \"project\"\n    }\n]\n```"
+
 
 dotenv.load_dotenv("./streamlit_local/.env")
 
@@ -12,6 +19,7 @@ class PDFDescriber:
     def __init__(self):
         self.client = OpenAI()
         self.history = []
+        self.questions=[]
         self.system_prompt="""
             I have a collection of form images that include questions in different configurations. The forms may include:
 
@@ -70,6 +78,14 @@ class PDFDescriber:
         """
        
 
+    def docx_to_pdf(self, input_path):
+        # Conversion
+        output_path=input_path.replace(".docx", ".pdf")
+        convert(input_path, output_path)
+
+        return output_path
+
+
     def pdf_to_image(self, pdf_path, page_number, output_folder="temp"):
         """Convertit une page PDF en image"""
         if not os.path.exists(output_folder):
@@ -82,6 +98,13 @@ class PDFDescriber:
         image_path = os.path.join(output_folder, f"page_{page_number}.jpg")
         images[0].save(image_path, "JPEG")
         return image_path
+
+
+    def log_info(self, err):
+        # Log the error to a file with timestamp and image path
+        log_file = "error_log.txt"
+        with open(log_file, "a", encoding="utf-8") as log:
+            log.write(f"{datetime.now().isoformat()} | {err} |\n")        
 
     def describe_image(self, image_path, use_history=True):
         """Envoie l'image à OpenAI avec l'historique si demandé"""
@@ -97,7 +120,7 @@ class PDFDescriber:
         
         user_content = [
             {"type": "text", "text": "Extract the questions from this form"},
-            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}}
+            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{base64_image}"}},
         ]
         
         messages.append({"role": "user", "content": user_content})
@@ -111,20 +134,53 @@ class PDFDescriber:
         
         description = response.choices[0].message.content
         
+        
+        # try:
+        #     extracted_questions=json.loads(description[description.find("["): description.find("]")+1])
+        #     extraction='ok'
+        # except Exception as e:
+        #     print(e)
+        #     extracted_questions=[]
+        #     extraction='ko'
+
         # Sauvegarde dans l'historique
         self.history.append({
             "timestamp": datetime.now().isoformat(),
             "user_input": "Analyse de page de document",
             "ai_response": description,
-            "page_image": image_path
+            "page_image": image_path,
+            # "extracted_questions": extracted_questions,
+            # "extraction": extraction
         })
+
+        # check valid json
+        try:
+            description=json.loads(description)
+        except Exception as e:
+            exc_type, exc_value, exc_tb = sys.exc_info()            
+            self.log_info(f"{exc_value}\nLine: {exc_tb.tb_lineno}")
+            return []
         
+        if isinstance(description, list):
+            for el in description:
+                el["page"]=image_path[image_path.find("page"):image_path.find(".jpg")]
+
+            self.questions=self.questions+description
+        elif isinstance(description, dict):
+            description["page"]=image_path[image_path.find("page"):image_path.find(".jpg")]
+            self.questions.append(description)
+
         return description
 
     def save_history(self, file_path="history.json"):
         """Sauvegarde l'historique dans un fichier JSON"""
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(self.history, f, ensure_ascii=False, indent=2)
+
+    def save_questions(self, file_path="extracted_questions.json"):
+        """Sauvegarde l'historique dans un fichier JSON"""
+        with open(file_path, "w", encoding="utf-8") as f:
+            json.dump(self.questions, f, ensure_ascii=False, indent=2)
 
 
 def main():
@@ -133,12 +189,16 @@ def main():
     
 
     
-    pdf_path = "./data/PU_P01_AAP07.pdf"            
+    aap_path = "./data/PU_P01_AAP07.docx"            
     use_history = "o"
     
-    for page_number in range(3, 6):
+    pdf_path=describer.docx_to_pdf(aap_path)
+
+    reader = PdfReader(pdf_path)
+    num_pages = len(reader.pages)
+    for page_number in range(1, num_pages + 1):
         try:
-            print("Conversion de la page...")
+            print(f"Conversion de la page {page_number}")
             image_path = describer.pdf_to_image(pdf_path, page_number)
             
             print("Analyse en cours...")
@@ -149,12 +209,16 @@ def main():
             
             # Sauvegarde automatique de l'historique
             describer.save_history()
+            describer.save_questions()
             
         except Exception as e:
             print(f"Erreur: {str(e)}")
         finally:
             if 'image_path' in locals() and os.path.exists(image_path):
                 os.remove(image_path)
+
+    
+    os.remove(pdf_path)
        
 
 if __name__ == "__main__":
