@@ -4,9 +4,11 @@ Format d echange de dictionnaire :
 {
    'uid': 'uid',
    "question": ...
+   "size_answer": ...,
    "enhanced_question": ...,
    "question_is_open": close/open
    "question_on_asso": yes/no
+   "response": ...
  }
 """
 # Import des bibliothèques
@@ -18,6 +20,7 @@ from docx.oxml.text.paragraph import CT_P
 from docx.table import _Cell, Table
 from docx.text.paragraph import Paragraph
 from docx.shared import RGBColor
+from docx.shared import Pt
 import re
 from datetime import datetime 
 import logging
@@ -44,6 +47,7 @@ def iter_block_items(parent):
             yield Paragraph(child, parent)
         elif isinstance(child, CT_Tbl):
             yield Table(child, parent)
+    
 
 
 # Fonction pour détecter la présence d'un mot dans une liste pré-définie
@@ -79,6 +83,9 @@ def Insert_Text_Paragraph(block_item, TextStart, TextEnd):
         block_item.runs[0].text = block_item.runs[0].text.replace("", TextStart,1) 
         NbRuns = block_item.runs.__len__()
         block_item.runs[NbRuns-1].text = block_item.runs[NbRuns-1].text.replace(block_item.runs[NbRuns-1].text, block_item.runs[NbRuns-1].text + TextEnd,1)
+        block_item.runs[NbRuns-1].bold = False
+        block_item.runs[NbRuns-1].italic = False
+        block_item.runs[NbRuns-1].underline = False
 
     return
 
@@ -151,7 +158,7 @@ def Delete_Text_Paragraph (block_item, Text_to_delete):
                 MyRun.font.underline = MyFontUnderline
                 MyRun.font.color.rgb = MyFontColor
 
-
+        block_item.add_run(" ")
     return
 
 # Fonction pour insérer du texte dans un tableau 
@@ -172,7 +179,10 @@ def Insert_Text_Cell (tableCell, TextStart, TextEnd):
     else: 
         ListOfRuns[0].text = ListOfRuns[0].text.replace("", TextStart,1) 
         ListOfRuns[NbRuns-1].text = ListOfRuns[NbRuns-1].text.replace(ListOfRuns[NbRuns-1].text, ListOfRuns[NbRuns-1].text + TextEnd,1)
-
+        ListOfRuns[NbRuns-1].bold = False
+        ListOfRuns[NbRuns-1].italic = False
+        ListOfRuns[NbRuns-1].underline = False
+    return
 
 # Fonction pour supprimer du texte dans un tableau 
 def Delete_Text_Cell (tableCell, Text_to_delete):
@@ -258,11 +268,13 @@ def Delete_Text_Cell (tableCell, Text_to_delete):
                 MyRun.font.italic = MyFontItalic
                 MyRun.font.underline = MyFontUnderline
                 MyRun.font.color.rgb = MyFontColor
+    tableCell.add_run("££££")
+
+    return
+
 
 # Fonction pour lire les questions et la taille des réponses souhaitée
-def Read_Questions_in_docx ( 
-        PathFolderSource, PathForOutputsAndLogs, list_of_SizeWords_OK, 
-        list_of_SizeWords_KO, TagQStart = "<>", TagQEnd = "</>" 
+def Read_Questions_in_docx (PathFolderSource, PathForOutputsAndLogs
     ):
     """
     Args:
@@ -281,12 +293,16 @@ def Read_Questions_in_docx (
     Multi_Paragraph = False 
     Go_DictionUID = False 
     Text_Question = ''
-
-    # =========== modifs pour déploiement streamlit
-    # Conservation de votre variable originale
-    PathFolderSource = SCRIPT_DIR / 'output_aap'
-
-    PathForOutputsAndLogs = SCRIPT_DIR / PathForOutputsAndLogs  # Converti en objet Path
+    list_of_SizeWords_OK = [
+        " MAX", " MIN", " CARACT", " CHARACT", " LIGNE", " LINE", " SIGN", " PAGE",
+        " PAS EXC", " NOT EXCEED", " MOTS", " WORDS"
+    ]
+    list_of_SizeWords_KO = [
+        " SIGNAT", " MAXIMI", " MONTH", " MOIS", " ANS", " ANNé", " YEAR", " DAY", " JOUR",
+        " DURéE", " DURATION", " IMPACT", " AMOUNT", " MONTANT"
+    ]
+    TagQStart = "<>"
+    TagQEnd = "</>"
 
     # Récupération des fichiers avec chemins absolus
     FilesWithPath = [file.resolve() for file in PathFolderSource.glob('*.*')]
@@ -306,8 +322,7 @@ def Read_Questions_in_docx (
             print (MessageError)
 
     for file in FilesWithPath:
-
-        NameOfWorkDocument = os.path.splitext(os.path.basename(file))[0]
+        NameOfWorkDocument = file.name.split('.')[0]
         if EverythingOK and NameOfWorkDocument[len(NameOfWorkDocument)-9:] !="-with UID": 
             try:
                 docWork = docx.Document(file)
@@ -384,6 +399,13 @@ def Read_Questions_in_docx (
                                     DictQuestions.clear() 
                                     DictQuestions ["uid"] = uuid.uuid4().hex
                                     DictQuestions ["question"] = block_item.cell(row, col).text
+                                    DictQuestions ["size_answer"] = ''
+                                    DictQuestions ["enhanced_question"] = ''
+                                    DictQuestions ["question_is_open"] = ''
+                                    DictQuestions ["question_on_asso"] = ''
+                                    DictQuestions ["response"] = ''
+                                    DictQuestions ["adjusted_resp"]= ''
+
                                     below_is_a_size_for_response = False 
 
 
@@ -421,11 +443,6 @@ def Read_Questions_in_docx (
                                     else: 
                                         DictQuestions ["size_answer"] = ''
 
-                                    DictQuestions ["enhanced_question"] = ''
-                                    DictQuestions ["question_is_open"] = ''
-                                    DictQuestions ["question_on_asso"] = ''
-                                    DictQuestions ["response"] = ''
-
                                     QuestionUI = DictQuestions ["uid"]
                                     if len (block_item.columns) == 1 and len (block_item.rows) > row+1: 
                                         if  block_item.cell(row+1, col).text.strip() == '' or below_is_a_size_for_response == True: 
@@ -445,35 +462,19 @@ def Read_Questions_in_docx (
                                     ListDict.append ( new_dict ) 
                                     DictQuestions.clear() 
             print(ListDict)
-            
-
-            # =============== modifs pour streamlit
-            # docWork.save(os.path.join(PathForOutputsAndLogs, NameOfWorkDocument + '-with UID.docx'))
-            output_path = PathForOutputsAndLogs / f"{NameOfWorkDocument}-with UID.docx"
 
             # Sauvegarde du document
+            output_path = PathForOutputsAndLogs / f"{NameOfWorkDocument}-with UID.docx"
             docWork.save(output_path)
             
 
-            # === Effacement des fichiers sources
-            # try: 
-            #     for file in glob.glob(PathFolderSource +'*.*'):
-            #         os.remove(file)
-            # except FileNotFoundError: 
-            #     MessageError = str(datetime.now()) + ' Error encountered when deleting source docx file at the end of read_AAP function, please check' 
-            #     logging.error(MessageError)
-            #     print(MessageError)
 
-
-            # Suppression des fichiers avec PathFolderSource existant
-            for file_path in PathFolderSource.glob('*.*'):
-                try:
-                    file_path.unlink()  # Méthode pathlib pour supprimer
-                    print(f"Supprimé : {file_path}")
-                except Exception as e:
-                    print(f"Erreur lors de la suppression de {file_path} : {e}")
-
-            #====================== fin modifs streamlit
+            # Suppression du fichier AAP vierge du PathFolderSource
+            try:
+                file.unlink()
+                print(f"Suppression fichier AAP vierge en fin de fonction Read : {file}")
+            except Exception as e:
+                print(f"Erreur en fin de fonction read AAP lors de la suppression de {file} : {e}")
 
         else:
             MessageError = str(datetime.now()) + ' Error encountered when reading Word docx file , please check type .docx and name of the file with no UID)' 
@@ -491,15 +492,15 @@ def Write_Answers_in_docx(List_UIDQuestionsSizeAnswer, PathFolderSource, PathFor
     Génère un fichier Word annoté + un fichier récapitulatif Q/A.
     """
 
-    for file in glob.glob(os.path.join(PathFolderSource, '*.docx')):
-        if "UID" not in os.path.basename(file):
+    for file in PathFolderSource.iterdir(): 
+        if "UID" not in file.name : 
             continue  # On ne traite que les fichiers avec UID
 
         try:
-            with open(file, 'rb') as f:
+            with file.open(mode="rb+") as f: 
                 document = Document(f)
 
-            NameOfDocument = os.path.basename(file)
+            NameOfDocument = file.name 
 
             # === Nettoyage des balises dans les paragraphes
             for para in document.paragraphs:
@@ -511,8 +512,12 @@ def Write_Answers_in_docx(List_UIDQuestionsSizeAnswer, PathFolderSource, PathFor
             for para in document.paragraphs:
                 for value in List_UIDQuestionsSizeAnswer:
                     if value["uid"] in para.text:
-                        Insert_Text_Paragraph(para, "", "\n" + value["response"])
-                        Delete_Text_Paragraph(para, value["uid"])
+                        if value["adjusted_resp"]!="": 
+                            Insert_Text_Paragraph(para, "", "\n" + value["adjusted_resp"]) 
+                            Delete_Text_Paragraph(para, value["uid"]) 
+                        else: 
+                            Insert_Text_Paragraph(para, "", "\n" + value["response"])
+                            Delete_Text_Paragraph(para, value["uid"])
 
             # === Nettoyage et remplacement dans les tables
             for table in document.tables:
@@ -527,19 +532,28 @@ def Write_Answers_in_docx(List_UIDQuestionsSizeAnswer, PathFolderSource, PathFor
                     for cell in row.cells:
                         for value in List_UIDQuestionsSizeAnswer:
                             if value["uid"] in cell.text:
-                                Insert_Text_Cell(cell, "", value["response"])
-                                Delete_Text_Cell(cell, value["uid"])
+                                if value["adjusted_resp"]!="": 
+                                    Insert_Text_Cell(cell, "", value["adjusted_resp"]) 
+                                    Delete_Text_Cell(cell, value["uid"]) 
+                                else: 
+                                    Insert_Text_Cell(cell, "", value["response"])
+                                    Delete_Text_Cell(cell, value["uid"])
 
             # === Sauvegarde du fichier final avec réponses
             timestamp = datetime.now().strftime("%Y-%m-%d_%Hh%Mmn%Ss")
             output_filename = f'{NameOfDocument.replace("-with UID", "")}_with_answers_{timestamp}.docx'
-            document.save(os.path.join(PathForOutputsAndLogs, output_filename))
+            path_output_doc = PathForOutputsAndLogs / f'{output_filename}'
+            document.save(path_output_doc)
 
             # === Génération du document Q&A séparé
             documentQA = Document()
-            documentQA.add_heading(
+            title = documentQA.add_heading(
                 f'Liste des questions/réponses pour :\n{NameOfDocument}\nHeure : {timestamp}\n', level=1
             )
+            title.style.font.size = Pt(14)
+            # Ligne de séparation
+            documentQA.add_paragraph("             _________________________________________________")
+            documentQA.add_paragraph().add_run().add_break()
 
             for value in List_UIDQuestionsSizeAnswer:
                 p = documentQA.add_paragraph()
@@ -548,50 +562,32 @@ def Write_Answers_in_docx(List_UIDQuestionsSizeAnswer, PathFolderSource, PathFor
                 run.bold = True
                 run.font.color.rgb = RGBColor(255, 0, 0)
                 documentQA.add_paragraph('\n' + value["response"] + '\n')
+                if value["adjusted_resp"]!="": 
+                    documentQA.add_paragraph('\n' + 'RÉPONSE RÉDUITE POUR RESPECTER LA TAILLE DEMANDÉE ' + '\n')
+                    documentQA.add_paragraph('\n' + value["adjusted_resp"] + '\n') 
+
 
             qa_filename = f'{NameOfDocument.replace("-with UID", "")}_Q-A_{timestamp}.docx'
-            path_output_doc = os.path.join(PathForOutputsAndLogs, output_filename)
-            path_qa_doc = os.path.join(PathForOutputsAndLogs, qa_filename)
+            path_qa_doc = PathForOutputsAndLogs / f'{qa_filename}'
 
+            # Sauvegarde du document
             documentQA.save(path_qa_doc)
             documentQA = Document()
 
-            # === Effacement des fichiers sources "avec UID"
-            try: 
-                for file in glob.glob(PathFolderSource +'*.*'):
-                    if "UID" in os.path.basename(file):
-                        os.remove(file)
-            except FileNotFoundError: 
-                MessageError = str(datetime.now()) + ' Error encountered when deleting source docx file at the end of write_AAP function, please check' 
-                logging.error(MessageError)
-                print(MessageError)
-
-            return path_output_doc, path_qa_doc
-
         except Exception as e:
-            print(f"[ERREUR] Problème avec le fichier {file} : {e}")
+            MessageError = str(datetime.now()) + ' Problème au début de la fonction Write AAP avec le fichier {file} : {e}'
+            logging.error(MessageError)
+            print(MessageError)
+
+        # === Effacement du fichier source "avec UID"
+        try:
+            file.unlink()  
+            print(f"Suppression fichier avec UID en fin de fonction Write : {file}")
+        except Exception as e:
+            MessageError = str(datetime.now()) + ' Erreur en fin de la fonction Write AAP lors de la suppression de {file} : {e}'
+            logging.error(MessageError)
+            print(MessageError)
 
     print('✅ Fin du programme d’écriture des réponses dans les fichiers.')
 
-
-# Fonctions à lancer dans le main 
-
-## Définition des arguments de la fonction Read_Questions
-Path_where_we_put_Outputs = r'./LOG'
-Folder_where_the_files_are = r'./AAP'
-
-list_of_SizeWords_OK = [
-     " MAX", " MIN", " CARACT", " CHARACT", " LIGNE", " LINE", " SIGN", " PAGE",  " PAS EXC", " NOT EXCEED", " MOTS", " WORDS"
-         ]
-
-list_of_SizeWords_KO = [
-     " SIGNAT", " MAXIMI", " MONTH", " MOIS", " ANS", " ANNé", " YEAR",  " DAY", " JOUR",
-     " DURéE", " DURATION", " IMPACT", " AMOUNT", " MONTANT"
-         ]
-
-TagQStart = "<>"
-TagQEnd = "</>"
-
-# logging.basicConfig(filename=Path_where_we_put_Outputs + r'/logs-IA_for_Asso.txt')
-
-
+    return path_output_doc, path_qa_doc, output_filename, qa_filename
