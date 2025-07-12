@@ -4,9 +4,9 @@ Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) 
 
 # 2. Livrable
 
-![prototype](/Users/airbook/Desktop/Data_Science/MyProjects/IA_Financement/prototype.png)
+![prototype](https://github.com/user-attachments/assets/06681207-1c5c-402d-a9e4-bda183e41c69)
 
-En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Composée de trois fonctionnalités fondamentales, elle prend en charge des documents en français et en anglais.
+En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Dotée de trois fonctionnalités principales, elle prend en charge des documents en français et en anglais.
 
 ## 2.1. Charger les documents sources via une interface web
 
@@ -22,7 +22,7 @@ Ce prototype étant validé par [Groupe SOS](https://www.groupe-sos.org/), nous 
 
 # 3. Architecture
 
-![architecture](/Users/airbook/Desktop/Data_Science/MyProjects/IA_Financement/architecture_v3.excalidraw)
+![architecture](https://github.com/user-attachments/assets/4852f5c5-fcc4-4cf6-abc4-8917846bbe29)
 
 # 4. Contributing
 
