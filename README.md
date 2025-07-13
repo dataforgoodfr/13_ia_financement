@@ -23,7 +23,7 @@ Ce prototype étant validé par [Groupe SOS](https://www.groupe-sos.org/), nous 
 ## 3.1. Architecture de la solution
 ![architecture](https://github.com/user-attachments/assets/3720ccf1-5ea1-4134-81ea-e5378c4e54ed)
 
-## 3.2. Architecture d'ptimisation de RAG
+## 3.2. Architecture d'optimisation de RAG
 ![rag](https://github.com/user-attachments/assets/661ccc88-17e5-4c32-9655-c12622eba652)
 
 # 4. Contributing
