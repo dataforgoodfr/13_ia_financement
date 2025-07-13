@@ -4,26 +4,27 @@ Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) 
 
 # 2. Livrable
 
-En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Dotée de trois fonctionnalités principales suivantes, l'application prend en charge des documents en français et en anglais.
+En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Dotée des trois fonctionnalités suivantes, l'application prend en charge des documents en français et en anglais.
 
-## 2.1. Charger les documents sources via une interface web
+## 2.1. Chargement des documents sources via une interface web
+- Une fiche du projet: elle contient les informations nécessaires liées au projet qui fait l'objet de la demande de financement 
+- Un formulaire d'appel à projets vierge d'un bailleur de fonds: il s'agit du dossier de candidature à remplir par l'association, porteuse du projet à financer et utilisateur de l'application
+- Une présentation de l'association: elle contient toutes les informations nécessaires liées à l'association, porteuse du projet à financer et utilisateur de l'application
 
-- Une fiche du projet (obligatoire): elle contient toutes les informations nécessaires liées au projet qui fait l'objet de la demande de financement 
-- Un document de l'appel à projets vierge d'un bailleur de fonds (obligatoire): il s'agit du formulaire de la demande de financement à remplir par l'association utilisatrice
-- Une présentation de l'association (optionnelle): elle contient toutes les informations nécessaires liées à l'association utilisatrice qui porte le projet à financer
+## 2.2. Visualisation du formulaire d'appel à projets pré-rempli par l'IA
 
-## 2.2. Visualiser le document de l'appel à projets pré-rempli par l'IA à partir des informations contenues dans les documents sources précités
+## 2.3. Téléchargement du formulaire d'appel à projets pré-rempli pour rectification manuelle ou soumission au bailleur
 
-## 2.3. Télécharger le document pré-rempli pour rectification manuelle ou soumission au bailleur
 
 Ce prototype étant validé par [Groupe SOS](https://www.groupe-sos.org/), nous poursuivons actuellement son amélioration (notamment l'UI, l'extraction des contextes spécifiques et la pertinence des réponses) afin de livrer un MVP en Septembre 2025.
 
 # 3. Architectures
+
 ## 3.1. Architecture de la solution
 ![architecture](https://github.com/user-attachments/assets/3720ccf1-5ea1-4134-81ea-e5378c4e54ed)
 
 ## 3.2. Optimisation de RAG
-![rag](https://github.com/user-attachments/assets/c39d6da5-561c-4c38-84d1-c35017a85a13)
+![rag](https://github.com/user-attachments/assets/661ccc88-17e5-4c32-9655-c12622eba652)
 
 # 4. Contributing
 
