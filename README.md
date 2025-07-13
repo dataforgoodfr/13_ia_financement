@@ -4,7 +4,7 @@ Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) 
 
 # 2. Livrable
 
-En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Dotée de trois fonctionnalités principales suivantes, elle prend en charge des documents en français et en anglais.
+En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Dotée de trois fonctionnalités principales suivantes, l'application prend en charge des documents en français et en anglais.
 
 ## 2.1. Charger les documents sources via une interface web
 
@@ -18,12 +18,12 @@ En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 
 
 Ce prototype étant validé par [Groupe SOS](https://www.groupe-sos.org/), nous poursuivons actuellement son amélioration (notamment l'UI, l'extraction des contextes spécifiques et la pertinence des réponses) afin de livrer un MVP en Septembre 2025.
 
-# 3. Architecture
+# 3. Architectures
 ## 3.1. Architecture de la solution
-![architecture](https://github.com/user-attachments/assets/21a6dc74-fec0-4fbb-a8cf-0ae9918b4a1b)
+![architecture](https://github.com/user-attachments/assets/3720ccf1-5ea1-4134-81ea-e5378c4e54ed)
 
 ## 3.2. Optimisation de RAG
-![rag](https://github.com/user-attachments/assets/ed981684-3b81-408d-b019-599fa28d8be7)
+![rag](https://github.com/user-attachments/assets/c39d6da5-561c-4c38-84d1-c35017a85a13)
 
 # 4. Contributing
 
