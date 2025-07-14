@@ -11,7 +11,7 @@ En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 
 ## 2.1. Chargement des documents sources via une interface web
 - Une fiche du projet: elle contient les informations nécessaires liées au projet qui fait l'objet de la demande de financement 
 - Un formulaire d'appel à projets vierge d'un bailleur de fonds: il s'agit du dossier de candidature à remplir par l'association, porteuse du projet à financer et utilisateur de l'application
-- Une présentation de l'association: elle contient toutes les informations nécessaires liées à l'association, porteuse du projet à financer et utilisateur de l'application
+- Une présentation de l'association: elle contient les informations nécessaires liées à l'association, porteuse du projet à financer et utilisateur de l'application
 
 ## 2.2. Visualisation du formulaire d'appel à projets pré-rempli par l'IA
 
