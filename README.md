@@ -1,6 +1,8 @@
 # 1. Description du projet
 
-Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) lors de la saison 13 et porté par [Groupe SOS](https://www.groupe-sos.org/), ce projet vise à construire une solution d'IA générative afin d'assister la réponse des associations aux appels à projets des bailleurs de fonds publics et privés, une source clé de leur financement. La solution va leur permettre de se concentrer sur les aspects stratégiques et qualitatifs de leur activité, en automatisant les tâches les plus chronophages et en facilitant le reste.
+Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) lors de la saison 13 et porté par [Groupe SOS](https://www.groupe-sos.org/), ce projet vise à construire une solution d'IA générative afin d'assister la réponse des associations aux appels à projets des bailleurs de fonds publics et privés, une source clé de financement de leurs initiatives d'intérêt général. 
+
+Open source et accessible à toutes les associations dans le besoin, la solution va leur permettre de se concentrer sur les aspects stratégiques et qualitatifs de leur activité, en automatisant les tâches les plus chronophages et en facilitant le reste.
 
 # 2. Livrable
 
