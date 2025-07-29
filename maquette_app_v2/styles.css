@@ -1,0 +1,40 @@
+.st-key-formulaire button, .st-key-biblio button, .st-key-guide button {
+    width: 90%;
+    text-align: left;
+}
+
+.st-key-about button {
+    width: 12rem;
+    text-align: center;
+    background-color: #CCE03D; 
+    border-radius: 25px;
+    margin-top: 25rem;
+}
+
+.st-key-btn_proj button, .st-key-btn_asso button{
+    background-color: #FFD1D2;
+    border-color:black;
+    border-radius: 25rem;
+    margin-top: 2rem;
+}
+
+.st-key-btn_proj_lib button, .st-key-btn_assoc_lib button {
+    background-color: #A2A2A2; 
+    color:white;
+    border-radius: 25rem;
+    margin-top: 2rem;
+}
+
+.st-key-template_container{
+    background-color: #FFD1D2;
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+.st-key-btn_response button{
+    background-color: #CCE03D; 
+    border-radius: 25px;
+    margin-top: 2rem;
+    margin-left: 78%;
+    border-color:black;
+}
