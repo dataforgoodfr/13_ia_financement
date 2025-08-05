@@ -1,0 +1,316 @@
+[
+  {
+    "question": "Implementing organization:",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Contact Person and Title:",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Address/Postal Code and City:",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Phone number:",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "E-mail:",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Project title:",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "DEFINITION OF SITUATION",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Program Type: ○ Democracy Commission   ○ Women’s Empowerment",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "A. Project title:",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ],
+    "analyse": {
+      "fuzzy_eval": 100,
+      "llm_eval": {
+        "label": "NOT_DUPLICATE",
+        "confidence": 0.75
+      },
+      "candidate_duplicate": "Project title:"
+    }
+  },
+  {
+    "question": "B. Amount requested (USD):  Amount of co-share if any (USD):  Total Cost (USD):",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ],
+    "analyse": {
+      "fuzzy_eval": 100,
+      "llm_eval": {
+        "label": "DUPLICATE",
+        "confidence": 0.95
+      },
+      "candidate_duplicate": "Amount requested (USD): Amount of co-share if any (USD): Total Cost (USD):"
+    },
+    "prefered_question": "B. Amount requested (USD):  Amount of co-share if any (USD):  Total Cost (USD):",
+    "real_duplicate": false
+  },
+  {
+    "question": "2. ELEVATOR PITCH (Short summary of the project, not to exceed 50 words)",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ],
+    "analyse": {
+      "fuzzy_eval": 100,
+      "llm_eval": {
+        "label": "DUPLICATE",
+        "confidence": 0.95
+      },
+      "candidate_duplicate": "ELEVATOR PITCH (Short summary of the project, not to exceed 50 words)"
+    },
+    "prefered_question": "2. ELEVATOR PITCH (Short summary of the project, not to exceed 50 words)",
+    "real_duplicate": false
+  },
+  {
+    "question": "3. DEFINITION OF SITUATION",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ],
+    "analyse": {
+      "fuzzy_eval": 100
+    }
+  },
+  {
+    "question": "4. PROJECT OUTCOMES",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "5. DESCRIPTION OF PROJECT ACTIVITIES",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "6. ACTIVITY LOCATIONS",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "7. PROJECT BENEFICIARIES",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "8. PROJECT SCHEDULE AND TIMELINE",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "9. PROJECT PARTNERS",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "10. ANTICIPATED OUTPUTS OF THE PROJECT",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "11. MONITORING AND EVALUATION PLAN",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "9. PROJECT SUSTAINABILITY",
+    "section": "project",
+    "page": [
+      4,
+      5
+    ]
+  },
+  {
+    "question": "11. KEY PERSONNEL",
+    "section": "organization",
+    "page": [
+      4,
+      5
+    ]
+  },
+  {
+    "question": "12. PROJECT PUBLICITY",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ],
+    "analyse": {
+      "fuzzy_eval": 94,
+      "llm_eval": {
+        "label": "DUPLICATE",
+        "confidence": 0.8
+      },
+      "candidate_duplicate": "8. PROJECT PUBLICITY"
+    },
+    "prefered_question": "12. PROJECT PUBLICITY",
+    "real_duplicate": false
+  },
+  {
+    "question": "13. PROJECT SUSTAINABILITY",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ],
+    "analyse": {
+      "fuzzy_eval": 96
+    }
+  },
+  {
+    "question": "14. BACKGROUND OF IMPLEMENTING ORGANIZATION (Include organization’s technical and management capacities)",
+    "section": "organization",
+    "page": [
+      5,
+      6
+    ],
+    "analyse": {
+      "fuzzy_eval": 99,
+      "llm_eval": {
+        "label": "DUPLICATE",
+        "confidence": 0.95
+      },
+      "candidate_duplicate": "10. BACKGROUND OF IMPLEMENTING ORGANIZATION (Include organization’s technical and management capacities)"
+    },
+    "prefered_question": "14. BACKGROUND OF IMPLEMENTING ORGANIZATION (Include organization’s technical and management capacities)",
+    "real_duplicate": false
+  },
+  {
+    "question": "15. KEY PERSONNEL",
+    "section": "organization",
+    "page": [
+      5,
+      6
+    ],
+    "analyse": {
+      "fuzzy_eval": 94,
+      "llm_eval": {
+        "label": "NOT_DUPLICATE",
+        "confidence": 0.7
+      },
+      "candidate_duplicate": "11. KEY PERSONNEL"
+    }
+  },
+  {
+    "question": "16. PREVIOUS U.S. GOVERNMENT FUNDING",
+    "section": "organization",
+    "page": [
+      5,
+      6
+    ],
+    "analyse": {
+      "fuzzy_eval": 97,
+      "llm_eval": {
+        "label": "DUPLICATE",
+        "confidence": 0.9
+      },
+      "candidate_duplicate": "12. PREVIOUS U.S. GOVERNMENT FUNDING"
+    },
+    "prefered_question": "16. PREVIOUS U.S. GOVERNMENT FUNDING",
+    "real_duplicate": false
+  },
+  {
+    "question": "17. DETAILED BUDGET (itemize any amount larger than $200):\nInclude line items under the following categories with number of units, price per unit, U.S. share of the cost, applicant’s share of the cost (if any), and total (A+B+C+D+E+F):\nA. Personnel\nB. Fringe\nC. Travel\nD. Supplies\nE. Contractual\nF. Other Direct Costs\nGrand Total (A+B+C+D+E+F)",
+    "section": "project",
+    "page": [
+      6,
+      7
+    ],
+    "analyse": {
+      "fuzzy_eval": 100,
+      "llm_eval": {
+        "label": "DUPLICATE",
+        "confidence": 0.9
+      },
+      "candidate_duplicate": "17. DETAILED BUDGET (itemize any amount larger than $200):"
+    },
+    "prefered_question": "17. DETAILED BUDGET (itemize any amount larger than $200):\nInclude line items under the following categories with number of units, price per unit, U.S. share of the cost, applicant’s share of the cost (if any), and total (A+B+C+D+E+F):\nA. Personnel\nB. Fringe\nC. Travel\nD. Supplies\nE. Contractual\nF. Other Direct Costs\nGrand Total (A+B+C+D+E+F)",
+    "real_duplicate": false
+  },
+  {
+    "question": "18. BUDGET NARRATIVE",
+    "section": "project",
+    "page": [
+      6,
+      7
+    ]
+  }
+]
