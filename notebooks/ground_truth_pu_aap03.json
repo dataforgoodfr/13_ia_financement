@@ -1,0 +1,66 @@
+[
+  {
+    "question": "Nom de la structure / Adresse postale / pays"
+  },
+  {
+    "question": "Statut (association, entreprise…) / n° SIRET ou RCS"
+  },
+  {
+    "question": "Année de démarrage de l'activité"
+  },
+  {
+    "question": "Description de vos objectifs et de votre mode de fonctionnement global (100 – 150 mots environ)"
+  },
+  {
+    "question": "Responsable de projet (point de contact ATFY) :\n5.1. Nom, prénom / Fonction / Adresse email / Téléphone\n5.2. CV du responsable de projet"
+  },
+  {
+    "question": "Responsable du projet sur le terrain (si différent du responsable de projet) :\n6.1. Nom, prénom / Fonction / Adresse email / Téléphone\n6.2. CV du responsable du projet sur le terrain"
+  },
+  {
+    "question": "Pays / Nom du projet"
+  },
+  {
+    "question": "Contexte général du projet (contexte et problématiques ciblées par le projet, enjeux)"
+  },
+  {
+    "question": "Insertion du projet dans un autre projet :\n9.1. Ce projet est-il la suite d'un projet pré-existant ? Depuis combien de temps ? Quel retour d'expérience en faites-vous ?\n9.2. Le projet présenté à A Tree for You est une sous-partie d'un projet plus important ? Dans quelles proportions ?"
+  },
+  {
+    "question": "Contexte spécifique pour le projet présenté à A Tree for You :\n10.1. Groupes cibles et bénéficiaires finaux :\n  10.1.1. Profil (famille, propriétaires, association, coopérative, etc.)\n  10.1.2. Répartition femme/homme\n  10.1.3. Nombre de bénéficiaires directs attendus\n  10.1.4. Tranche d’âge\n  10.1.5. Métiers / activités\n  10.1.6. Superficie des parcelles en moyenne / description des parcelles / superficie totale du projet\n  10.1.7. S'agit-il d'un groupe ethnique particulier ? Si oui, quelles sont ses problématiques spécifiques ?\n  10.1.8. Raisons motivant le choix des groupes cibles et identification de leurs besoins et contraintes spécifiques\n  10.1.9. Les bénéficiaires ont-ils déjà été clairement identifiés individuellement ? Si oui, comment et pourquoi eux ?\n10.2. Climat local / altitude / évolution constatée et attendue de ce climat\n10.3. Systèmes agricoles existant aujourd'hui et problèmes à résoudre par le projet\n10.4. Description des systèmes agricoles historiques dans la région (essences, rotations des parcelles, alimentation...) : sont-ils une source d'inspiration pour le projet ?\n10.5. Situation politique et économique de la région\n10.6. Problématiques spécifiques liées aux sols\n10.7. Problématiques spécifiques liées à l’eau\n10.8. Problématiques spécifiques liées à la biodiversité (faune et flore)"
+  },
+  {
+    "question": "11. Type de projet (agroforesterie / foresterie / mixte / autre…)"
+  },
+  {
+    "question": "12. Méthodologie et calendrier :\n12.1. Quels sont les objectifs et les grands principes de votre action sur le terrain ?\n12.2. Indiquez le calendrier précis des travaux et les méthodes associées (quoi-quand-comment-qui/avec qui-où). Calendrier à détailler par mois au moins la première année."
+  },
+  {
+    "question": "13. Essences et schémas de plantation :\n13.1. Liste des essences envisagées \n  13.1.1. Indiquez la liste des essences (noms latins obligatoires). Pour chaque essence, indiquez les objectifs en termes de nombre d’arbres planté et de nombre d’arbres attendus in fine (après la reprise ou même après les premières éclaircies – indiquez à quelle date vous les placez)\n  13.1.2. Par rapport à cette liste, quel est votre engagement minimum ? Nom et/ou nombre minimum d’essences effectivement plantées et pérennes et répartition entre elles ?\n  13.1.3. Quelle est votre méthode sur le terrain pour atteindre cet engagement ? Décrivez le processus impliquant pépinières, distribution, plantation, suivi. Décrivez vos méthodes pour convaincre les pépiniéristes puis les bénéficiaires de ce choix d’essences.\n13.2. Pépinières :\n  13.2.1. La pépinière sera-t-elle montée en propre pour le projet ou allez-vous faire appel à des pépiniéristes (locaux / plus loin) ?\n  13.2.2. Comment les plants sont-ils obtenus ? Là où les pépinières utilisent quelles méthodes de reproduction (pour chaque essence) ? Si graines il y a, d’où proviennent-elles ?\n  13.2.3. Quels sont les risques ou opportunités liés aux pépinières ? Comment y répondez-vous ?\n13.3. Schémas / designs de plantation :\n  13.3.1. Indiquez les schémas / designs de plantation \n  13.3.2. La configuration envisagée (essences choisies, proportions relatives de ces essences et design des parcelles) a-t-elle déjà été testée dans la région ? Depuis combien de temps ? Quel est le retour d’expérience (succès et difficultés agronomiques, économiques, débouchés des produits agricoles, etc.) ?\n13.4. Comment la liste des essences et les schémas de plantation ont-ils été établis ? (Experts ou expériences propres au planteur, experts locaux/internationaux, pépiniéristes locaux, pratiques traditionnelles dans la région, sources bibliographiques, autres structures pratiquant les mêmes types de plantation : ONG, états, institutions internationales, etc.)"
+  },
+  {
+    "question": "14. Coordonnées GPS des plantations :\nFournir les coordonnées en décimales, par exemple (48.4906333,-0.6899428), (48.4906315,-0.6899956),(48.4906225,-0.6901326), latitude d’abord, longitude ensuite et exactement écrit comme ça : avec des parenthèses, des “.” et non des virgules dans les nombres, des virgules entre deux points GPS, et pas d’espace.\nNB : si les coordonnées précises des parcelles à planter ne sont pas connues à date de présentation du projet, merci d’indiquer la ou les zones globales de plantation envisagées."
+  },
+  {
+    "question": "15. Bénéfices attendus de ce projet :\n15.1. Décrivez les bénéfices pour l’environnement et l’horizon de temps associé :\n  15.1.1. Pour les sols\n  15.1.2. Pour le cycle de l’eau\n  15.1.3. Pour la biodiversité (flore et faune)\n  15.1.4. Pour le micro-climat\n  15.1.5. Pour la captation de carbone\n15.2. Décrivez les bénéfices attendus pour les personnes et l’horizon de temps associé :\n  15.2.1. Bénéfices pour l’économie locale\n  15.2.2. Pour les personnes bénéficiaires du projet. Détaillez : revenus, apports en nature, résilience, santé, éducation, pratiques agricoles, alimentation, etc.\n15.2.3. De leur côté, qu’est-ce que les bénéficiaires attendent de ce projet ? Se sont-ils exprimés ?\n15.2.4. Comment les motivez-vous à participer au projet ?\n15.3. En quoi votre projet est-il innovant et pourrait servir d’exemple à suivre pour d’autres acteurs régionaux ?\n15.4. Allez-vous mettre en place des actions spécifiques pour faire connaître votre projet et inspirer d’autres acteurs ? (Visites écoles, participation lycées agricoles, réseaux agriculteurs, etc.)"
+  },
+  {
+    "question": "16. Risques du projet :\n16.1. Quels sont les risques à anticiper sur ce projet ? Quelles sont les actions qui seront menées pour y faire face ?\n16.2. Bénéficiez-vous d’un retour d’expérience sur un projet similaire (même zone, mêmes problématiques, même type de population impactée) ?\n  16.2.1. Description rapide du ou des projets\n  16.2.2. Quels ont été les problèmes rencontrés ? Quelles actions ont été menées ?\n  16.2.3. Comment s’assurer dans ce projet que ces mêmes problèmes seront anticipés / évités ?"
+  },
+  {
+    "question": "17. Engagements de suivi et monitoring :\nChez A Tree for You, nous nous engageons auprès de nos donateurs à suivre les projets au moins 3 ans après la dernière année de plantation. Ce suivi se traduit par :\n- Des articles, avec des photos du projet, en français et en anglais pour les donateurs de l’association : au moins 2 articles la première année et un article les années suivantes.\n- Un bilan technique et financier vous sera demandé une fois par année pendant 3 à 5 ans.\n17.1. Structures engagées sur le terrain :\n  17.1.1. Pour la conception du projet en amont\n  17.1.2. Pour la conduite du projet au plus près du terrain\n  17.1.3. Pour la formation et la sensibilisation des bénéficiaires\n  17.1.4. Pour le suivi technique au fil des années\n  17.1.5. Pour l’audit régulier des progrès / problèmes à résoudre sur le terrain\n  17.1.6. Pour le pilotage, la coordination et la communication du projet sur minimum 3 années après la dernière plantation\n17.2. Précisez les indicateurs de mesure des résultats suivis dans les bilans techniques sur ce projet et la temporalité de ce suivi"
+
+  },
+  {
+    "question": "17.3. Indiquez le rythme auquel vous pourrez rédiger des articles à destination des donateurs de A Tree for You, en fonction du calendrier des travaux"
+  },
+  {
+    "question": "18. Montant global du besoin proposé à la collecte par A Tree for You"
+  },
+   {
+    "question": "19.Budget total du projet, détaillé par poste de coût \nA indiquer par semestre ou trimestre la première année, séparant clairement \n -la demande de financement de A Tree For You de vos éventuels autres sources (ou demandes) de financement,\n -ce qui relève de vos activités en propre (personnels) des achats externes que vous pourrez faire sur le projet ou des versements à d'autres structures (coopératives...)."
+  },
+  {
+    "question": "20.Lien avec les autres financeurs\n 20.1. Où en sont vos demandes de financement en dehors de A Tree for You (montants / statut) ? Pour quelles activités sont-elles prévues ?\n20.2. Quid si ces demandes n’aboutissent pas ? Y a-t-il un risque pour le projet dans son ensemble, ou pour la partie prise en charge par A Tree for You ?\n20.3. Quid si le projet ne pouvait être financé que partiellement par les donateurs de A Tree for You ou dans des délais importants par rapport à vos attentes ?"
+  }
+]

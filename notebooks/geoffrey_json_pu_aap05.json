@@ -1,0 +1,226 @@
+[
+  {
+    "question": "Organisation name",
+    "section": "organisation"
+  },
+  {
+    "question": "Nature of organisation (e.g. INGO, Federation)",
+    "section": "organisation"
+  },
+  {
+    "question": "Year established",
+    "section": "organisation"
+  },
+  {
+    "question": "Registration number",
+    "section": "organisation"
+  },
+  {
+    "question": "Place of registration",
+    "section": "organisation"
+  },
+  {
+    "question": "Registered Address, including country",
+    "section": "organisation"
+  },
+  {
+    "question": "Organisation telephone number Please include international dialling code",
+    "section": "organisation"
+  },
+  {
+    "question": "Organisation website",
+    "section": "organisation"
+  },
+  {
+    "question": "Number of employees (full-time equivalent in most recent year)",
+    "section": "organisation"
+  },
+  {
+    "question": "Contact person",
+    "section": "organisation"
+  },
+  {
+    "question": "Job title / position",
+    "section": "organisation"
+  },
+  {
+    "question": "Email Please note that this will be the email address to which future correspondence is sent",
+    "section": "organisation"
+  },
+  {
+    "question": "Contact number Please include international dialling code",
+    "section": "organisation"
+  },
+  {
+    "question": "Description of the organisation's mission and activities (Max300 words) Please describe for the organisation or lead organisation (where applying as a consortium, network or federation).",
+    "section": "organisation"
+  },
+  {
+    "question": "Does your organisation have a track record of managing projects of equivalent scale? As a reminder, the awards under the2025 Accountable Grants round will range from µ500k - µ5m over up to3.5 years. Please elaborate (Max150words) Please provide at least one example of a relevant project, including interventions that you may have listed in A20 below. Yes No",
+    "section": "organisation"
+  },
+  {
+    "question": "Does your organisation have a track record of engaging in the area of work proposed? Please note that this question does not relate so much to themes or geographies as it does to the nature of the work, e.g., advocacy, capacity building, convening, data generation, evidence, etc. Please elaborate (Max200words) Please provide at least one example of a relevant project, including interventions that you may have listed in A20 below. Yes No",
+    "section": "organisation"
+  },
+  {
+    "question": "Does your organisation have the capacity to implement the proposed intervention? Please elaborate (Max150words) This refers to in-house and partner personnel and other resources that are available to the organisation to implement the intervention. If you answered 'Not yet', please let us know of any expansion plans to enable proper management of the grant. Yes Not yet",
+    "section": "organisation"
+  },
+  {
+    "question": "Previous donor support in the last three years. Please include information that relates to donations received during the last3 years that you consider contributes to FGMC or similar activities. Information can be provided to the nearest °10,000 but should be based on the audited accounts referred to in A20. Name of donor, Amount, Funding start and finish dates, Name of project/purpose for which funding was provided",
+    "section": "organization"
+  },
+  {
+    "question": "A19 Name of donor, Amount, Funding start and finish dates, Name of project/purpose for which funding was provided °, mm/yyyy, , °, mm/yyyy, , °, mm/yyyy, , °, mm/yyyy, , °, mm/yyyy, ",
+    "section": "organization"
+  },
+  {
+    "question": "Past Financial Performance. Provide this information for the last3 years for the legal entity that is submitting the Concept Note. Figures should be to the nearest £100,000, and based on audited accounts. Financial Year (start - end date), FY [mm/yyyy] - [mm/yyyy], FY [mm/yyyy] - [mm/yyyy], FY [mm/yyyy] - [mm/yyyy], Total income (funds received), °, °, °, Capital expenditure, °, °, °, Operational expenditure, °, °, °, Annual surplus/ deficit, °, °, °, Total Reserves, °, °, °",
+    "section": "organization"
+  },
+  {
+    "question": "A20 Financial Year (start - end date), Total income (funds received), Capital expenditure, Operational expenditure, Annual surplus/ deficit, Total Reserves [mm/yyyy] - [mm/yyyy], °, °, °, °, °, [mm/yyyy] - [mm/yyyy], °, °, °, °, °, [mm/yyyy] - [mm/yyyy], °, °, °, °, °",
+    "section": "organization"
+  },
+  {
+    "question": "Any other information relating to Section A that you believe is important for us to know. Include here any other information that relates to any of the issues in this section that you feel should be considered.",
+    "section": "organization"
+  },
+  {
+    "question": "Project title Please use the same title as on the front of your Concept Note Form.",
+    "section": "project"
+  },
+  {
+    "question": "Tentative project start date This should be01 August2025 or later.",
+    "section": "project"
+  },
+  {
+    "question": "Project end date This can be any date up to and including28 February2029.",
+    "section": "project"
+  },
+  {
+    "question": "Single organisation, consortium, network or federation submission Please state if this application is from an individual organisation or from a consortium, network or federation.",
+    "section": "organization"
+  },
+  {
+    "question": "Other organisations, consortium partners, networks or federations - At proposal stage Please provide details of any other organisations or consortia that you would like to explore as partners (depending on proposals received and without any commitment at this stage.)",
+    "section": "organization"
+  },
+  {
+    "question": "Other organisations, consortium partners, networks or federations - During project implementation Please provide details of any other organisations, consortium partners, networks or federations that you intend to work with in the delivery of your Project.",
+    "section": "organization"
+  },
+  {
+    "question": "Provide a concise executive summary of the Concept Note, including what specific results you intend to achieve. (maximum300words)",
+    "section": "project"
+  },
+  {
+    "question": "Which of the FGMC Components will your Project Proposal address? Primary focus: Comp.1 ☐, Comp.2 ☐, Comp.3 ☐; Indirect/additional focus: Comp.1 ☐, Comp.2 ☐, Comp.3 ☐",
+    "section": "project"
+  },
+  {
+    "question": "What is the general thrust and nature of the outputs in your Project Proposal? (maximum200words) For example: advocacy, capacity building, legal reform, promotion of indigenous rights, justice, inclusive voice, awareness-raising, gender, climate change. See framing in Section2 of the Concept Note Guidance.",
+    "section": "project"
+  },
+  {
+    "question": "Which international or national processes will your Project engage in / support to achieve results? (maximum200words) For example, policy mechanisms and processes such as FLEGT VPA, BMRC, REDD+, relevant national/international processes addressing deforestation due to mining and FRCs, and other formal or informal mechanisms in national, EU or UK forums through which your activities will lead to higher level results. See framing in Section2 of the Concept Note Guidance.",
+    "section": "project"
+  },
+  {
+    "question": "Which countries, regions, regional bodies, global arenas, etc. do you expect to achieve results in, including linkages across different results areas? (maximum200words) Please identify where and how you intend to work.",
+    "section": "project"
+  },
+  {
+    "question": "Any other information relating to Section B that you believe is important for us to know. (maximum150words) Include here any other information that relates to any of the issues in this section that you feel should be considered.",
+    "section": "project"
+  },
+  {
+    "question": "C1 Brief summary of the Project activities (maximum300words) Please provide a concise summary of the Project activities. What are the expected outputs and outcomes of your Project?",
+    "section": "project"
+  },
+  {
+    "question": "C2 Results a) Results: Alignment with organisational goals (maximum300words) How do your Project outputs and outcomes align with your organisational goals? How does the proposed project complement other activities of your organisation? Please explain the alignment between the outputs and outcomes of your proposed Project and your overall organisational goals / objectives / strategy.",
+    "section": "project"
+  },
+  {
+    "question": "C2 Results b) Results: Alignment with FGMC2's ambitions and approach (maximum600words) How do you understand the contribution of your Project outputs and outcomes to the ambitions of FGMC2? Please explain how your proposed Project will contribute to the achievement of FGMC2 results as framed in the simplified FGMC2 Results Chain (see section1) and the Business Case. Please note that your Project results (outputs and outcomes) should lie within the overall FGMC framework but do not have to totally concur with / fully embrace all FGMC results. However, your Project should contribute to enhancing the quality of the policy and legal formulation processes in which you engage to bring about change.",
+    "section": "project"
+  },
+  {
+    "question": "C3 Relevance a) Relevance: Context (maximum300words) What is the analysis of the context in which your proposal will function? This should contain an analysis of the situation or context in which the project will operate, including the nature of the problem and issues to be addressed, the main stakeholders involved, and the factors (drivers, power relations, processes, etc.) that determine the context. Where appropriate, this should be grounded in a particular space - whether geographical or otherwise - and at a specific point in time. The evidence for this analysis should be set out clearly. The detail presented in this section should be sufficient to provide background and context for the following section (C3b), where the relevance of the intervention is discussed.",
+    "section": "project"
+  },
+  {
+    "question": "C3 Relevance b) Relevance: Intervention (maximum600words) How will your Project engage with processes that lead to change? This part of the section should explain the nature and logic behind your proposed approach and activities and how the Project will engage with the situational analysis presented in the previous section (C3a). This section should contain an explanation of the underlying hypothesis (or causality) through which the proposed activities will seek to bring about change and explain how your organisation will engage with these processes or political spaces. We would expect you to detail the political processes, formal or otherwise, that your proposed project will be engaging in at the country, regional or global level, and to explain how and why these processes are expected to deliver results.",
+    "section": "project"
+  },
+  {
+    "question": "C4 Contribution to the FGMC Community of Practice Why is your organisation suited to deliver your Project proposal? Please explain how your organisation and your proposal will contribute to the FGMC2 community of practice and the global ambition of FGMC2. Please provide evidence in support of your response.",
+    "section": "organization"
+  },
+  {
+    "question": "a) Positioning of your organisation with respect to key stakeholders (maximum200words) This should explain the ability of your organisation to influence critical stakeholders and to engage with stakeholder processes to effect change.",
+    "section": "organization"
+  },
+  {
+    "question": "b) Your organisation's experience of networking and coalition-building (maximum300words) Please reflect on your organisation's experience of working in networks and coalitions and how your proposed intervention will contribute to enriching the FGMC Community of Practice.",
+    "section": "organization"
+  },
+  {
+    "question": "c) Your organisation's approach to Gender (maximum300words) Please (i) reflect on your appreciation of the extent to which your organisation through this proposal will respond to FGM2's approach to Gender (as set out in Annex C of the Business Case); and (ii) provide an overview of what will be implemented to that effect.",
+    "section": "organization"
+  },
+  {
+    "question": "Any other information relating to Section C that you believe is important for us to know. (maximum150words) Include here any other information that relates to any of the issues in this section that you feel should be considered.",
+    "section": "organization"
+  },
+  {
+    "question": "Estimate of Total budget (GBP) (Amount to be requested from FGMC)",
+    "section": "project"
+  },
+  {
+    "question": "D1. Rough breakdown of the budget providing some guide to the relative weight you place on different aspects of your proposal (Either in increments of100k or10%)",
+    "section": "project"
+  },
+  {
+    "question": "D2. Explanation (if required)",
+    "section": "project"
+  },
+  {
+    "question": "D3. If FGMC is co-funding a project or wider intervention, please state: Total project cost",
+    "section": "project"
+  },
+  {
+    "question": "D3. If FGMC is co-funding a project or wider intervention, please state: Funds already secured (amount):",
+    "section": "project"
+  },
+  {
+    "question": "D3. If FGMC is co-funding a project or wider intervention, please state: Funds already secured (donor):",
+    "section": "project"
+  },
+  {
+    "question": "D3. If FGMC is co-funding a project or wider intervention, please state: Funds already applied for:",
+    "section": "project"
+  },
+  {
+    "question": "D4. If FGMC is co-funding a project, will the focus of the FGMC-funded contribution be clearly worked out by the time you submit your Full Proposal? Yes No",
+    "section": "project"
+  },
+  {
+    "question": "D5. Would your organisation deliver the proposed project activities irrespective of being awarded an FGMC grant? Please note that FGMC grants can be used to (i) solely fund, (ii) co-finance or (iii) leverage funds for project activities that would take place in some form without FGMC support. Yes No Maybe",
+    "section": "project"
+  },
+  {
+    "question": "D6. Is your proposal dependent on advance funding from FCDO? Yes No Maybe If so, explain how you would adjust the proposal if this financing was not available",
+    "section": "project"
+  },
+  {
+    "question": "Is your proposal dependent on securing cofinancing from other sources? Yes, No, Maybe If so, explain how you would adjust the proposal if this financing was not available",
+    "section": "project"
+  },
+  {
+    "question": "Any other information relating to Section D that you believe is important for us to know (maximum150words) Include here any other information that relates to any of the questions in this section that you feel should be considered.",
+    "section": "project"
+  }
+]
