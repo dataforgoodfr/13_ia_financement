@@ -1,0 +1,7 @@
+[theme]
+
+# Font used for almost all text.
+font ="Inter"
+
+# Base radius
+baseRadius="full"
