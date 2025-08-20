@@ -39,7 +39,7 @@ USE_OPENROUTER = True  # Basculer entre OpenAI et OpenRouter
 
 # Configuration OpenRouter
 if USE_OPENROUTER:
-    api_key = "clé"
+    api_key = ""
     os.environ["OPENROUTER_API_KEY"] = api_key
 
     # Création d'une fonction partielle avec le modèle fixé
@@ -66,7 +66,7 @@ def check_doc_processed(text):
     file_path="graphrag_hashes.json"
     file_path=SCRIPT_DIR/file_path
     def load_hashes(file_path=file_path):
-        if os.path.exists(file_path):
+        if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
             with open(file_path, 'r') as f:
                 return json.load(f)
         return {}
@@ -105,38 +105,33 @@ def create_graphdb(text: str, doc_name: str, doc_title: str=None, doc_category: 
         
         def get_text_metadata(text, metadata):
             prompt = f"""
-            I need you to take a close look at a text and propose a {metadata}.
-            Given the following extract: {text}
-            Propose a short {metadata} for this text.
-            Reply only with the proposed {metadata}, without any comment.
+                I need you to take a close look to a text and propose a {metadata}
+                Give the following extract: {text}
+                Propose a short {metadata} for this text
+                Reply only with the proposed {metadata}, without any comment
             """
-
-
-            # Initialize the OpenAI client
-            llm = OpenAI(
+            llm=  OpenAI(
                 base_url="https://openrouter.ai/api/v1",
-                api_key=api_key,
+                api_key="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",
             )
 
-                # Invoke the model with the formatted prompt
-            resp= llm.chat.completions.create(
-                model="mistralai/mistral-small-3.1-24b-instruct:free",
-                messages=[        
-                    {"role": "user", "content": prompt}
-                ],
-                temperature=0,
-            )
+    
+            if metadata=="name":
+                resp = llm.invoke(prompt)
+            elif metadata=="title":
+                resp = llm.invoke(prompt)                
 
-            
-            return resp.choices[0].message.content
+            return resp.content
         
 
         file_path="graphrag_hashes.json"
         file_path=SCRIPT_DIR/file_path
         exising_hashes={}
-        if os.path.exists(file_path):
+        if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
             with open(file_path, 'r') as f:
                 exising_hashes= json.load(f)                    
+        else:
+            exising_hashes={}
 
         if doc_name=="":
             doc_name=get_text_metadata(text[:15000], "name")        
@@ -209,7 +204,7 @@ def create_graphdb(text: str, doc_name: str, doc_title: str=None, doc_category: 
             build_knowledge_graph_vis(hash_text, WORKING_DIR)
 
             # graphrag_pipeline_args[f"rag_{doc_category}"]=rag
-            load_existing_graphdb(hash_text, doc_category)
+            load_existing_graphdb(doc_name)
             
             yield {
                 "pipeline_args": {
@@ -441,7 +436,7 @@ def build_knowledge_graph_vis(hash_text, WORKING_DIR):
     # save graph params
     file_path=SCRIPT_DIR/"graphrag_hashes.json"
     def load_hashes(file_path=file_path):
-        if os.path.exists(file_path):
+        if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
             with open(file_path, 'r') as f:
                 return json.load(f)
         return {}
