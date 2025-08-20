@@ -1,0 +1,588 @@
+This concise Synthesis Report (SYR) Glossary defines selected key
+terms used in this report, drawn from the glossaries of the three
+Working Group contributions to the AR6. A more comprehensive,
+harmonised set of definitions for terms used in this SYR and the
+three AR6 Working Group reports is available from the IPCC
+Online Glossary: https://apps.ipcc.ch/glossary/
+Readers are requested to refer to this comprehensive online
+glossary for definitions of terms of a more technical nature, and
+for scientific references relevant to individual terms. Italicized
+words indicate that the term is defined in this or/and the online
+glossary. Subterms appear in italics beneath main terms.
+2030 Agenda for Sustainable Development
+A UN resolution in September 2015 aadopting a plan of action for
+people, planet and prosperity in a new global development framework
+anchored in 17 Sustainable Development Goals.
+Abrupt climate change
+A large-scale abrupt change in the climate system that takes place over
+a few decades or less, persists (or is anticipated to persist) for at least
+a few decades and causes substantial impacts in human and/or natural
+systems. See also: Abrupt change, Tipping point.
+Adaptation
+In human systems, the process of adjustment to actual or expected
+climate and its effects, in order to moderate harm or exploit beneficial
+opportunities. In natural systems, the process of adjustment to actual
+climate and its effects; human intervention may facilitate adjustment
+to expected climate and its effects. See also: Adaptation options,
+Adaptive capacity, Maladaptive actions (Maladaptation).
+Adaptation gap
+The difference between actually implemented adaptation and a
+societally set goal, determined largely by preferences related to
+tolerated climate change impacts and reflecting resource limitations
+and competing priorities.
+Annexes
+Adaptation limits
+The point at which an actor’s objectives (or system needs) cannot be
+secured from intolerable risks through adaptive actions.
+• Hard adaptation limit - No adaptive actions are possible to
+avoid intolerable risks.
+• Soft adaptation limit - Options may exist but are currently
+not available to avoid intolerable risks through adaptive
+action.
+Transformational adaptation
+Adaptation that changes the fundamental attributes of a
+social-ecological system in anticipation of climate change and
+its impacts.
+120
+Aerosol
+A suspension of airborne solid or liquid particles, with typical particle
+size in the range of a few nanometres to several tens of micrometres
+and atmospheric lifetimes of up to several days in the troposphere
+and up to years in the stratosphere. The term aerosol, which includes
+both the particles and the suspending gas, is often used in this report
+in its plural form to mean ‘aerosol particles’. Aerosols may be of either
+natural or anthropogenic origin in the troposphere; stratospheric
+aerosols mostly stem from volcanic eruptions. Aerosols can cause an
+effective radiative forcing directly through scattering and absorbing
+radiation (aerosol–radiation interaction), and indirectly by acting as
+cloud condensation nuclei or ice nucleating particles that affect the
+properties of clouds (aerosol–cloud interaction), and upon deposition
+on snow- or ice-covered surfaces. Atmospheric aerosols may be either
+emitted as primary particulate matter or formed within the atmosphere
+from gaseous precursors (secondary production). Aerosols may be
+composed of sea salt, organic carbon, black carbon (BC), mineral
+species (mainly desert dust), sulphate, nitrate and ammonium or
+their mixtures. See also: Particulate matter (PM), Aerosol–radiation
+interaction, Short-lived climate forcers (SLCFs).
+Afforestation
+Conversion to forest of land that historically has not contained forests.
+See also: Anthropogenic removals, Carbon dioxide removal (CDR),
+Deforestation, Reducing Emissions from Deforestation and Forest
+Degradation (REDD+), Reforestation.
+[Note: For a discussion of the term forest and related terms such as
+afforestation, reforestation and deforestation, see the 2006 IPCC
+Guidelines for National Greenhouse Gas Inventories and their
+2019 Refinement, and information provided by the United Nations
+Framework Convention on Climate Change]
+Agricultural drought
+See: Drought.
+Agriculture, Forestry and Other Land Use (AFOLU)
+In the context of national greenhouse gas (GHG) inventories under
+the United Nations Convention on Climate Change (UNFCCC),
+AFOLU is the sum of the GHG inventory sectors Agriculture and
+Land Use, Land-Use Change and Forestry (LULUCF); see the 2006
+IPCC Guidelines for National GHG Inventories for details. Given the
+difference in estimating the ‘anthropogenic’ carbon dioxide (CO2)
+removals between countries and the global modelling community, the
+land-related net GHG emissions from global models included in this
+report are not necessarily directly comparable with LULUCF estimates
+in national GHG Inventories. See also: Land use, land-use change and
+forestry (LULUCF), Land-use change (LUC).
+Agroforestry
+Collective name for land-use systems and technologies where woody
+perennials (trees, shrubs, palms, bamboos, etc.) are deliberately used
+on the same land-management units as agricultural crops and/or
+animals, in some form of spatial arrangement or temporal sequence.
+In agroforestry systems there are both ecological and economical
+interactions between the different components. Agroforestry can
+also be defined as a dynamic, ecologically based, natural resource
+management system that, through the integration of trees on farms
+
+and in the agricultural landscape, diversifies and sustains production for
+increased social, economic and environmental benefits for land users at
+all levels.
+Anthropogenic
+Resulting from or produced by human activities.
+Behavioural change
+In this report, behavioural change refers to alteration of human
+decisions and actions in ways that mitigate climate change and/or
+reduce negative consequences of climate change impacts.
+Biodiversity
+Biodiversity or biological diversity means the variability among living
+organisms from all sources including, among other things, terrestrial,
+marine and other aquatic ecosystems, and the ecological complexes
+of which they are part; this includes diversity within species, between
+species and of ecosystems. See also: Ecosystem, Ecosystem services.
+Bioenergy
+Energy derived from any form of biomass or its metabolic by-products.
+See also: Biofuel.
+Bioenergy with carbon dioxide capture and storage (BECCS)
+Carbon dioxide capture and storage (CCS) technology applied to
+a bioenergy facility. Note that, depending on the total emissions
+of the BECCS supply chain, carbon dioxide (CO 2) can be removed
+from the atmosphere. See also: Anthropogenic removals,
+Carbon dioxide capture and storage (CCS), Carbon dioxide removal (CDR).
+Blue infrastructure
+See: Infrastructure.
+Carbon budget
+Refers to two concepts in the literature:
+(1) an assessment of carbon cycle sources and sinks on a global level,
+through the synthesis of evidence for fossil fuel and cement emissions,
+emissions and removals associated with land use and land-use change,
+ocean and natural land sources and sinks of carbon dioxide (CO2),
+and the resulting change in atmospheric CO2 concentration. This is
+referred to as the Global Carbon Budget; (2) the maximum amount of
+cumulative net global anthropogenic CO2 emissions that would result in
+limiting global warming to a given level with a given probability, taking
+[Note 1: Net anthropogenic CO 2 emissions are anthropogenic
+CO2 emissions minus anthropogenic CO 2 removals. See also:
+Carbon Dioxide Removal (CDR).
+Note 2: The maximum amount of cumulative net global anthropogenic
+CO2 emissions is reached at the time that annual net anthropogenic
+CO2 emissions reach zero.
+Note 3: The degree to which anthropogenic climate forcers other than
+CO2 affect the total carbon budget and remaining carbon budget
+depends on human choices about the extent to which these forcers are
+mitigated and their resulting climate effects.
+Note 4: The notions of a total carbon budget and remaining carbon
+budget are also being applied in parts of the scientific literature
+and by some entities at regional, national, or sub-national level. The
+distribution of global budgets across individual different entities and
+emitters depends strongly on considerations of equity and other value
+judgements.]
+Carbon dioxide capture and storage (CCS)
+A process in which a relatively pure stream of carbon dioxide (CO2)
+from industrial and energy-related sources is separated (captured),
+conditioned, compressed and transported to a storage location for
+long-term isolation from the atmosphere. Sometimes referred to as
+Carbon Capture and Storage. See also: Anthropogenic removals,
+Bioenergy with carbon dioxide capture and storage (BECCS),
+Carbon dioxide capture and utilisation (CCU), Carbon dioxide removal (CDR),
+Sequestration.
+Carbon dioxide removal (CDR)
+Anthropogenic activities removing carbon dioxide (CO2) from the
+atmosphere and durably storing it in geological, terrestrial, or
+ocean reservoirs, or in products. It includes existing and potential
+anthropogenic enhancement of biological or geochemical CO2 sinks
+and direct air carbon dioxide capture and storage (DACCS) but excludes
+natural CO 2 uptake not directly caused by human activities.
+See also: Afforestation, Anthropogenic removals, Biochar, Bioenergy
+with carbon dioxide capture and storage (BECCS), Carbon dioxide
+capture and storage (CCS), Enhanced weathering, Ocean alkalinization/
+Ocean alkalinity enhancement, Reforestation, Soil carbon sequestration (SCS).
+Cascading impacts
+Cascading impacts from extreme weather/climate events occur when
+an extreme hazard generates a sequence of secondary events in natural
+and human systems that result in physical, natural, social or economic
+disruption, whereby the resulting impact is significantly larger than the
+initial impact. Cascading impacts are complex and multi-dimensional,
+and are associated more with the magnitude of vulnerability than with
+that of the hazard.
+Climate
+In a narrow sense, climate is usually defined as the average weather
+-or more rigorously, as the statistical description in terms of the mean
+and variability of relevant quantities- over a period of time ranging
+from months to thousands or millions of years. The classical period
+for averaging these variables is 30 years, as defined by the World
+Meteorological Organization (WMO). The relevant quantities are most
+often surface variables such as temperature, precipitation and wind.
+Climate in a wider sense is the state, including a statistical description,
+of the climate system.
+Climate change
+A change in the state of the climate that can be identified (e.g., by using
+statistical tests) by changes in the mean and/or the variability of its
+properties and that persists for an extended period, typically decades
+or longer. Climate change may be due to natural internal processes
+or external forcings such as modulations of the solar cycles, volcanic
+eruptions and persistent anthropogenic changes in the composition of
+the atmosphere or in land use. See also: Climate variability, Detection
+and attribution, Global warming, Natural (climate) variability, Ocean
+acidification (OA).
+[Note that the United Nations Framework Convention on Climate
+Change (UNFCCC), in its Article 1, defines climate change as: ‘a change
+of climate which is attributed directly or indirectly to human activity
+that alters the composition of the global atmosphere and which is in
+addition to natural climate variability observed over comparable time
+periods’. The UNFCCC thus makes a distinction between climate change
+attributable to human activities altering the atmospheric composition
+and climate variability attributable to natural causes.]
+Climate extreme (extreme weather or climate event)
+The occurrence of a value of a weather or climate variable above
+(or below) a threshold value near the upper (or lower) ends of the range
+of observed values of the variable. By definition, the characteristics of
+what is called extreme weather may vary from place to place in an
+absolute sense. When a pattern of extreme weather persists for some
+time, such as a season, it may be classified as an extreme climate event,
+especially if it yields an average or total that is itself extreme (e.g., high
+temperature, drought, or heavy rainfall over a season). For simplicity,
+both extreme weather events and extreme climate events are referred
+to collectively as ‘climate extremes’.
+Annexes
+Climate finance
+There is no agreed definition of climate finance. The term ‘climate
+finance’ is applied to the financial resources devoted to addressing
+climate change by all public and private actors from global to local
+scales, including international financial flows to developing countries
+to assist them in addressing climate change. Climate finance aims to
+reduce net greenhouse gas emissions and/or to enhance adaptation
+and increase resilience to the impacts of current and projected climate
+change. Finance can come from private and public sources, channelled
+by various intermediaries, and is delivered by a range of instruments,
+including grants, concessional and non-concessional debt, and internal
+budget reallocations.
+Climate governance
+The structures, processes, and actions through which private and public
+actors seek to mitigate and adapt to climate change.
+Climate justice
+See: Justice.
+122
+Climate literacy
+Climate literacy encompasses being aware of climate change, its
+anthropogenic causes, and implications.
+Climate resilient development (CRD)
+Climate-resilient development refers to the process of implementing
+greenhouse gas mitigation and adaptation measures to support
+sustainable development for all.
+Climate sensitivity
+The change in the surface temperature in response to a change in the
+atmospheric carbon dioxide (CO2) concentration or other radiative
+forcing. See also: Climate feedback parameter.
+Equilibrium climate sensitivity (ECS)
+The equilibrium (steady state) change in the surface temperature
+following a doubling of the atmospheric carbon dioxide (CO2)
+concentration from pre-industrial conditions.
+Climate services
+Climate services involve the provision of climate information in such
+a way as to assist decision-making. The service includes appropriate
+engagement from users and providers, is based on scientifically credible
+information and expertise, has an effective access mechanism, and
+responds to user needs.
+Climate system
+The global system consisting of five major components: the atmosphere,
+the hydrosphere, the cryosphere, the lithosphere and the biosphere,
+and the interactions between them. The climate system changes in
+time under the influence of its own internal dynamics and because of
+external forcings such as volcanic eruptions, solar variations, orbital
+forcing, and anthropogenic forcings such as the changing composition
+of the atmosphere and land-use change.
+Climatic impact-driver (CID)
+Physical climate system conditions (e.g., means, events, extremes)
+that affect an element of society or ecosystems. Depending on system
+tolerance, CIDs and their changes can be detrimental, beneficial, neutral
+or a mixture of each across interacting system elements and regions.
+See also: Hazard, Impacts, Risk.
+CO2-equivalent emission (CO2-eq)
+The amount of carbon dioxide (CO2) emission that would have an
+equivalent effect on a specified key measure of climate change, over
+a specified time horizon, as an emitted amount of another greenhouse
+gas (GHG) or a mixture of other GHGs. For a mix of GHGs it is obtained
+by summing the CO2-equivalent emissions of each gas. There are
+various ways and time horizons to compute such equivalent emissions
+(see greenhouse gas emission metric). CO2-equivalent emissions are
+commonly used to compare emissions of different GHGs but should not
+be taken to imply that these emissions have an equivalent effect across
+all key measures of climate change.
+[Note: Under the Paris Rulebook [Decision 18/CMA.1, annex, paragraph
+37], parties have agreed to use GWP100 values from the IPCC AR5 or
+GWP100 values from a subsequent IPCC Assessment Report to report
+aggregate emissions and removals of GHGs. In addition, parties may
+use other metrics to report supplemental information on aggregate
+emissions and removals of GHGs.]
+Compound weather/climate events
+The terms ‘compound events’, ‘compound extremes’ and ‘compound
+extreme events’ are used interchangeably in the literature and this
+report, and refer to the combination of multiple drivers and/or hazards
+that contribute to societal and/or environmental risk.
+Deforestation
+Conversion of forest to non-forest. See also: Afforestation,
+Reforestation, Reducing Emissions from Deforestation and Forest
+Degradation (REDD+).
+[Note: For a discussion of the term forest and related terms such
+as afforestation, reforestation and deforestation, see the 2006
+IPCC Guidelines for National Greenhouse Gas Inventories and their
+2019 Refinement, and information provided by the United Nations
+Framework Convention on Climate Change]
+Demand-side measures
+Policies and programmes for influencing the demand for goods and/ or
+services. In the energy sector, demand-side mitigation measures aim at
+reducing the amount of greenhouse gas emissions emitted per unit of
+energy service used.
+Development pathways
+See: Pathways.
+Disaster risk management (DRM)
+Processes for designing, implementing and evaluating strategies,
+policies and measures to improve the understanding of current and
+future disaster risk, foster disaster risk reduction and transfer, and
+promote continuous improvement in disaster preparedness, prevention
+and protection, response and recovery practices, with the explicit
+purpose of increasing human security, well-being, quality of life and
+sustainable development (SD).
+Drought
+An exceptional period of water shortage for existing ecosystems and the
+human population (due to low rainfall, high temperature and/or wind).
+See also: Plant evaporative stress.
+Agricultural and ecological drought
+Depending on the affected biome: a period with abnormal
+soil moisture deficit, which results from combined shortage of
+precipitation and excess evapotranspiration, and during the growing
+season impinges on crop production or ecosystem function in
+general.
+Early warning systems (EWS)
+The set of technical and institutional capacities to forecast, predict, and
+communicate timely and meaningful warning information to enable
+individuals, communities, managed ecosystems, and organisations
+threatened by a hazard to prepare to act promptly and appropriately
+to reduce the possibility of harm or loss. Depending upon context, EWS
+may draw upon scientific and/or Indigenous knowledge, and other
+knowledge types. EWS are also considered for ecological applications,
+e.g., conservation, where the organisation itself is not threatened by
+hazard but the ecosystem under conservation is (e.g., coral bleaching alerts),
+in agriculture (e.g., warnings of heavy rainfall, drought, ground frost,
+and hailstorms) and in fisheries (e.g., warnings of storm, storm surge,
+and tsunamis).
+Ecological drought
+See: Drought.
+Ecosystem
+An ecosystem is a functional unit consisting of living organisms,
+their nonliving environment and the interactions within and between
+them. The components included in a given ecosystem and its spatial
+boundaries depend on the purpose for which the ecosystem is defined:
+in some cases, they are relatively sharp, while in others they are diffuse.
+Ecosystem boundaries can change over time. Ecosystems are nested
+within other ecosystems and their scale can range from very small to
+the entire biosphere. In the current era, most ecosystems either contain
+people as key organisms, or are influenced by the effects of human
+activities in their environment. See also: Ecosystem health, Ecosystem
+services.
+Ecosystem-based adaptation (EbA)
+The use of ecosystem management activities to increase the
+resilience and reduce the vulnerability of people and ecosystems to
+climate change. See also: Adaptation, Nature-based solution (NbS).
+Ecosystem services
+Ecological processes or functions having monetary or non-monetary
+value to individuals or society at large. These are frequently classified as
+(1) supporting services such as productivity or biodiversity maintenance,
+(2) provisioning services such as food or fibre, (3) regulating services
+such as climate regulation or carbon sequestration, and (4) cultural
+123
+Annexes
+Developed / developing countries (Industrialissed / developed /
+developing countries)
+There is a diversity of approaches for categorizing countries on the
+basis of their level of development, and for defining terms such as
+industrialised, developed, or developing. Several categorisations
+are used in this report. (1) In the United Nations (UN) system, there
+is no established convention for the designation of developed and
+developing countries or areas. (2) The UN Statistics Division specifies
+developed and developing regions based on common practice. In
+addition, specific countries are designated as least developed countries,
+landlocked developing countries, Small Island Developing States (SIDS),
+and transition economies. Many countries appear in more than one of
+these categories. (3) The World Bank uses income as the main criterion
+for classifying countries as low, lower middle, upper middle, and high
+income. (4) The UN Development Programme (UNDP) aggregates
+indicators for life expectancy, educational attainment, and income
+into a single composite Human Development Index (HDI) to classify
+countries as low, medium, high, or very high human development.
+
+services such as tourism or spiritual and aesthetic appreciation.
+See also: Ecosystem, Ecosystem health, Nature’s contributions to
+people (NCP).
+Emission scenario
+See: Scenario.
+Emission pathways
+See: Pathways.
+Enabling conditions (for adaptation and mitigation options)
+Conditions that enhance the feasibility of adaptation and mitigation
+options. Enabling conditions include finance, technological innovation,
+strengthening policy instruments, institutional capacity, multi-level
+governance, and changes in human behaviour and lifestyles.
+Equality
+A principle that ascribes equal worth to all human beings, including
+equal opportunities, rights and obligations, irrespective of origins.
+See also: Equity, Fairness.
+Inequality
+Uneven opportunities and social positions, and processes of
+discrimination within a group or society, based on gender,
+class, ethnicity, age, and (dis)ability, often produced by uneven
+development. Income inequality refers to gaps between highest and
+lowest income earners within a country and between countries.
+Equilibrium climate sensitivity (ECS)
+See: Climate sensitivity.
+Equity
+The principle of being fair and impartial, and a basis for understanding
+how the impacts and responses to climate change, including costs and
+benefits, are distributed in and by society in more or less equal ways.
+Often aligned with ideas of equality, fairness and justice and applied
+with respect to equity in the responsibility for, and distribution of,
+climate impacts and policies across society, generations, and gender,
+and in the sense of who participates and controls the processes of
+decision-making.
+Annexes
+Exposure
+The presence of people; livelihoods; species or ecosystems; environmental
+functions, services, and resources; infrastructure; or economic, social, or
+cultural assets in places and settings that could be adversely affected.
+See also: Hazard, Exposure, Vulnerability, Impacts, Risk.
+Feasibility
+In this report, feasibility refers to the potential for a mitigation or
+adaptation option to be implemented. Factors influencing feasibility
+are context-dependent, temporally dynamic, and may vary between
+different groups and actors. Feasibility depends on geophysical,
+environmental-ecological, technological, economic, socio-cultural and
+institutional factors that enable or constrain the implementation of an
+option. The feasibility of options may change when different options
+are combined and increase when enabling conditions are strengthened.
+See also: Enabling conditions (for adaptation and mitigation options).
+124
+Fire weather
+Weather conditions conducive to triggering and sustaining wildfires,
+usually based on a set of indicators and combinations of indicators
+including temperature, soil moisture, humidity, and wind. Fire weather
+does not include the presence or absence of fuel load.
+Food loss and waste
+The decrease in quantity or quality of food. Food waste is part of food
+loss and refers to discarding or alternative (non-food) use of food that
+is safe and nutritious for human consumption along the entire food
+supply chain, from primary production to end household consumer
+level. Food waste is recognized as a distinct part of food loss because
+the drivers that generate it and the solutions to it are different from
+those of food losses.
+Food security
+A situation that exists when all people, at all times, have physical, social
+and economic access to sufficient, safe and nutritious food that meets
+their dietary needs and food preferences for an active and healthy life.
+The four pillars of food security are availability, access, utilization and
+stability. The nutritional dimension is integral to the concept of food
+security.
+Global warming
+Global warming refers to the increase in global surface temperature
+relative to a baseline reference period, averaging over a period
+sufficient to remove interannual variations (e.g., 20 or 30 years). A
+common choice for the baseline is 1850–1900 (the earliest period
+of reliable observations with sufficient geographic coverage), with
+more modern baselines used depending upon the application.
+See also: Climate change, Climate variability, Natural (climate)
+variability.
+Global warming potential (GWP)
+An index measuring the radiative forcing following an emission of a unit
+mass of a given substance, accumulated over a chosen time horizon,
+relative to that of the reference substance, carbon dioxide (CO2). The
+GWP thus represents the combined effect of the differing times these
+substances remain in the atmosphere and their effectiveness in causing
+radiative forcing. See also: Lifetime, Greenhouse gas emission metric.
+Green infrastructure
+See: Infrastructure.
+Greenhouse gases (GHGs)
+Gaseous constituents of the atmosphere, both natural and
+anthropogenic, that absorb and emit radiation at specific wavelengths
+within the spectrum of radiation emitted by the Earth’s surface, by the
+atmosphere itself, and by clouds. This property causes the greenhouse
+effect. Water vapour (H2O), carbon dioxide (CO2), nitrous oxide (N2O),
+methane (CH4) and ozone (O3) are the primary GHGs in the Earth’s
+atmosphere. Human-made GHGs include sulphur hexafluoride
+(SF6), hydrofluorocarbons (HFCs), chlorofluorocarbons (CFCs) and
+perfluorocarbons (PFCs); several of these are also O3-depleting
+(and are regulated under the Montreal Protocol). See also: Well-mixed
+greenhouse gas.
+Grey infrastructure
+See: Infrastructure.
+
+Hazard
+The potential occurrence of a natural or human-induced physical event
+or trend that may cause loss of life, injury or other health impacts,
+as well as damage and loss to property, infrastructure, livelihoods,
+service provision, ecosystems and environmental resources. See also:
+Exposure, Vulnerability, Impacts, Risk.
+Impacts
+The consequences of realised risks on natural and human systems,
+where risks result from the interactions of climate-related hazards
+(including extreme weather/climate events), exposure, and vulnerability.
+Impacts generally refer to effects on lives, livelihoods, health and well-
+being, ecosystems and species, economic, social and cultural assets,
+services (including ecosystem services), and infrastructure. Impacts may
+be referred to as consequences or outcomes and can be adverse or
+beneficial. See also: Adaptation, Hazard, Exposure, Vulnerability, Risk.
+Inequality
+See: Equality.
+Indigenous knowledge (IK)
+The understandings, skills and philosophies developed by societies with
+long histories of interaction with their natural surroundings. For many
+Indigenous Peoples, IK informs decision-making about fundamental
+aspects of life, from day-to-day activities to longer term actions. This
+knowledge is integral to cultural complexes, which also encompass
+language, systems of classification, resource use practices, social
+interactions, values, ritual and spirituality. These distinctive ways of
+knowing are important facets of the world’s cultural diversity. See also:
+Local knowledge (LK).
+Indigenous Peoples
+Indigenous Peoples and nations are those that, having a historical
+continuity with pre-invasion and pre-colonial societies that developed
+on their territories, consider themselves distinct from other sectors of the
+societies now prevailing on those territories, or parts of them. They form
+at present principally non-dominant sectors of society and are often
+determined to preserve, develop, and transmit to future generations
+their ancestral territories, and their ethnic identity, as the basis of their
+continued existence as peoples, in accordance with their own cultural
+patterns, social institutions, and common law system.
+Infrastructure
+The designed and built set of physical systems and corresponding
+institutional arrangements that mediate between people, their
+communities, and the broader environment to provide services that
+support economic growth, health, quality of life, and safety.
+Green infrastructure
+The strategically planned interconnected set of natural and
+constructed ecological systems, green spaces and other landscape
+features that can provide functions and services including air
+and water purification, temperature management, floodwater
+management and coastal defence often with co-benefits for
+people and biodiversity. Green infrastructure includes planted and
+remnant native vegetation, soils, wetlands, parks and green open
+spaces, as well as building and street level design interventions that
+incorporate vegetation.
+Grey infrastructure
+Engineered physical components and networks of pipes, wires,
+tracks and roads that underpin energy, transport, communications
+(including digital), built form, water and sanitation, and solid-waste
+management systems.
+Irreversibility
+A perturbed state of a dynamical system is defined as irreversible on a
+given time scale if the recovery from this state due to natural processes
+takes substantially longer than the time scale of interest. See also:
+Tipping point.
+Just transition
+See: Transition.
+Justice
+Justice is concerned with ensuring that people get what is due to them,
+setting out the moral or legal principles of fairness and equity in the
+way people are treated, often based on the ethics and values of society.
+Climate justice
+Justice that links development and human rights to achieve a human-
+centred approach to addressing climate change, safeguarding the
+rights of the most vulnerable people and sharing the burdens and
+benefits of climate change and its impacts equitably and fairly.
+Social justice
+Just or fair relations within society that seek to address the
+distribution of wealth, access to resources, opportunity, and support
+according to principles of justice and fairness.
+Key risk
+See: Risk.
+Land use, land-use change and forestry (LULUCF)
+In the context of national greenhouse gas (GHG) inventories under the
+United Nations Framework Convention on Climate Change, LULUCF is a
+GHG inventory sector that covers anthropogenic emissions and removals
+of GHG in managed lands, excluding non-CO2 agricultural emissions.
+Following the 2006 IPCC Guidelines for National GHG Inventories and
+125
+Annexes
+Informal settlement
+A term given to settlements or residential areas that by at least one
+criterion fall outside official rules and regulations. Most informal
+settlements have poor housing (with widespread use of temporary
+materials) and are developed on land that is occupied illegally with
+high levels of overcrowding. In most such settlements, provision for safe
+water, sanitation, drainage, paved roads, and basic services is inadequate
+or lacking. The term ‘slum’ is often used for informal settlements,
+although it is misleading as many informal settlements develop into
+good quality residential areas, especially where governments support
+such development.
