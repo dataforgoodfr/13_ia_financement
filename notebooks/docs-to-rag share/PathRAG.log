@@ -1,0 +1,100 @@
+2025-08-20 15:01:57,235 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 15:01:57,237 - PathRAG - INFO - Creating working directory /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 15:01:57,240 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 15:01:57,241 - PathRAG - INFO - Load KV full_docs with 0 data
+2025-08-20 15:01:57,243 - PathRAG - INFO - Load KV text_chunks with 0 data
+2025-08-20 15:01:57,252 - PathRAG - INFO - [New Docs] inserting 1 docs
+2025-08-20 15:02:00,520 - PathRAG - INFO - [New Chunks] inserting 1 chunks
+2025-08-20 15:02:00,522 - PathRAG - INFO - Inserting 1 vectors to chunks
+2025-08-20 15:02:00,648 - PathRAG - INFO - [Entity Extraction]...
+2025-08-20 15:02:08,454 - PathRAG - INFO - Writing graph with 0 nodes, 0 edges
+2025-08-20 15:04:08,061 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 15:04:08,063 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 15:04:08,065 - PathRAG - INFO - Load KV full_docs with 0 data
+2025-08-20 15:04:08,066 - PathRAG - INFO - Load KV text_chunks with 0 data
+2025-08-20 15:04:08,068 - PathRAG - INFO - Loaded graph from /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+2025-08-20 15:04:08,076 - PathRAG - INFO - [New Docs] inserting 1 docs
+2025-08-20 15:04:08,614 - PathRAG - INFO - [New Chunks] inserting 1 chunks
+2025-08-20 15:04:08,614 - PathRAG - INFO - Inserting 1 vectors to chunks
+2025-08-20 15:04:08,732 - PathRAG - INFO - [Entity Extraction]...
+2025-08-20 15:05:21,056 - PathRAG - INFO - Inserting entities into storage...
+2025-08-20 15:05:21,080 - PathRAG - INFO - Inserting relationships into storage...
+2025-08-20 15:05:21,095 - PathRAG - INFO - Inserting 31 vectors to entities
+2025-08-20 15:05:22,185 - PathRAG - INFO - Inserting 19 vectors to relationships
+2025-08-20 15:05:22,710 - PathRAG - INFO - Writing graph with 32 nodes, 19 edges
+2025-08-20 15:16:29,912 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 15:16:29,916 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 15:16:29,918 - PathRAG - INFO - Load KV full_docs with 1 data
+2025-08-20 15:16:29,920 - PathRAG - INFO - Load KV text_chunks with 1 data
+2025-08-20 15:16:29,925 - PathRAG - INFO - Loaded graph from /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0/graph_chunk_entity_relation.graphml with 32 nodes, 19 edges
+2025-08-20 15:16:29,936 - PathRAG - WARNING - All docs are already in the storage
+2025-08-20 15:17:41,832 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 15:17:41,834 - PathRAG - INFO - Creating working directory /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 15:17:41,838 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 15:17:41,840 - PathRAG - INFO - Load KV full_docs with 0 data
+2025-08-20 15:17:41,843 - PathRAG - INFO - Load KV text_chunks with 0 data
+2025-08-20 15:17:41,851 - PathRAG - INFO - [New Docs] inserting 1 docs
+2025-08-20 15:17:42,357 - PathRAG - INFO - [New Chunks] inserting 1 chunks
+2025-08-20 15:17:42,358 - PathRAG - INFO - Inserting 1 vectors to chunks
+2025-08-20 15:17:42,506 - PathRAG - INFO - [Entity Extraction]...
+2025-08-20 15:19:45,347 - PathRAG - INFO - Inserting entities into storage...
+2025-08-20 15:19:45,356 - PathRAG - INFO - Inserting relationships into storage...
+2025-08-20 15:19:45,362 - PathRAG - INFO - Inserting 35 vectors to entities
+2025-08-20 15:19:46,490 - PathRAG - INFO - Inserting 12 vectors to relationships
+2025-08-20 15:19:46,883 - PathRAG - INFO - Writing graph with 35 nodes, 12 edges
+2025-08-20 17:55:24,910 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 17:55:24,911 - PathRAG - INFO - Creating working directory /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag-debug/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 17:55:24,913 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 17:55:24,914 - PathRAG - INFO - Load KV full_docs with 0 data
+2025-08-20 17:55:24,915 - PathRAG - INFO - Load KV text_chunks with 0 data
+2025-08-20 17:55:24,920 - PathRAG - INFO - [New Docs] inserting 1 docs
+2025-08-20 17:55:25,420 - PathRAG - INFO - [New Chunks] inserting 1 chunks
+2025-08-20 17:55:25,421 - PathRAG - INFO - Inserting 1 vectors to chunks
+2025-08-20 17:55:25,533 - PathRAG - INFO - [Entity Extraction]...
+2025-08-20 17:56:47,630 - PathRAG - INFO - Inserting entities into storage...
+2025-08-20 17:56:47,638 - PathRAG - INFO - Inserting relationships into storage...
+2025-08-20 17:56:47,645 - PathRAG - INFO - Inserting 32 vectors to entities
+2025-08-20 17:56:48,543 - PathRAG - INFO - Inserting 16 vectors to relationships
+2025-08-20 17:56:49,017 - PathRAG - INFO - Writing graph with 33 nodes, 16 edges
+2025-08-20 17:57:39,654 - PathRAG - INFO - kw_prompt result:
+2025-08-20 17:57:39,656 - PathRAG - INFO - ```json
+{
+  "high_level_keywords": ["Analyse textuelle", "Thèmes principaux", "Questions de compréhension"],
+  "low_level_keywords": ["Identification des thèmes", "Formulation de questions", "Lecture analytique", "Compréhension de texte"]
+}
+```
+2025-08-20 17:57:39,719 - PathRAG - INFO - Local query uses 32 entites, 15 relations, 1 text units
+2025-08-20 17:57:39,754 - PathRAG - INFO - Global query uses 20 entites, 16 relations, 1 text units
+2025-08-20 18:24:25,274 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag share/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 18:24:25,276 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 18:24:25,277 - PathRAG - INFO - Load KV full_docs with 1 data
+2025-08-20 18:24:25,278 - PathRAG - INFO - Load KV text_chunks with 1 data
+2025-08-20 18:24:25,283 - PathRAG - INFO - Loaded graph from /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag share/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0/graph_chunk_entity_relation.graphml with 33 nodes, 16 edges
+2025-08-20 18:24:37,328 - PathRAG - INFO - kw_prompt result:
+2025-08-20 18:24:37,329 - PathRAG - INFO - ```json
+{
+  "high_level_keywords": ["Analyse textuelle", "Thèmes principaux", "Questions de compréhension"],
+  "low_level_keywords": ["Identification de thèmes", "Rédaction de questions", "Compréhension de texte", "Analyse de contenu"]
+}
+```
+2025-08-20 18:24:38,921 - PathRAG - INFO - Local query uses 32 entites, 15 relations, 1 text units
+2025-08-20 18:24:38,956 - PathRAG - INFO - Global query uses 20 entites, 16 relations, 1 text units
+2025-08-20 18:31:31,774 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag share/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 18:31:31,778 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 18:31:31,780 - PathRAG - INFO - Load KV full_docs with 1 data
+2025-08-20 18:31:31,783 - PathRAG - INFO - Load KV text_chunks with 1 data
+2025-08-20 18:31:31,789 - PathRAG - INFO - Loaded graph from /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag share/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0/graph_chunk_entity_relation.graphml with 33 nodes, 16 edges
+2025-08-20 18:39:57,475 - PathRAG - INFO - Logger initialized for working directory: /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag share/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0
+2025-08-20 18:39:57,477 - PathRAG - INFO - Load KV llm_response_cache with 0 data
+2025-08-20 18:39:57,478 - PathRAG - INFO - Load KV full_docs with 1 data
+2025-08-20 18:39:57,479 - PathRAG - INFO - Load KV text_chunks with 1 data
+2025-08-20 18:39:57,484 - PathRAG - INFO - Loaded graph from /home/chougar/Documents/GitHub/Projet-portail-immo/docs-to-rag share/storage/graph_stores/6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0/graph_chunk_entity_relation.graphml with 33 nodes, 16 edges
+2025-08-20 18:40:07,958 - PathRAG - INFO - kw_prompt result:
+2025-08-20 18:40:07,959 - PathRAG - INFO - ```json
+{
+  "high_level_keywords": ["Analyse textuelle", "Thèmes principaux", "Questions de compréhension"],
+  "low_level_keywords": ["Identification des thèmes", "Formulation de questions", "Lecture analytique", "Compréhension de texte"]
+}
+```
+2025-08-20 18:40:08,550 - PathRAG - INFO - Local query uses 32 entites, 15 relations, 1 text units
+2025-08-20 18:40:08,589 - PathRAG - INFO - Global query uses 20 entites, 16 relations, 1 text units
