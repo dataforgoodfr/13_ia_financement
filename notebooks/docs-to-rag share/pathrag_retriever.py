@@ -31,8 +31,8 @@ graphrag_pipeline_args={}
 
 # Fonction LLM personnalisée vers OpenRouter
 # OPENROUTER_MODEL="nvidia/llama-3.3-nemotron-super-49b-v1:free"
-OPENROUTER_MODEL_graph_creation="google/gemma-3-27b-it:free"
-OPENROUTER_MODEL_graph_read="google/gemma-3-27b-it:free"
+OPENROUTER_MODEL_graph_creation="google/gemma-3-27b-it"
+OPENROUTER_MODEL_graph_read="google/gemma-3-27b-it"
 
 # Choix du provider
 USE_OPENROUTER = True  # Basculer entre OpenAI et OpenRouter
