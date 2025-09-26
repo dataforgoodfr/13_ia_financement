@@ -530,9 +530,31 @@ def QA_pipeline(queries: list, return_sources=True):
                 type: str = Field(
                     description="The question is related to association identification or not, output 'yes', 'no' or 'uncertain'"
                 )
-        else:
-            return "Provide a valid classification taks: 'open/close question', 'asso question'"
+#début Modif JF
+        elif classification_task=="question complexity":
+            sys_prompt_v1=sys_prompt_v2="""
+                You are a cognitive analysis expert, specialized in evaluating the complexity of questions.
 
+                Goal: Classify each question into three exclusive categories. A question can belong to only one category:
+                - simple → factual, direct answer, requires only quick lookup or common knowledge; estimated answering time < 15 seconds.
+                - moderately_complex → requires structured reasoning or combining several simple elements; estimated answering time between 15 seconds and 2 minutes.
+                - very_complex → requires extended reasoning, specialized expertise, or analysis of multiple factors; estimated answering time > 2 minutes.
+
+                Strict rules:
+                1. No interpretation beyond the given text: judge complexity only from the wording of the provided question.
+                2. No rephrasing: copy the question exactly as it is.
+                3. Justification required (1–3 sentences) explaining the choice.
+                4. No ambiguity: if a question is borderline between two categories, choose the more complex category.
+            """
+            class ClassifyQuestion(BaseModel):
+                """question complexity"""
+                type: str = Field(
+                    description="The question is 'simple', 'moderately_complex' or 'very_complex'"
+            )
+
+        else:
+            return "Provide a valid classification taks: 'open/close question', 'asso question', 'question complexity'"
+#fin Modif JF
 
         # LLM with function call
         llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
@@ -622,6 +644,9 @@ def QA_pipeline(queries: list, return_sources=True):
     # instancier les classifiers de question open/close et asso
     question_classifier_openORclose=rag_chain_switcher(classification_task="open/close question")
     question_classifier_asso=rag_chain_switcher(classification_task="asso question")
+#Modif JF
+    question_classifier_complexity=rag_chain_switcher(classification_task="question complexity")
+#Modif JF
 
 
     
@@ -644,6 +669,10 @@ def QA_pipeline(queries: list, return_sources=True):
         openORclose_question= question_classifier_openORclose.invoke({"question": query})
         #2. question sur pp/asso
         asso_question= question_classifier_asso.invoke({"question": query})
+#Modif JF
+        #3. question complexe ou pas
+        complexity_question= question_classifier_complexity.invoke({"question": query})
+#Modif JF
         
         
         if asso_question.type == 'no':
@@ -708,6 +737,9 @@ def QA_pipeline(queries: list, return_sources=True):
                     "enhanced_question": enhanced_query, 
                     "question_close_or_open": openORclose_question.type,
                         "question_asso_or_pp": question_asso_or_pp,
+#Modif JF
+                        "question_complexity": complexity_question.type,
+#Modif JF
                         "source_doc_language": pipeline_args[f"{doc_category}_source_language"],
                         "translation_requiered": reverse_translation
                     }
@@ -728,6 +760,9 @@ def QA_pipeline(queries: list, return_sources=True):
                         #"full_response": resp,
                         "question_close_or_open": openORclose_question.type,
                         "question_asso_or_pp": question_asso_or_pp,
+#Modif JF
+                        "question_complexity": complexity_question.type,
+#Modif JF
                         "source_doc_language": pipeline_args[f"{doc_category}_source_language"],
                         "translation_requiered": reverse_translation
                     }   
