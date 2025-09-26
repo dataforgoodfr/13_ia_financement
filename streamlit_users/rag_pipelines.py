@@ -27,6 +27,44 @@ import dotenv
 dotenv.load_dotenv(".env")
 
 
+def adjust_resp(resp, size_answer): 
+    """
+        #### Function definition:
+        Adjust the size of the response to the user
+
+        #### Inputs :
+        **resp**: the response to be adjusted
+        **size_answer**: the size of the answer required by the user
+
+        #### Outputs:
+        A generator function containing return information in str format.
+    """
+    
+    if size_answer!="":
+        system="""
+            summarize the text {resp} into a text of {size_answer}, keeping the main ideas
+            #### Response Format:
+            it must be clear, easy to understand and the language must be the same as the input
+        """
+
+        adjust_prompt = ChatPromptTemplate.from_messages(
+            [
+                ("system", system),
+                (
+                    "human",
+                    "Here is the initial text: \n\n {resp} \n summarize it in a text of {size_answer}.",
+                ),
+            ]
+        )
+        llm_adjuster = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.5)
+        adjustor_resp = adjust_prompt | llm_adjuster | StrOutputParser()
+        adjusted_resp = adjustor_resp.invoke({"resp": resp, "size_answer": size_answer})
+    else:
+        adjusted_resp=""
+    
+    return adjusted_resp
+
+
 pipeline_args={}
 def process_new_doc(uploaded_files, doc_name: str, doc_category: str):
     """
@@ -86,6 +124,13 @@ def process_new_doc(uploaded_files, doc_name: str, doc_category: str):
             pages = loader.load()
 
             all_pages+=pages
+#Modif JF
+        elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet":  
+            for Mysheet_name in pd.ExcelFile(uploaded_file).sheet_names:
+                df = pd.read_excel(uploaded_file, sheet_name = Mysheet_name, engine='openpyxl')
+                pages = [Document(page_content=str(row.to_dict()), metadata={"source": f"{uploaded_file.name}"}) for _, row in df.iterrows()]
+                all_pages+=pages
+#Modif JF
 
         elif uploaded_file.type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document":        
             #===============conversion des docx en pdf, non fonctionnel
@@ -585,7 +630,7 @@ def QA_pipeline(queries: list, return_sources=True):
     # question directe
     if "uid" not in queries[0]:
         for q in queries:
-            queries_norm.append({"uid": "xxx", "question": q["question"]})
+            queries_norm.append({"uid": "xxx", "question": q["question"], "size_answer": q["size_answer"]})
     else:
         queries_norm=queries
 
@@ -659,7 +704,7 @@ def QA_pipeline(queries: list, return_sources=True):
                 if return_sources:
                     yield {"sources": pipeline_args[f"hybrid_pipeline_{doc_category}"]["sources"]}
 
-                yield {'uid': q["uid"], "question": q["question"], 
+                yield {'uid': q["uid"], "question": q["question"], "size_answer": q["size_answer"],
                     "enhanced_question": enhanced_query, 
                     "question_close_or_open": openORclose_question.type,
                         "question_asso_or_pp": question_asso_or_pp,
@@ -679,7 +724,7 @@ def QA_pipeline(queries: list, return_sources=True):
                 yield {'question': q["question"], "response_stream": stream_resp, "pathrag_stream": True}
 
                 yield {
-                        'uid': q['uid'], "question": q["question"], "enhanced_question": enhanced_query, 
+                        'uid': q['uid'], "question": q["question"], "size_answer": q["size_answer"], "enhanced_question": enhanced_query, 
                         #"full_response": resp,
                         "question_close_or_open": openORclose_question.type,
                         "question_asso_or_pp": question_asso_or_pp,
