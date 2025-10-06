@@ -2,7 +2,7 @@ from typing import List, Dict
 import json
 from pathlib import Path
 
-JSON_DIR = Path('notebooks/qa_json/aghiles_json_ps_p02_aap03.json')
+JSON_DIR = Path('notebooks/qa_json/geoffrey_json_PS_P02_AAP03_08092025.json')
 GT_DIR = Path('notebooks/qa_json/ground_truth_ps_p02_aap03.json')
 
 def count_keys_question(dicts : List[Dict]) -> int:

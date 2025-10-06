@@ -1,0 +1,78 @@
+[
+  {
+    "question": "1. Applicant's Contact Information – a) Implementing organization – b) Contact Person and Title – c) Address/Postal Code and City – d) Phone number – e) E-mail",
+    "section": "organization"
+  },
+  {
+    "question": "2. Basic Information About the Proposal – A) Project title – B) Amount requested (USD) – Amount of co-share if any (USD) – Total Cost (USD)",
+    "section": "project"
+  },
+  {
+    "question": "3. Elevator Pitch (Short summary of the project, not to exceed 50 words)",
+    "section": "project"
+  },
+  {
+    "question": "4. Definition of Situation",
+    "section": "project"
+  },
+  {
+    "question": "5. Project Outcomes",
+    "section": "project"
+  },
+  {
+    "question": "6. Description of Project Activities",
+    "section": "project"
+  },
+  {
+    "question": "7. Activity Locations",
+    "section": "project"
+  },
+  {
+    "question": "8. Project Beneficiaries",
+    "section": "project"
+  },
+  {
+    "question": "9. Project Schedule and Timeline",
+    "section": "project"
+  },
+  {
+    "question": "10. Project Partners",
+    "section": "project"
+  },
+  {
+    "question": "11. Anticipated Outputs of the Project",
+    "section": "project"
+  },
+  {
+    "question": "12. Monitoring and Evaluation Plan",
+    "section": "project"
+  },
+  {
+    "question": "13. Project Publicity",
+    "section": "project"
+  },
+  {
+    "question": "14. Project Sustainability",
+    "section": "project"
+  },
+  {
+    "question": "15. Background of Implementing Organization (include organization's technical and management capacities)",
+    "section": "organization"
+  },
+  {
+    "question": "16. Key Personnel",
+    "section": "organization"
+  },
+  {
+    "question": "17. Previous U.S. Government Funding",
+    "section": "organization"
+  },
+  {
+    "question": "18. Detailed Budget (itemize any amount larger than $200) – A. No. of Units – B. Price per Unit – C. U.S. Share of the Cost (A x B) – D. Applicant's Share of the Cost (if any) – E. Total (C+D) – Personnel – Fringe – Travel – Supplies – Contractual",
+    "section": "project"
+  },
+  {
+    "question": "19. Budget Narrative",
+    "section": "project"
+  }
+]

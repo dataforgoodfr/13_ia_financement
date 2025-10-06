@@ -1,0 +1,194 @@
+[
+  {
+    "question": "Organization Name",
+    "section": "organization"
+  },
+  {
+    "question": "Organization Type – Public (e.g. NGOs/Research Institutions) / Private",
+    "section": "organization"
+  },
+  {
+    "question": "Organization Address",
+    "section": "organization"
+  },
+  {
+    "question": "Focal Person Name / Position",
+    "section": "organization"
+  },
+  {
+    "question": "Telephone Number",
+    "section": "organization"
+  },
+  {
+    "question": "Email Address",
+    "section": "organization"
+  },
+  {
+    "question": "Project Title",
+    "section": "project"
+  },
+  {
+    "question": "Target Country(ies) – Brunei Darussalam / Malaysia / Indonesia / Philippines",
+    "section": "project"
+  },
+  {
+    "question": "Target Geographic Location(s) – BIMP-EAGA / Not within BIMP-EAGA",
+    "section": "project"
+  },
+  {
+    "question": "Project Duration – 1 year / 2 years",
+    "section": "project"
+  },
+  {
+    "question": "Proposed Project Start Date",
+    "section": "project"
+  },
+  {
+    "question": "Proposed Project Completion Date",
+    "section": "project"
+  },
+  {
+    "question": "Proposed Project Budget (total in USD) – Year 1 : USD / Year 2 : USD / Total Budget : USD",
+    "section": "project"
+  },
+  {
+    "question": "Potential Project Co-Financing (optional)",
+    "section": "project"
+  },
+  {
+    "question": "Goal and Objective (200 words max)",
+    "section": "project"
+  },
+  {
+    "question": "Project Beneficiaries (100 words max)",
+    "section": "project"
+  },
+  {
+    "question": "Project Implementation Partners",
+    "section": "project"
+  },
+  {
+    "question": "Primary Project Sector & Areas – Environment / Tourism / Connectivity / Agriculture and Fisheries",
+    "section": "project"
+  },
+  {
+    "question": "Secondary Project Sector & Areas – Environment / Tourism / Connectivity / Agriculture and Fisheries",
+    "section": "project"
+  },
+  {
+    "question": "Category of Project to be Implemented – Policy and regulatory framework / Sector master plan / Pre-feasibility or feasibility study / A small-scale demonstration / National Determined Contribution implementation / Green recovery and green employment / Capacity building and public awareness / Others (50 words max)",
+    "section": "project"
+  },
+  {
+    "question": "Problem Analysis – 1) a description of the current situation or issue related to the project (background, geographic region, and beneficiaries, etc.) – 2) an analysis of the problem the project is trying to address. Develop a Problem Tree by defining the core problem and identifying its causes and effects. The description must be clearly linked to the project's objectives and how the project will address the problem.",
+    "section": "project"
+  },
+  {
+    "question": "Project History",
+    "section": "project"
+  },
+  {
+    "question": "Project Objective",
+    "section": "project"
+  },
+  {
+    "question": "Main Activities",
+    "section": "project"
+  },
+  {
+    "question": "2.1 Project Justification and Beneficiary - Problem Analysis (max. 600 words) – 1) a description of the current situation or issue related to the project (background, geographic region, and beneficiaries, etc). – 2) an analysis of the problem the project is trying to address. Develop a Problem Tree by defining the core problem and identifying its causes and effects. The description must be clearly linked to the project's objectives and how the project will address the problem.",
+    "section": "project"
+  },
+  {
+    "question": "Project History (max. 200 words) – List any related projects or activities, whether current or complete. Describe how this new proposal would complement them. Details of any related current or complete projects may also be included, as well as lessons learned.",
+    "section": "project"
+  },
+  {
+    "question": "Project Beneficiaries (max. 250 words) – Please state who and approximately how many people would directly and indirectly benefit from this project, how many of these beneficiaries would be men, and how many would be women.",
+    "section": "project"
+  },
+  {
+    "question": "2.2 Project Description - Project Objective (max. 300 words) – Please indicate and describe the overall objective, the expected outcomes, and the outputs of the project in detail. It should be consistent with the Logical Framework (Appendix 1).",
+    "section": "project"
+  },
+  {
+    "question": "Main Activities (max. 300 words) – List and describe the main activities that the project will implement to achieve the above outputs and outcomes in detail. The project breakdown should be consistent with the Logical Framework (Appendix 1).",
+    "section": "project"
+  },
+  {
+    "question": "2.3 Project Implementation Arrangement - Management Arrangements (max. 200 words) – Describe and visualize the project's management structure, coordination mechanisms, and the project management reporting line.",
+    "section": "project"
+  },
+  {
+    "question": "Project Team Composition (max. 200 words) – Describe briefly the type and number of personnel involved in the project. Include and specify the terms of reference for each position in Annex 3 (Institutional Portfolio and Terms of Reference for Human Resources).",
+    "section": "project"
+  },
+  {
+    "question": "Monitoring and Evaluation Arrangements (max. 300 words) – Describe the monitoring and evaluation arrangement of the project.",
+    "section": "project"
+  },
+  {
+    "question": "2.4 Gender and Other Cross-Cutting Issues - Gender (max. 200 words) – Indicate how gender-related issues will be taken into account during project implementation, specifically addressing how women and men would equally benefit from the project and whether the proposed project has allocated resources for this purpose. Proposals must ensure that projects provide equal opportunities for participation, where appropriate, and how this will be monitored.",
+    "section": "project"
+  },
+  {
+    "question": "Other Cross-Cutting Issues (max. 200 words) – Indicate cross-cutting issues and state how these issues will be addressed by the project, as applicable.",
+    "section": "project"
+  },
+  {
+    "question": "2.5 Potential Risks - Potential Risks & Mitigation Strategy and Measures – Outline all potential risks or threats in the Project Results and corresponding mitigation strategies. The table below can be adjusted as necessary. – Potential Risks – Probability (Low/Mid/High) – Impact (Low/Mid/High) – Mitigation Strategy",
+    "section": "project"
+  },
+  {
+    "question": "2.6 Project Sustainability and Scale-up (max. 300 words) – State how the outputs and benefits of the project will be 1) sustained after the proponent's exit and 2) scaled up (expansion or replication) after the project is completed. The project is encouraged to be further developed into an upscalable and influential project that would economically or socially benefit the target country(ies).",
+    "section": "project"
+  },
+  {
+    "question": "Project Results – Indicator(s) – Baseline – Target (Mid-term, Final) – Means of Verification – Source of Data",
+    "section": "project"
+  },
+  {
+    "question": "Outcome 1 [Insert Description Here] – [Insert Text Here] – [Insert Text Here] – [Insert Text Here], [Insert Text Here] – [Insert Text Here] – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Output 1.1 [Insert Description Here] – [Insert Text Here] – [Insert Text Here] – [Insert Text Here], [Insert Text Here] – [Insert Text Here] – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Activity 1.1.1 – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Activity 1.1.2 – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Output 1.2 [Insert Description Here] – [Insert Text Here] – [Insert Text Here] – [Insert Text Here], [Insert Text Here] – [Insert Text Here] – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Activity 1.2.1 – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Activity 1.2.2 – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Outcome 2 [Insert Description Here] – [Insert Text Here] – [Insert Text Here] – [Insert Text Here], [Insert Text Here] – [Insert Text Here] – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Output 2.1 [Insert Description Here] – [Insert Text Here] – [Insert Text Here] – [Insert Text Here], [Insert Text Here] – [Insert Text Here] – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Activity 2.1.1 – [Insert Text Here]",
+    "section": "project"
+  },
+  {
+    "question": "Activity 2.1.2 – [Insert Text Here]",
+    "section": "project"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "question": "1.1 Informations relatives à la soumission du ProDoc – Bureau de l'UNICEF – Intitulé du ProDoc – Date de soumission",
+    "section": "organization"
+  },
+  {
+    "question": "1.2 Informations relatives à l'organisation – Nom de l'organisation* – Acronyme – Nom du responsable accrédité de l'OSC et fonction* – Courriel du Directeur Pays* – N° de tél. du Directeur Pays* – Nom du point focal de ce programme – Titre du point focal – Courriel – Téléphone",
+    "section": "organization"
+  },
+  {
+    "question": "1.3 Informations relatives au programme – Durée – Couverture géographique – Population cible – 1.4 Budget du programme – Part de l'OSC – Part de l'UNICEF – Total",
+    "section": "project"
+  },
+  {
+    "question": "2.1 Justification du programme",
+    "section": "project"
+  },
+  {
+    "question": "2.2 Genre, équité, et Développement durable",
+    "section": "project"
+  },
+  {
+    "question": "2.3 Contribution du partenaire",
+    "section": "project"
+  },
+  {
+    "question": "2.4 Autres partenaires concernés",
+    "section": "project"
+  },
+  {
+    "question": "2.5 Redevabilité envers les Personnes Affectées",
+    "section": "project"
+  },
+  {
+    "question": "2.6 Autres documents",
+    "section": "project"
+  },
+  {
+    "question": "2.7 Résultats escomptés",
+    "section": "project"
+  },
+  {
+    "question": "Résultats – Indicateur(s) de performance (*désagrégé par Region) – Situation de base(*) – Cible(*) – Moyens de vérification1 – Output(s) correspondant(s) défini dans le programme de pays2 auquel ce PCA contribue -Output 1 et 2 – Indicateur(s) de performance (*désagrégé par Region) – Situation de base(*) – Cible(*) – Moyens de vérification1 – Résultat 1 – Indicateur(s) de performance (*désagrégé par Region) – Situation de base(*) – Cible(*) – Moyens de vérification1 – Résultat 2 – Indicateur(s) de performance (*désagrégé par Region) – Situation de base(*) – Cible(*) – Moyens de vérification1 – Résultat 3 – Indicateur(s) de performance (*désagrégé par Region) – Situation de base(*) – Cible(*) – Moyens de vérification1 – Résultat 4 – Indicateur(s) de performance (*désagrégé par Region) – Situation de base(*) – Cible(*) – Moyens de vérification1",
+    "section": "project"
+  },
+  {
+    "question": "Date prévue, ou exécuté (si déjà fait) – Non évalué – Niveau de risque – Faible/modéré/significatif/élevé/non évalué – Type Nombre Mois planifiée(s) – Visites programmatiques – Spot checks – Audit",
+    "section": "project"
+  },
+  {
+    "question": "Revue du partenariat – Direct CashTransfer/ /Paiement Direct//Remboursement// – 4.2 Micro-Évaluation de la Gestion financière (si applicable) – Date prévue, ou exécuté (si déjà fait) – Non évalué – 4.3 Activités D'assurance Planifiées pendant toute la durée du programme – Type – Nombre – Mois planifiée(s) – Visites programmatiques / Spot checks / Audit – 4.4 Autres – Revue du partenariat – 4.5 Modalité(s) de Transfert en espèces – Direct Cash Transfer / Paiement Direct / Remboursement",
+    "section": "project"
+  },
+  {
+    "question": "5.1 Rapports supplementaires à fournir – Tous les rapports de programme pour ce partenariat doivent être soumis via le portail de rapports des partenaires (PRP) et l'outil – 5.2 Spécification sous orientations techniques applicables – 5.3 Questions en rapport avec les fournitures, le cas échéant – L'approvisionnement des fournitures achetées par l'UNICEF sera achevé et livré dans les 3 mois suivant le début du projet – UNICEF aura le droit de demander que tout équipement et fourniture transféré ou mis à disposition de l'OSC, ou acheté par l'OSC sous financement de ce Document de Programme soit transféré à UNICEF ou à un autre partenaire à la fin du Programme ou à sa résiliation – 5.4 Autres",
+    "section": "project"
+  },
+  {
+    "question": "Nom : Président(e) Date:...................................../...................................../..................................... – Nom : Représentant(e) de l'UNICEF Madagascar Date:...................................../...................................../.....................................",
+    "section": "organization"
+  },
+  {
+    "question": "5. Signatures et date – Nom / Date – Nom : Représentante.idel'UNICEF Madagascar / Date",
+    "section": "organization"
+  }
+]
