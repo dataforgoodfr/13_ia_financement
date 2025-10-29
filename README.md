@@ -11,15 +11,16 @@ Une V1 livrée avec succès fin avril 2025, basé sur:
 **Pourquoi une V2**<br>
 
 Une V2 a été planifiée en main 2025, afin d'améliorer plusieurs pièces impactant la qualité des réponses et l'UI<br>
+
 Face à l'absence récurente des réponses de référence humaines aux questions des AAP, indispensables pour une mise au point d'un cadre d'évaluation automatique (des formulaires APP remplis et jugés qualitatifs), et face à une évolution des outils commerciaux, notamment Notebooklm, qui a été testé avec satisfaction par l'asso porteuse du projet (Planète Urgence, PU), les bénévoles ont décidé d'utiliser les sorties de Notebooklm comme réponses de référence, afin de se rapprocher de leur niveau de qualité (structure, détails)
 
 Une campaggne de tests a été faite par PU en aout 2025, avec plusieurs cas de réponses peu qualitatives ou fausses, qui ont guidé l'amélioration de la V2.
 
 
-
-
 **Les travaux pour la V2**<br>
+
 Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin et octobre 2025:<br>
+
 * Résolution des anos portant sur des réponses peu qualitatives (id  26, 27, 29, 31, 34, 35)<br>
     * Avec comme référence les réponses de notebooklm (outil plébiscité par PU), ou humaine lorsque fournie, et en utilisant 2 LLM juges (GPT 5 et Gemini 2.5 pro) pour une évaluation automatique, nous arrivons aux scores suivants (0 → 10):
         * App v1 →  5
