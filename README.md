@@ -10,7 +10,7 @@ Une V1 livrée avec succès fin avril 2025, basé sur:
 #### La V2:
 **Pourquoi une V2**<br>
 
-Une V2 a été planifiée en main 2025, afin d'améliorer plusieurs pièces impactant la qualité des réponses et l'UI<br>
+Une V2 a été planifiée en mai 2025, afin d'améliorer plusieurs pièces impactant la qualité des réponses et l'UI<br>
 
 Face à l'absence récurente des réponses de référence humaines aux questions des AAP, indispensables pour une mise au point d'un cadre d'évaluation automatique (des formulaires APP remplis et jugés qualitatifs), et face à une évolution des outils commerciaux, notamment Notebooklm, qui a été testé avec satisfaction par l'asso porteuse du projet (Planète Urgence, PU), les bénévoles ont décidé d'utiliser les sorties de Notebooklm comme réponses de référence, afin de se rapprocher de leur niveau de qualité (structure, détails)
 
