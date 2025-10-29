@@ -1,3 +1,6 @@
+### ⚠️ Info: le projet est suspendu. Voici un récap de la situation au 29/10/2025:
+
+
 # 1. Description du projet
 
 Développé par des bénévoles de [Data For Good](https://www.dataforgood.fr/) lors de la saison 13 et porté par [Groupe SOS](https://www.groupe-sos.org/), ce projet vise à construire une solution d'IA générative afin d'assister la réponse des associations aux appels à projets des bailleurs de fonds publics et privés, une source clé de financement de leurs initiatives d'intérêt général. 
