@@ -8,7 +8,7 @@ Une V1 livrée avec succès fin avril 2025, basé sur:
 * un remplissage automatique des formulaires chargés en entrée
 
 #### La V2:
-**Pourquoi une V2**<br>
+<u>Pourquoi une V2</u>
 
 Une V2 a été planifiée en mai 2025, afin d'améliorer plusieurs pièces impactant la qualité des réponses et l'UI<br>
 
@@ -17,7 +17,7 @@ Face à l'absence récurente des réponses de référence humaines aux questions
 Une campagne de tests a été faite par PU en aout 2025, avec plusieurs cas de réponses peu qualitatives ou fausses, qui ont guidé l'amélioration de la V2.
 
 
-**Les travaux pour la V2**<br>
+<u>Les travaux pour la V2</u>
 
 Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin et octobre 2025:<br>
 
