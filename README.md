@@ -1,4 +1,42 @@
-### ⚠️ Info: le projet est suspendu. Voici un récap de la situation au 29/10/2025:
+### ⚠️ Info: le projet est suspendu
+Voici un récap de la situation au 29/10/2025:
+#### La V1:
+Une V1 livrée avec succès fin avril 2025, basé sur:
+* du RAG vectoriel + reranking
+* du graph RAG avec pathrag (https://arxiv.org/pdf/2502.14902)
+* un extracteur de questions des formulaires d'appel à projet (AAP), basé sur des tags insérés manuellement
+* un remplissage automatique des formulaires chargés en entrée
+
+#### La V2:
+**Pourquoi une V2**
+Une V2 a été planifiée en main 2025, afin d'améliorer plusieurs pièces impactant la qualité des réponses et l'UI
+L'absence récurente des réponses de référence humaines aux questions des AAP, indispensables pour une mise au point d'un cadre d'évaluation automatique (des formulaires APP remplis et jugés qualitatifs), et face à une évolution des outils commerciaux, notamment Notebooklm, qui a été testé avec satisfaction par l'asso porteuse du projet (Planète Urgence, PU)
+Une campaggne de tests a été faite par PU en aout 2025, avec plusieurs cas de réponses peu qualitatives ou fausses.
+Les bénévoles ont décidé d'utiliser les sorties de Notebooklm comme réponses de référence, afin de se rapprocher de leur niveau de qualité (structure, détails)
+
+
+**Les travaux pour la V2**
+Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin et octobre 2025:
+* Résolution des anos portant sur des réponses peu qualitatives (id  26, 27, 29, 31, 34, 35)
+    * Avec comme référence les réponses de notebooklm (outil plébiscité par PU), ou humaine lorsque fournie, et en utilisant 2 LLM juges (GPT 5 et Gemini 2.5 pro) pour une évaluation automatique, nous arrivons aux scores suivants (0 → 10):
+        * App v1 →  5
+        * Notebooklm →  8
+        * App v2 upgrade simple →  8.5
+        * App v2 upgrade avancé →  9
+* Extracteur de questions AAP v2 basé sur du visual LLM:
+    *  **Problème adressé**: les anos portant sur des réponses fausses, causées par une mauvaise sélection de la bonne source documentaire (fiche association ou proposition de projet - PP)
+    *  **Status**: terminé
+* Détecteur / extracteur de tableaux et diagrammes des PP:
+    *  **Problème adressé**: des réponses peu qualitatives, causées par une perte d'information lors du parsing des tableaux / digrammes des PP
+    *  **Status**: terminé
+* Classfiers de questions v2 pour choix du RAG optimal: 
+    *  **Problème adressé**: des réponses peu qualitatives, causées par une orientation vers le RAG vectoriel, pour des questions dont la complexité impose l'utilisation du graph RAG
+    *  **Status**: terminé
+
+
+Cependant en raison de l'absence d'interlocuteurs côté groupe SOS / PU, il a été décidé d'arrêter tous les développements
+Ces fonctionnalités ne seront donc pas intégrées, et seront partiellement disponibles dans les branches de chaque bénévole sur ce repo
+
 
 
 # 1. Description du projet
