@@ -31,7 +31,7 @@ Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin e
 * Extracteur de questions AAP v2 basé sur du visual LLM:
     *  **Problème adressé**: les anos portant sur des réponses fausses, causées par une mauvaise sélection de la bonne source documentaire (fiche association ou proposition de projet - PP)
     *  **Status**: terminé
-    * 
+
 * Détecteur / extracteur de tableaux et diagrammes des PP:
     *  **Problème adressé**: des réponses peu qualitatives, causées par une perte d'information lors du parsing des tableaux / digrammes des PP
     *  **Status**: terminé
@@ -41,10 +41,12 @@ Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin e
     *  **Status**: terminé
 
 
-Cependant en raison de l'absence d'interlocuteurs côté groupe SOS / PU, il a été décidé d'arrêter tous les développements<br>
+Cependant **en raison de l'absence d'interlocuteurs côté groupe SOS / PU**, il a été décidé d'arrêter tous les développements<br>
 Ces fonctionnalités ne seront donc pas intégrées, et seront partiellement disponibles dans les branches de chaque bénévole sur ce repo
 
+---
 
+<hr>
 
 # 1. Description du projet
 
