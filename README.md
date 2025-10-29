@@ -8,16 +8,17 @@ Une V1 livrée avec succès fin avril 2025, basé sur:
 * un remplissage automatique des formulaires chargés en entrée
 
 #### La V2:
-**Pourquoi une V2**
-Une V2 a été planifiée en main 2025, afin d'améliorer plusieurs pièces impactant la qualité des réponses et l'UI
-L'absence récurente des réponses de référence humaines aux questions des AAP, indispensables pour une mise au point d'un cadre d'évaluation automatique (des formulaires APP remplis et jugés qualitatifs), et face à une évolution des outils commerciaux, notamment Notebooklm, qui a été testé avec satisfaction par l'asso porteuse du projet (Planète Urgence, PU)
+**Pourquoi une V2**<br>
+Une V2 a été planifiée en main 2025, afin d'améliorer plusieurs pièces impactant la qualité des réponses et l'UI<br>
+L'absence récurente des réponses de référence humaines aux questions des AAP, indispensables pour une mise au point d'un cadre d'évaluation automatique (des formulaires APP remplis et jugés qualitatifs), et face à une évolution des outils commerciaux, notamment Notebooklm, qui a été testé avec satisfaction par l'asso porteuse du projet (Planète Urgence, PU)<br>
 Une campaggne de tests a été faite par PU en aout 2025, avec plusieurs cas de réponses peu qualitatives ou fausses.
+
 Les bénévoles ont décidé d'utiliser les sorties de Notebooklm comme réponses de référence, afin de se rapprocher de leur niveau de qualité (structure, détails)
 
 
-**Les travaux pour la V2**
-Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin et octobre 2025:
-* Résolution des anos portant sur des réponses peu qualitatives (id  26, 27, 29, 31, 34, 35)
+**Les travaux pour la V2**<br>
+Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin et octobre 2025:<br>
+* Résolution des anos portant sur des réponses peu qualitatives (id  26, 27, 29, 31, 34, 35)<br>
     * Avec comme référence les réponses de notebooklm (outil plébiscité par PU), ou humaine lorsque fournie, et en utilisant 2 LLM juges (GPT 5 et Gemini 2.5 pro) pour une évaluation automatique, nous arrivons aux scores suivants (0 → 10):
         * App v1 →  5
         * Notebooklm →  8
@@ -34,7 +35,7 @@ Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin e
     *  **Status**: terminé
 
 
-Cependant en raison de l'absence d'interlocuteurs côté groupe SOS / PU, il a été décidé d'arrêter tous les développements
+Cependant en raison de l'absence d'interlocuteurs côté groupe SOS / PU, il a été décidé d'arrêter tous les développements<br>
 Ces fonctionnalités ne seront donc pas intégrées, et seront partiellement disponibles dans les branches de chaque bénévole sur ce repo
 
 
