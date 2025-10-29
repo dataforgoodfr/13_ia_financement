@@ -14,7 +14,7 @@ Une V2 a été planifiée en mai 2025, afin d'améliorer plusieurs pièces impac
 
 Face à l'absence récurente des réponses de référence humaines aux questions des AAP, indispensables pour une mise au point d'un cadre d'évaluation automatique (des formulaires APP remplis et jugés qualitatifs), et face à une évolution des outils commerciaux, notamment Notebooklm, qui a été testé avec satisfaction par l'asso porteuse du projet (Planète Urgence, PU), les bénévoles ont décidé d'utiliser les sorties de Notebooklm comme réponses de référence, afin de se rapprocher de leur niveau de qualité (structure, détails)
 
-Une campaggne de tests a été faite par PU en aout 2025, avec plusieurs cas de réponses peu qualitatives ou fausses, qui ont guidé l'amélioration de la V2.
+Une campagne de tests a été faite par PU en aout 2025, avec plusieurs cas de réponses peu qualitatives ou fausses, qui ont guidé l'amélioration de la V2.
 
 
 **Les travaux pour la V2**<br>
@@ -27,12 +27,15 @@ Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin e
         * Notebooklm →  8
         * App v2 upgrade simple →  8.5
         * App v2 upgrade avancé →  9
+          
 * Extracteur de questions AAP v2 basé sur du visual LLM:
     *  **Problème adressé**: les anos portant sur des réponses fausses, causées par une mauvaise sélection de la bonne source documentaire (fiche association ou proposition de projet - PP)
     *  **Status**: terminé
+    * 
 * Détecteur / extracteur de tableaux et diagrammes des PP:
     *  **Problème adressé**: des réponses peu qualitatives, causées par une perte d'information lors du parsing des tableaux / digrammes des PP
     *  **Status**: terminé
+      
 * Classfiers de questions v2 pour choix du RAG optimal: 
     *  **Problème adressé**: des réponses peu qualitatives, causées par une orientation vers le RAG vectoriel, pour des questions dont la complexité impose l'utilisation du graph RAG
     *  **Status**: terminé
