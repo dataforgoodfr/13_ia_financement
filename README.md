@@ -44,6 +44,26 @@ Afin de livrer cette V2, voici une synthèse de ce qui a été fait entre juin e
 Cependant **en raison de l'absence d'interlocuteurs côté groupe SOS / PU**, il a été décidé d'arrêter tous les développements<br>
 Ces fonctionnalités ne seront donc pas intégrées, et seront partiellement disponibles dans les branches de chaque bénévole sur ce repo
 
+Pour reproduire la v1 du streamlit déployé en local:
+```bash
+   git clone https://github.com/dataforgoodfr/13_ia_financement
+   cd ./streamlit_users
+
+   conda create -n streamlit_test python=3.10.18
+
+   conda activate streamlit_test
+
+   pip install -r requirements.txt
+```
+
+Créer un fichier .env et placez y votre clé openai (modèles utilisés: gpt4o mini)
+Lancer le serveur local:
+```
+   streamlit run app.py
+```
+
+
+
 ---
 
 <hr>
