@@ -76,7 +76,7 @@ Open source et accessible à toutes les associations dans le besoin, la solution
 
 # 2. Livrable
 
-En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Dotée des trois fonctionnalités suivantes, l'application prend en charge des documents en français et en anglais.
+En utilisant la technique de RAG, le prototype livré à la fin de la saison 13 en Avril 2025 a bâti une application web Streamlit capable de pré-remplir un appel à projets d'un bailleur à partir des informations contenues dans les documents de projet et d'association fournis par l'utilisateur. Dotée des trois fonctionnalités suivantes, l'application prend en charge des documents en français et en anglais, aux formats Word et PDF.
 
 ## 2.1. Chargement des documents sources via une interface web
 - Une fiche du projet: elle contient les informations nécessaires liées au projet qui fait l'objet de la demande de financement 
