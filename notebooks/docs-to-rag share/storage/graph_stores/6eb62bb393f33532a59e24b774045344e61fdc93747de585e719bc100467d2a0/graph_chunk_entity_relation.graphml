@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d6" for="edge" attr.name="source_id" attr.type="string"/>
+<key id="d5" for="edge" attr.name="keywords" attr.type="string"/>
+<key id="d4" for="edge" attr.name="description" attr.type="string"/>
+<key id="d3" for="edge" attr.name="weight" attr.type="double"/>
+<key id="d2" for="node" attr.name="source_id" attr.type="string"/>
+<key id="d1" for="node" attr.name="description" attr.type="string"/>
+<key id="d0" for="node" attr.name="entity_type" attr.type="string"/>
+<graph edgedefault="directed"><node id="&quot;ADANG BAY&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Adang Bay is a coastal area in Paser Regency, East Kalimantan, also facing land conversion."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;CLIMATE CHANGE&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Climate Change is a global challenge the project aims to mitigate and adapt to."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;STAKEHOLDERS&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Stakeholders are the entities the project aims to raise awareness amongst."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;YAYASAN PLANETE URGENSI INDONESIA&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"Yayasan Planete Urgensi Indonesia is an organization involved in project authorship and approval."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;COASTAL GOVERNANCE&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Coastal Governance is a key component of project action, focusing on strengthening it."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;YML&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"YML is an author and part of the project team."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;SUSTAINABLE LIVELIHOOD&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Sustainable Livelihood is a key component of the project, focusing on support."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;903 613 USD&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"903 613 USD is the total required resources for the project between 2023-2026, equivalent to the Euro amount."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;ABRASION&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Abrasion is an issue impacting coastal areas around Adang Bay."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;PROBOSCIS MONKEY&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Proboscis Monkey, also known as nasal monkey, is a critically endangered endemic species in Borneo, the habitat of the project."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;PENAJAM PASER UTARA&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Penajam Paser Utara is a location near the new capital in East Kalimantan Province."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;DELTA MAHAKAM&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Delta Mahakam is a region in East Kalimantan experiencing mangrove degradation and is a project focus area."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;1.5 MILLION PEOPLE&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"1.5 million people is the estimated population moving to the new capital."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;BORNEO&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Borneo is the island where the Proboscis Monkey is endemic to."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;HAMSURI&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Hamsuri is a member of the Board of Trustee."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;818 341 €&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"818 341 € is the total required resources for the project between 2023-2026."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;BALIKPAPAN&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Balikpapan is a city near the new capital location in East Kalimantan Province."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;POKJA&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"POKJA is an organization involved in project authorship and approval."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;RÉONALDUS&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Réonaldus is the Indonesia National Delegate for Planète Urgence."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;EAST KALIMANTAN PROVINCE&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"East Kalimantan Province is a location in Indonesia where the project takes place; it is also the future location of the new state capital."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;SUSTAINABLE DEVELOPMENT GOALS (SDGS)&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Sustainable Development Goals are the overarching framework guiding the project's contribution to global sustainability."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;INDONESIA&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Indonesia is the country where the project is occurring, and where the capital city is located."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;JAKARTA&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Jakarta is the current capital city of Indonesia, and is being relocated."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;PASER REGENCY&quot;">
+  <data key="d0">"GEO"</data>
+  <data key="d1">"Paser Regency is the location of Adang Bay, a project area in East Kalimantan."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;LAND CLEARING&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"Land Clearing is a process occurring in Delta Mahakam and Adang Bay, leading to mangrove degradation."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;PLANÈTE URGENCE&quot;">
+  <data key="d0">"ORGANIZATION"</data>
+  <data key="d1">"Planète Urgence is an organization involved in the FOREST Programme and project approval."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;ACHMAD NURIYAWAN&quot;">
+  <data key="d0">"PERSON"</data>
+  <data key="d1">"Achmad Nuriyawan is the Director of POKJA."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;FOREST PROGRAMME&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"FOREST Programme is a program associated with a project focused on mangrove restoration in East Kalimantan."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;MARCH 2023 – FEBRUARY 2026&quot;">
+  <data key="d0">"EVENT"</data>
+  <data key="d1">"March 2023 – February 2026 defines the project duration."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;AQUACULTURE&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Aquaculture is the cause of land conversion in Delta Mahakam and potentially Adang Bay."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;MANGROVE ECOSYSTEM&quot;">
+  <data key="d0">"CATEGORY"</data>
+  <data key="d1">"Mangrove Ecosystem is a key feature of Delta Mahakam and Adang Bay, facing degradation."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;CARBON SEQUESTRATION&quot;">
+  <data key="d0">"CONCEPT"</data>
+  <data key="d1">"Carbon Sequestration is a vital function of mangrove ecosystems."</data>
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</node>
+<node id="&quot;PROJECT&quot;">
+  <data key="d2">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+  <data key="d1">"The project contributes to achieving several Sustainable Development Goals."</data>
+  <data key="d0">"UNKNOWN"</data>
+</node>
+<edge source="&quot;ADANG BAY&quot;" target="&quot;EAST KALIMANTAN PROVINCE&quot;">
+  <data key="d3">18.0</data>
+  <data key="d4">"Adang Bay is a coastal area within East Kalimantan Province."</data>
+  <data key="d5">"location, regional context"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;ADANG BAY&quot;" target="&quot;PASER REGENCY&quot;">
+  <data key="d3">16.0</data>
+  <data key="d4">"Adang Bay is located within Paser Regency."</data>
+  <data key="d5">"location, administrative division"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;CLIMATE CHANGE&quot;" target="&quot;MANGROVE ECOSYSTEM&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"Mangrove ecosystems play a role in mitigating climate change through carbon sequestration."</data>
+  <data key="d5">"environmental benefit, climate action"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;YML&quot;" target="&quot;YAYASAN PLANETE URGENSI INDONESIA&quot;">
+  <data key="d3">14.0</data>
+  <data key="d4">"YML is an author associated with Yayasan Planete Urgensi Indonesia."</data>
+  <data key="d5">"affiliation, authorship"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;PROBOSCIS MONKEY&quot;" target="&quot;ADANG BAY&quot;">
+  <data key="d3">18.0</data>
+  <data key="d4">"Proboscis Monkeys inhabit the Adang Bay ecosystem."</data>
+  <data key="d5">"habitat, biodiversity"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;PROBOSCIS MONKEY&quot;" target="&quot;DELTA MAHAKAM&quot;">
+  <data key="d3">18.0</data>
+  <data key="d4">"Proboscis Monkeys inhabit the Delta Mahakam ecosystem."</data>
+  <data key="d5">"habitat, biodiversity"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;DELTA MAHAKAM&quot;" target="&quot;EAST KALIMANTAN PROVINCE&quot;">
+  <data key="d3">18.0</data>
+  <data key="d4">"Delta Mahakam is a location within East Kalimantan Province."</data>
+  <data key="d5">"location, regional context"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;HAMSURI&quot;" target="&quot;POKJA&quot;">
+  <data key="d3">16.0</data>
+  <data key="d4">"Hamsuri is a member of the Board of Trustee of POKJA."</data>
+  <data key="d5">"leadership, organizational structure"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;POKJA&quot;" target="&quot;YAYASAN PLANETE URGENSI INDONESIA&quot;">
+  <data key="d3">14.0</data>
+  <data key="d4">"POKJA is an organization which involved in project authorship with Yayasan Planete Urgensi Indonesia."</data>
+  <data key="d5">"affiliation, authorship"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;RÉONALDUS&quot;" target="&quot;PLANÈTE URGENCE&quot;">
+  <data key="d3">18.0</data>
+  <data key="d4">"Réonaldus is the Indonesia National Delegate for Planète Urgence."</data>
+  <data key="d5">"representation, delegation"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;JAKARTA&quot;" target="&quot;EAST KALIMANTAN PROVINCE&quot;">
+  <data key="d3">18.0</data>
+  <data key="d4">"Jakarta is being relocated to a location within East Kalimantan Province."</data>
+  <data key="d5">"relocation, geopolitical shift"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;LAND CLEARING&quot;" target="&quot;MANGROVE ECOSYSTEM&quot;">
+  <data key="d3">9.0</data>
+  <data key="d4">"Land clearing causes degradation to the mangrove ecosystem."</data>
+  <data key="d5">"environmental impact, degradation"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;PLANÈTE URGENCE&quot;" target="&quot;FOREST PROGRAMME&quot;">
+  <data key="d3">16.0</data>
+  <data key="d4">"Planète Urgence is the organization behind the FOREST Programme."</data>
+  <data key="d5">"program management, sponsorship"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;ACHMAD NURIYAWAN&quot;" target="&quot;POKJA&quot;">
+  <data key="d3">16.0</data>
+  <data key="d4">"Achmad Nuriyawan directs POKJA."</data>
+  <data key="d5">"leadership, organizational structure"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;AQUACULTURE&quot;" target="&quot;LAND CLEARING&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"Aquaculture is a driver of land clearing."</data>
+  <data key="d5">"cause and effect, land use"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+<edge source="&quot;PROJECT&quot;" target="&quot;SUSTAINABLE DEVELOPMENT GOALS (SDGS)&quot;">
+  <data key="d3">8.0</data>
+  <data key="d4">"The project contributes to achieving several Sustainable Development Goals."</data>
+  <data key="d5">"impact, alignment"</data>
+  <data key="d6">chunk-99b12de6e9dd18bbad3ee2184708d00c</data>
+</edge>
+</graph></graphml>

@@ -1,0 +1,496 @@
+[
+  {
+    "question": "Q1.1 Lead organisation’s full name and website",
+    "section": "organization",
+    "page": "page_2"
+  },
+  {
+    "question": "Q1.2 Lead organisation’s registered address",
+    "section": "organization",
+    "page": "page_2"
+  },
+  {
+    "question": "Q1.3 Lead organisation’s annual income\nIndicate details relating to each of the financial annual report and accounts that you are required to upload in the Section Terms and conditions, and attachments. In the table below, first enter the dates and currency of your organisation’s financial report and accounts. Then, enter the annual income of the lead organisation in the original currency of the accounts. Finally, convert the original currency and enter the annual income in British Pound Sterling (GBP).\nUse an appropriate exchange rate to convert your annual income into GBP. We recommend using this currency converter: https://www.oanda.com/currency-converter/en. When converting to GBP, ensure you set the conversion date to the end date of each of your financial accounts. Do this for each annual report and accounts you are submitting in support of your application. Example text has been provided in [square brackets] below.",
+    "section": "organization",
+    "page": "page_2"
+  },
+  {
+    "question": "Q1.4 Lead organisation’s legal status\nSelect only one option.\n☐ International Non-Governmental Organisation (NGO) / Charity\n☐ National NGO / Charity\n☐ Local NGO / Charity / Civil Society Organisation\n☐ Academic / Research Institution\n☐ Private Sector Organisation / Business / Business Association\n☐ Other, specify below.",
+    "section": "organization",
+    "page": "page_3"
+  },
+  {
+    "question": "Q1.5 Lead organisation’s primary focus\nSelect only one option.\n☐ Social and economic development\n☐ Environmental conservation\n☐ Education and research\n☐ Natural resource management\n☐ Governance and policy advocacy\n☐ Gender Equality, Disability Inclusion or Social Inclusion\n☐ Other, specify below.",
+    "section": "organization",
+    "page": "page_3"
+  },
+  {
+    "question": "Q1.6 Lead organisation’s experience and expertise\nUse the table below to provide details on the lead organisation’s capacity to deliver the proposed project.\n• What year was your organisation formally established and legally registered? (State year)\n• How is your organisation currently funded? (Max 50 words)\n• Has your organisation ever applied for Overseas Development Assistance (ODA)? ☐ Yes ☐ No",
+    "section": "organization",
+    "page": "page_3"
+  },
+  {
+    "question": "What are the aims of your organisation? (Max 100 words)",
+    "section": "organization",
+    "page": "page_4"
+  },
+  {
+    "question": "What are the activities of your organisation? (Max 100 words)",
+    "section": "organization",
+    "page": "page_4"
+  },
+  {
+    "question": "What are the achievements of your organisation? (Max 100 words)",
+    "section": "organization",
+    "page": "page_4"
+  },
+  {
+    "question": "Q1.7 Lead organisation’s number of staff as full-time equivalent (FTE)\nTell us the total FTE of all employed staff in your organisation (for example, if you have 3 full-time staff and 1 part-time staff with an FTE of 0.5 your answer will be 3.5).",
+    "section": "organization",
+    "page": "page_4"
+  },
+  {
+    "question": "Q1.8 Lead organisation’s number and roles of volunteers\nIf your organisation relies substantially on volunteers, tell us how many volunteers you have and the role they play in your organisation. If your organisation does not rely substantially on volunteers, indicate ‘N/A’.",
+    "section": "organization",
+    "page": "page_4"
+  },
+  {
+    "question": "Q1.9 Lead applicant’s full name and email address",
+    "section": "organization",
+    "page": "page_4"
+  },
+  {
+    "question": "Q1.10 Project leader’s full name and email address\nNOTE: there is a preference for the project leader to be staff of the lead organisation. Where the Project Leader is not employed by the Lead Organisation, the reasoning behind this should be made clear in the application, including their capability to control and be held accountable for the proposed project.",
+    "section": "organization",
+    "page": "page_4"
+  },
+  {
+    "question": "Q2.1 Project title (Max 10 words)",
+    "section": "project",
+    "page": "page_5"
+  },
+  {
+    "question": "Q2.2 Project summary\nNOTE: this summary may be published on the OCEAN website and used to promote your project if successful. (Max 150 words)",
+    "section": "project",
+    "page": "page_5"
+  },
+  {
+    "question": "Q2.3 Blue Planet Fund outcomes\nWhich Blue Planet Fund outcome(s) does your project address? Select all that apply.\n☐ Marine Protected Areas (MPAs) and Other Effective Conservation Measures (OECMs)\n☐ Illegal, Unreported, and Unregulated Fishing (IUU)\n☐ International and large-scale fisheries\n☐ Solid waste and other forms of marine pollution\n☐ Critical marine habitats for coastal resilience\n☐ Small-scale fisheries management\n☐ Aquaculture\n☐ None of the above. If so, please tell us how you address protecting the marine environment.",
+    "section": "project",
+    "page": "page_5"
+  },
+  {
+    "question": "Q2.4 Marine ecosystems\nDoes your project have a direct focus on any of the following marine ecosystem(s)? Select all that apply.\n☐ Coral reefs\n☐ Intertidal forests and shrublands (e.g., mangroves)\n☐ Seagrass meadows\n☐ Kelp forests\n☐ Shellfish beds & reefs\n☐ Coastal inlets, riverine estuaries and bays, coastal lakes and lagoons\n☐ Coastal salt marsh or reedbed\n☐ Ocean waters\n☐ Deep sea floors\n☐ Anthropogenic marine biome (artificial structures, marine aquafarms)\n☐ Shorelines (rocky, muddy, sandy, boulder & cobble)\n☐ Coastal Shrublands and Grasslands\n☐ No direct focus on specific ecosystem(s)",
+    "section": "project",
+    "page": "page_5"
+  },
+  {
+    "question": "Q2.5 Project region\nWhat region will your project work in? Select all that apply.",
+    "section": "project",
+    "page": "page_5",
+    "observation": "question tronquée"
+  },
+  {
+    "question": "Q2.5 Project region\nWhat region will your project work in? Select all that apply.\n☐ Sub-Saharan Africa\n☐ Northern Africa\n☐ Central and Southern Asia\n☐ Eastern & South-Eastern Asia\n☐ Western Asia\n☐ Latin America and the Caribbean\n☐ Oceania\n☐ Europe\n☐ Northern America",
+    "section": "project",
+    "page": "page_6"
+  },
+  {
+    "question": "Q2.6 Project primary country/ies\nWhich eligible primary country/ies will your project work in? By primary country/ies we refer to the country/ies where the majority of activities take place. NOTE: if you are working in more than one primary country, it is highly recommended that you have a partner organisation in each additional primary country you are working in.\nSelect at least one country from the drop-down menu.\nCountry 1: __________    Country 2: __________\nCountry 3: __________    Country 4: __________",
+    "section": "project",
+    "page": "page_6"
+  },
+  {
+    "question": "Q2.7 Project secondary country/ies\nWhich eligible secondary country/ies will your project work in? By secondary country/ies we refer to the country/ies which have some activities but are not the main project focus. NOTE: if you are working in a secondary country(ies), it is highly recommended that you have a partner organisation in each secondary country you are working in.\nSelect all that apply (it can be left blank if not applicable).\nCountry 1: __________    Country 2: __________\nCountry 3: __________    Country 4: __________",
+    "section": "project",
+    "page": "page_6"
+  },
+  {
+    "question": "Q2.8 Number, type and location of beneficiaries\nTell us the number, type and location of beneficiaries targeted by your project. Where possible, specify how many women and girls, people with disability status, and/or individuals from Indigenous Peoples and Local Communities (IPLCs) will be targeted by your project. Example text has been provided in [square brackets] below. The number of communities is insufficient detail – number of households should be the largest unit used.\n\n[ X households in village X; Y% of households are from minority group Z / X households in region of country 1; X in region of country 2. In total the project aims to support X women and girls / X people with disabilities / X people from IPLCs ]",
+    "section": "project",
+    "page": "page_6"
+  },
+  {
+    "question": "Q2.9 Key environmental impact(s)\nTell us the key environmental impact(s) targeted by your project. Example text has been provided in [square brackets] below. [X tonnes of plastic removed / Y hectares of mangroves restored/ Z ha of coral reef protected] (Max 50 words)",
+    "section": "project",
+    "page": "page_7"
+  },
+  {
+    "question": "Q2.10 Project dates\nWrite dates as day/month/year.\nStart date: __________    End date: __________    Duration in months: __________",
+    "section": "project",
+    "page": "page_7"
+  },
+  {
+    "question": "Q2.11 Project budget summary\nYour funding request must be in British pound sterling (GBP) and run across each Financial Year (FY) from 01 April to 31 March. Tell us how much funding you are requesting for each financial year. The annual value of your budget must not exceed 25% of the lead organisation’s annual income.\n\nIn the table below, input only figures. Flexi-Grant will automatically generate the currency. Do not separate thousands using commas or add any text, and only use full stops as a decimal place. To answer one thousand GBP, enter ‘1000.00’ (Flexi-Grant will display £1,000.00). To indicate £200.50, enter ‘200.50’. Enter ‘0’ if you are not seeking funding for any given year. Flexi-Grant will calculate the total request. If you need to convert currencies, we recommend: https://www.oanda.com/currency-converter/en\n\nColumns:\n• FY2025/26: 01 November 2025 – 31 March 2026 (GBP)\n• FY2026/27: 01 April 2026 – 31 March 2027 (GBP)\n• FY2027/28: 01 April 2027 – 31 March 2028 (GBP)\n• FY2028/29: 01 April 2028 – 31 March 2029 (GBP)\n• Total request GBP",
+    "section": "project",
+    "page": "page_7"
+  },
+  {
+    "question": "Q3.1 Is this a resubmission of a previously unsuccessful application to OCEAN? ☐ Yes ☐ No\n\nIf ‘Yes’, indicate the annual application round, stage, and application number of the previous application. Use the provided Word template to provide your response to feedback. (Max 150 words)\n(Upload your completed template as a Word file)",
+    "section": "project",
+    "page": "page_8"
+  },
+  {
+    "question": "Q3.2 Have you received, applied for, or plan to apply for any other UK Government funding for your proposed project or a similar project? ☐ Yes ☐ No\n\nIf ‘Yes’, give details. If you have received, applied for or plan to apply with similar projects, explain how your activities are distinct and complementary. Please note that you cannot apply to both OCEAN and the Biodiversity Challenge Funds (BCFs) with the same project. (Max 150 words)",
+    "section": "project",
+    "page": "page_8"
+  },
+  {
+    "question": "Q4.1 The current situation and problem\nDescribe the current situation and the problem your project is trying to address in terms of the marine environment and its relationship with multi-dimensional poverty. (Max 750 words)",
+    "section": "project",
+    "page": "page_9"
+  },
+  {
+    "question": "Q4.2 Project description\nDescribe your project to help us understand how it addresses the problem. Where relevant, specify how women, youth, people living with disabilities, or other marginalised communities will be included as beneficiaries and stakeholders. (Max 750 words)",
+    "section": "project",
+    "page": "page_9"
+  },
+  {
+    "question": "Q4.3 Project methodology\nAs part of your response, tell us the delivery methods (including activities and materials), and the management approach (for example, roles and responsibilities, project management tools). (Max 1,500 words)",
+    "section": "project",
+    "page": "page_9"
+  },
+  {
+    "question": "Q4.4 Evidence your project is based on\nOutline the evidence that supports the need for this project, and the suitability and effectiveness of your proposed approach. Provide evidence of success for tried and tested approaches and highlight if there are any novel or innovative approaches with less evidence available. Identify how your project will generate and disseminate evidence on the more innovative elements of your approach. (Max 500 words)",
+    "section": "project",
+    "page": "page_9"
+  },
+  {
+    "question": "Q4.5 Changes expected in marine environment in the short-term and in the long-term\nDescribe the expected changes in the marine environment that your project will deliver. Make reference to your theory of change. (Max 750 words)",
+    "section": "project",
+    "page": "page_9"
+  },
+  {
+    "question": "Q4.6 Changes expected in multi-dimensional poverty, in the short-term and in the long-term",
+    "section": "project",
+    "page": "page_9",
+    "observation": "question tronquée"
+  },
+  {
+    "question": "Q4.6 Describe the expected changes in multi-dimensional poverty that your project will deliver. Make reference to your theory of change. (Max 500 words)",
+    "section": "project",
+    "page": "page_10",
+    "observation": "reformulation importante, calculer la similarité avec le src"
+  },
+  {
+    "question": "Q4.7 Expected contribution to climate adaptation and/or mitigation\nDemonstrate how your project will contribute to climate adaptation and/or climate mitigation. (Max 250 words)",
+    "section": "project",
+    "page": "page_10"
+  },
+  {
+    "question": "Q4.8 Supporting capability and capacity\nDescribe how your project will assist in strengthening the capability and capacity of local and national partners and stakeholders throughout its duration. Include details on the nature of the support, who will benefit from it, and the long-term value of the project to the stakeholders. (Max 250 words)",
+    "section": "project",
+    "page": "page_10"
+  },
+  {
+    "question": "Q4.9 Gender equality, disability, and social inclusion (GEDSI)\nExplain how your project will contribute to promoting equity and equality between individuals of different genders, disabilities, and social characteristics. Describe how your project will consider and accommodate the needs of different genders, age groups, disabilities, and other social characteristics, in a way that contributes to poverty reduction and social equality. (Max 250 words)",
+    "section": "project",
+    "page": "page_10"
+  },
+  {
+    "question": "Q4.10 Project sustainable benefits\nDetail how your project will reach a point where benefits can be sustained post-funding from OCEAN. (Max 250 words)",
+    "section": "project",
+    "page": "page_10"
+  },
+  {
+    "question": "Q4.11 Project scaling potential\nDescribe what aspect of your project has the potential to be applicable in other contexts or can benefit more people. What evidence do you have to support this? How do you plan to identify whether an approach or solution resulting from the project is scalable? If the project is trialling novel or innovative approaches with less evidence available, what is your plan for scaling these initiatives if successful? (Max 250 words)",
+    "section": "project",
+    "page": "page_10"
+  },
+  {
+    "question": "Q4.12 Project alignment with national policies and priorities",
+    "section": "project",
+    "page": "page_10",
+    "observation": "question tronquée"
+  },
+  {
+    "question": "Q4.12 Project alignment with national policies and priorities\nDetail how your project complements or contributes to national policies and priorities. Where possible, we recommend that you reach out to your local / national government department to ensure that your project aligns with national policies and priorities or other actions in your area. (Max 250 words)",
+    "section": "project",
+    "page": "page_11"
+  },
+  {
+    "question": "Q4.13 Project alignment with international policies and commitments\nDetail how your project complements or contributes to international policies and commitments. (Max 250 words)",
+    "section": "project",
+    "page": "page_11"
+  },
+  {
+    "question": "Q4.14 Project alignment with other funding and activities\nWe expect projects to clearly demonstrate that they are additional and complementary to other activities and funding in the same geographic / thematic area or region. (Max 250 words)",
+    "section": "project",
+    "page": "page_11"
+  },
+  {
+    "question": "Q4.15 Is your project working in at least one Upper Middle-Income Country/ies (UMICs)? ☐ Yes ☐ No\n\nIf ‘Yes’, case for support in Upper Middle-Income Country/ies (UMICs)\nProposals to work in a UMIC must demonstrate a stronger case for support to be awarded funding. If your project will work in a UMIC, explain how your project meets the UMIC Assessment criteria detailed in the Complete Guidance for Applicants. (Max 250 words)",
+    "section": "project",
+    "page": "page_11"
+  },
+  {
+    "question": "Q4.16 Audiovisual supporting material (optional not mandatory)\nOption to upload photographs (up to 10 photos maximum) or a short video (up to five minutes long maximum) to further support your application. If you upload more than the requested amount of supporting material, only the first 10 photos or five minutes of video will be taken into consideration with your application.\n(Upload your additional supporting material. If uploading photos, copy-paste them into a single .pdf file)",
+    "section": "project",
+    "page": "page_11"
+  },
+  {
+    "question": "Q4.17 Additional supporting material (optional not mandatory)\nOption to upload a maximum of five pages of any additional material in support of your application such as a map of the project area, or relevant report, social",
+    "section": "project",
+    "page": "page_11",
+    "observation": "question tronquée"
+  },
+  {
+    "question": "Q4.17 Additional supporting material (optional not mandatory)\nOption to upload a maximum of five pages of any additional material in support of your application such as a map of the project area, or relevant social media post or news article. If you upload more than five pages, only the first five pages will be considered and the rest disregarded.\n(Upload your additional supporting material as a single .pdf file)",
+    "section": "project",
+    "page": "page_12"
+  },
+  {
+    "question": "Q5.1 Project communication plan\nOutline three key objectives of your communication plan, specify the activities and channels you will use and provide details of your intended audiences. Briefly outline how you will measure whether your plan has been successful. Also indicate an approximate budget and level of effort (person days) to be spent on communication. (Max 500 words)\n\nPlease provide:\n- Total project budget for Communication (this may include Staff and Travel and Subsistence Costs): GBP and %\n- Number of days planned for Communication",
+    "section": "project",
+    "page": "page_13"
+  },
+  {
+    "question": "Q6.1 Project risk register\nProvide a project risk register by completing the template provided. Include at least one Fiduciary, one Safeguarding, one Delivery Chain, and one GEDSI related risk. (Upload your completed template as an Excel file)",
+    "section": "project",
+    "page": "page_14"
+  },
+  {
+    "question": "Q7.1 Project pathway to change\nOutline your project’s expected pathway to change. This should be an overview of the overall project logic and outline why and how you expect your Outputs to contribute towards your overall Outcome and, in the longer term, your expected Impact. This should directly relate to your project’s Theory of Change. (Max 500 words)",
+    "section": "project",
+    "page": "page_15"
+  },
+  {
+    "question": "Q7.2 Project standard indicators\nIndicate which Standard Indicators you will report on using the template provided, including your expected targets by project end. Select a minimum of 5 Standard Indicators. If you can report against more than 5 Standard Indicators, this is strongly encouraged. Select as many indicators as is feasible for your project and its context.",
+    "section": "project",
+    "page": "page_15"
+  },
+  {
+    "question": "Q7.3 Project monitoring, evaluation and learning (MEL)\nIn OCEAN we expect MEL to be built into the project rather than function as an ‘add-on’. Describe how the progress of the project will be monitored and evaluated, making reference to the approaches, tools and techniques you will adopt and who is responsible for the project’s MEL. (Max 500 words)",
+    "section": "project",
+    "page": "page_15"
+  },
+  {
+    "question": "Q7.4 Project logical framework (logframe)\nFill in the specified logframe template. Do not change the structure of the template (except to include additional Outputs if needed), as this may make your application ineligible. (Upload your completed template as an Excel file)",
+    "section": "project",
+    "page": "page_15"
+  },
+  {
+    "question": "Q7.5 Project theory of change\nOCEAN does not provide a Theory of Change template for Partnership Grants – we encourage applicants to be creative and develop something that works best for their project, partners and other stakeholders. However, you should aim for your Theory of Change to:\n• Correspond with the contents of the Project Logframe.\n• Correspond with your narrative in the Pathway to Change.\n• Include problem drivers, enabling conditions, assumptions and risks.\n• Include arrows and lines clearly marking how the elements of the project link to each other.\n• Show how your activities will address root causes and lead to change.\n(Upload your Theory of Change as a .pdf file of 1–2 pages – there is no page limit)",
+    "section": "project",
+    "page": "page_15",
+    "observation": "derniers mots 'no template provided' remplacé par 'no page limit'"
+  },
+  {
+    "question": "Q7.6 Project workplan\nCompleting the workplan template provided.\n(Upload your completed template as an Excel file)",
+    "section": "project",
+    "page": "page_16"
+  },
+  {
+    "question": "Q8.1 Project matched funding arrangements\nWill your project have matched funding? □ Yes □ No\nMatched funding is not a requirement but is desirable and may strengthen your application. When completing your budget, ensure it is clearly identified which aspects will be funded by Defra and which will be co-financed by matched funding arrangements.",
+    "section": "project",
+    "page": "page_17"
+  },
+  {
+    "question": "Q8.2 If the answer to the question ‘Project matched funding arrangements’ is ‘Yes’, have you already secured the matched funding? □ Yes □ No\nIf ‘No’, clarify how you will deliver the project if you do not manage to secure matched funding. (Max 200 words)",
+    "section": "project",
+    "page": "page_17"
+  },
+  {
+    "question": "Q8.3 Project budget\nProvide a project budget by completing the template provided. Ensure you include any matched funding figures in the budget spreadsheet to clarify the full budget required to deliver this project. Your funding request must be in British pound sterling (GBP) and run from 01 April to 31 March. (Upload your completed template as an Excel file)",
+    "section": "project",
+    "page": "page_17"
+  },
+  {
+    "question": "Q8.4 Value for Money\nTell us why your project is good value for money. Consider the expected impact and cost-effectiveness of each pound spent (economy, efficiency, effectiveness and equity). (Max 500 words)",
+    "section": "project",
+    "page": "page_17"
+  },
+  {
+    "question": "Q9.1 Safeguarding\nAll projects funded under OCEAN must ensure proactive action is taken to promote the welfare and protect all individuals involved in the project (staff, implementing partners, the public and beneficiaries) from harm, including from sexual exploitation, abuse and sexual harassment (SEAH).\n\nIn order to provide assurance of this, projects are required to have specific procedures and policies in place. Please upload the following policies detailed below:\n• Safeguarding policy\n• Whistleblowing policy\n• Gender Equality, Disability, and Social Inclusion policy\n• Equal Opportunities / Diversity policy\n• Code of Conduct\n\n(Upload your policies as a PDF file. Please upload one file per policy. If any of these policies are integrated into a broader policy document or handbook, you will be asked to provide just the relevant or equivalent sub-sections to the above policies.)\n\nIf your application is recommended for funding, you will be asked to provide copies of the following policies. Such policies will be subject to due diligence checks. Only if all checks are satisfactory, will you be issued with the grant agreement:\n• Lead organisation's financial processes\n• Lead organisation's staff management and Human Resources processes\n• Counter Fraud, Bribery and Corruption policy\n• Ethics policy",
+    "section": "project",
+    "page": "page_18"
+  },
+  {
+    "question": "Q9.2 Safeguarding\nDescribe how (a) beneficiaries, the public, implementing partners, and staff are made aware of your safeguarding commitment and how to confidentially raise a concern, (b) safeguarding issues are investigated, recorded and what disciplinary procedures are in place when allegations and complaints are upheld, (c) you will ensure project partners uphold these policies. If your approach is currently limited or in the early stages of development, tell us your plans to address this. Indicate which minimum standard protocol your project follows and how you meet those minimum standards, i.e. CAPSEA, CHS, IASC MOS-PSEA.",
+    "section": "project",
+    "page": "page_18",
+    "observation": "question tronquée et non reconsitutée"
+  },
+  {
+    "question": "Defra recommend you appoint a safeguarding focal point to ensure the project's PSEAH work is taken forward. This can be a separate member of staff or a current member of staff who spends a proportionate amount of time for safeguarding and PSEAH activities. Please name this individual here – this person should also be included in your overall staff list and in your budget. (Max 10 words)",
+    "section": "project",
+    "page": "page_19",
+    "observation": "question tronquée et non reconsitutée"
+  },
+  {
+    "question": "Q9.3 Ethics: Describe how you meet the key principles of good ethical practice. (Max 500 words)",
+    "section": "project",
+    "page": "page_19"
+  },
+  {
+    "question": "Q10.1 Project staff\nTell us the key staff (identified in the budget), their role and what % of their time they will be working on the project. Complete the table below and provide a CV of each key staff member that is no more than one page in length. Be aware that your project may be rejected if you upload CVs that are more than one page in length. (Each CV must be a maximum of one page long. All CVs must be merged into a single .pdf file.)",
+    "section": "project",
+    "page": "page_20",
+    "observation": "tableau non extrait"
+  },
+  {
+    "question": "Provide details of any partner organisation you have selected to work with. Add more of the following table if working with more than one partner organisation.",
+    "section": "project",
+    "page": "page_21",
+    "observation": "question tronquée, tableau non extrait"
+  },
+  {
+    "question": "Partner organisation’s full name and website",
+    "section": "project",
+    "page": "page_21",
+    "observation": "question extaite hors de son tableau, mais le contexte reste valide"
+
+  },
+  {
+    "question": "Partner organisation’s registered address",
+    "section": "project",
+    "page": "page_21",
+    "observation": "question extaite hors de son tableau, mais le contexte reste valide"
+  },
+  {
+    "question": "Partner organisation’s annual income (The annual income is calculated as an average over the past three years)",
+    "section": "project",
+    "page": "page_21",
+    "observation": "question extaite hors de son tableau, mais le contexte reste valide"
+  },
+  {
+    "question": "Partner organisation’s legal status (select all that apply): National Non-Governmental Organisation (NGO) / Charity; Local NGO / Charity / Civil Society Organisation; Academic / Research Institution; Private Sector Organisation / Business / Business Association; Government Agency; Intergovernmental Organisation; Other, specify below.",
+    "section": "project",
+    "page": "page_21",
+    "observation": "question extaite hors de son tableau, mais le contexte reste valide"
+  },
+  {
+    "question": "Partner organisation’s number of staff as full-time equivalent (FTE): Tell us the total FTE of all employed staff in the organisation (for example, if you have 3 full-time staff and 1 part-time staff with an FTE of 0.5, your answer will be 3.5).",
+    "section": "project",
+    "page": "page_21",
+    "observation": "question extaite hors de son tableau, mais le contexte reste valide"
+  },
+  {
+    "question": "Partner organisation’s number and roles of volunteers: If the organisation relies substantially on volunteers, tell us how many volunteers you have and the role they play in the organisation. If the organisation does not rely substantially on volunteers, indicate ‘N/A’.",
+    "section": "project",
+    "page": "page_21",
+    "observation": "question extaite hors de son tableau, mais le contexte reste valide"
+  },
+  {
+    "question": "Partner organisation’s letter of support: Upload a letter of support from each partner organisation. (Upload letters of support as a .pdf file. The letter of support must be on the letterhead of the partner organisation. No template is provided.)",
+    "section": "project",
+    "page": "page_22",
+    "observation": "question extaite hors de son tableau, mais le contexte reste valide"
+  },
+  {
+    "question": "Q11.2 Explain why you have selected these partner organisations and outline the roles and responsibilities in the project of the lead organisation and each partner organisation. (Max 500 words)",
+    "section": "project",
+    "page": "page_22"
+  },
+  {
+    "question": "Q11.3 Project partnership declaration: All listed Partner Organisation(s) are aware of this application and have confirmed support. ☐ Yes ☐ No",
+    "section": "project",
+    "page": "page_22"
+  },
+  {
+    "question": "Q12.1 Lead organisation’s project references: Upload reference letters for three recent projects/grants held by the lead organisation that demonstrate your credibility as an organisation and provide track record relevant to the project proposed. These projects/grants should have been held in the last 5 years and be of a similar size to the grant requested in your application.\n\nIf you are providing a reference from the Biodiversity Challenge Funds (BCFs), please do not provide a reference letter and instead complete the table below and this reference will be checked internally.\n\n(Merge your project references and upload them as a single .pdf file. All project references must be on the letterhead of the funder and include the monetary amount of the project/grant. No template is provided. Do not upload a copy of the contract.)\n\nAs an alternative (not preferred) to uploading reference letters, complete the information below:\n\nContract/Project 1\n  • Title\n  • Contract value/project budget (include currency)\n  • Duration (in months)\n  • Role of organisation in project (Max 50 words)\n  • Brief summary of the aims, objectives and outcomes of the project (Max 100 words)\n  • Client/independent reference contact details (Name, e-mail) (Max 25 words)\n\nContract/Project 2\n  • Title\n  • Contract value/project budget (include currency)",
+    "section": "organization",
+    "page": "page_23",
+    "observation": "template de réponse (tableau) dupliqué en 3 exemplaires sur l'aap, non extrait exactement sous la même forme, avec tronquage partiel"
+  },
+  {
+    "question": "Q12.1 Lead organisation’s project references: As an alternative (not preferred) to uploading reference letters, complete the information below for each of up to three recent projects/grants held by the lead organisation that demonstrate your credibility and track record. For each Contract/Project provide:\n\nContract/Project 2\n  • Title\n  • Contract value/project budget (include currency)\n  • Duration (in months)\n  • Role of organisation in project (Max 50 words)\n  • Brief summary of the aims, objectives and outcomes of the project (Max 100 words)\n  • Client/independent reference contact details (Name, e-mail) (Max 25 words)\n\nContract/Project 3\n  • Title\n  • Contract value/project budget (include currency)\n  • Duration (in months)\n  • Role of organisation in project (Max 50 words)\n  • Brief summary of the aims, objectives and outcomes of the project (Max 100 words)\n  • Client/independent reference contact details (Name, e-mail) (Max 25 words)",
+    "section": "organization",
+    "page": "page_24"
+  },
+  {
+    "question": "Q13.1 Engagement with your respective British embassy or high commission: It is important for UK Government representatives to know if UK funding might be spent in all project primary country/ies. Please use the template provided to request feedback from your project. You should upload the completed template or evidence of your engagement, including details of any advice you have received (mandatory).\n\nNOTE: To contact the British embassy or high commission, go to https://www.gov.uk/world/embassies, search for your project country and click on it. Scroll down to the 'Contact Us' section. There you will find the contact details for you to use. Please send an email and do not worry if you do not receive a response, as long as you can prove you have contacted the embassy / high commission. For example, you can prove this by providing a PDF copy of the email you sent to them. We recommend that you do this at the start of the application process. If you are working in more than one primary country, we highly recommend you contact the British embassy or high commission based in each primary country.\n\n(Upload your evidence as a .pdf file)",
+    "section": "project",
+    "page": "page_25"
+  },
+  {
+    "question": "Q13.2 If you have not been able to meaningfully engage with your respective British embassy or high commission, explain why. Your response to this question will not influence the outcome of your application. (Max 50 words)",
+    "section": "project",
+    "page": "page_25"
+  },
+  {
+    "question": "Q14.1 Project sensitivities: Tell us whether there are sensitivities associated with this project that need to be considered if details are published (for example, detailed species location data that would increase threats, political sensitivities, prosecutions for illegal activities, security of staff). Your response to this question will not influence the outcome of your application. ☐ Yes ☐ No\n\nIf ‘Yes’, provide brief details. (Max 200 words)",
+    "section": "project",
+    "page": "page_26"
+  },
+  {
+    "question": "Q15.1 Terms and conditions: Confirm you have read and understood, and will adhere to the terms and conditions available from Flexi-Grant or from our website. ☐ Yes ☐ No",
+    "section": "organization",
+    "page": "page_27"
+  },
+  {
+    "question": "Q15.2 Attachments: Upload the following documents as PDF files (all mandatory unless indicated otherwise):\n\n1. Evidence of the legal status of the lead organisation (i.e., registration certificate).\n2. A copy of your financial annual report and accounts for the past three years (to be externally audited).\n3. One-page CVs for named project staff. CVs must be merged into a single .pdf file.\n4. Reference letters for three recent projects/grants held by the lead organisation. All project references must be on the letterhead of the funder and include the monetary amount of the project/grant. No template is provided. Do not upload a copy of the contract. Reference letters must be merged into a single .pdf file.\n5. A letter of support from each partner organisation. Letters of support must be in the letterhead of each partner organisation and merged into a single .pdf file (no template provided).\n6. A copy of the lead organisation’s Safeguarding policy.\n7. A copy of the lead organisation’s Whistleblowing policy.\n8. A copy of the lead organisation’s Gender Equality, Disability, and Social Inclusion policy.\n9. A copy of the lead organisation’s Equal Opportunities / Diversity policy.\n10. A copy of the lead organisation’s Code of Conduct.\n11. The e-signature (.jpg or .pdf) of the lead applicant to certify your application. Do not upload a QR code.",
+    "section": "organization",
+    "page": "page_27"
+  },
+  {
+    "question": "If your application is recommended for funding, you will be asked to provide copies of the following documentation. Such documentation will be subject to due diligence checks. Only if all checks are satisfactory, will you be issued with a grant agreement.\n\n1. A copy of the lead organisation’s organisation annual report (to include structure, governance and management processes, and achievements and objectives).\n2. A copy of the lead organisation’s organisational risk management framework.\n3. A copy of the lead organisation’s staff management and human resources processes.\n4. A copy of the lead organisation’s financial processes (including Foreign Exchange policy, Investment policy and Reserves policy).\n5. A copy of the lead organisation’s Ethics policy.\n6. A copy of the lead organisation’s Counter Fraud, Bribery and Corruption policy.",
+    "section": "organization",
+    "page": "page_28"
+  },
+  {
+    "question": "Q16.1 Declarations of the lead applicant:\nI certify that:\n• I have NOT been convicted of fraud under any other grants scheme.\n• I have NOT been found to have committed a serious violation of conservation or fisheries management measures within the preceding 12 months.\n• I am NOT listed by the flag State or a relevant Fisheries Management Organisation, or Arrangement for IUU fishing in accordance with the rules and procedures of that State, Party, organisation, or arrangement and in conformity with international law.\n• I have NOT been convicted of any offence that is a ‘serious infringement’ or fraud in the 12 months before applying.",
+    "section": "organization",
+    "page": "page_29"
+  },
+  {
+    "question": "Q16.2 Certification of the lead applicant:\nOn behalf of the trustees/company* of [INSERT NAME OF LEAD ORGANISATION] (*delete as appropriate), I apply for a grant of GBP [INSERT VALUE] in respect of all OCEAN Grants Programme expenditure to be incurred during the lifetime of this project based on the activities and dates specified in the above application.\n\nI certify that, to the best of our knowledge and belief, the statements made by us in this application are true and the information provided is correct. I am aware that this application form will form the basis of the project schedule should this application be successful.\n\nI have the authority to submit an application on behalf of my organisation.\n\nThis section must be filled in by the lead applicant. You must provide a real (not typed) signature. Do not upload a QR code. If this section is incomplete, the entire application will be rejected.\n\nName:\nPosition in organisation:\nSigned: Upload signature\nDated:",
+    "section": "organization",
+    "page": "page_29"
+  },
+  {
+    "question": "I have read the Guidance, including the “Complete Guidance for Applicants”, “Gender Equality, Disability and Social Inclusion Guidance”, “Finance Guidance” and “Monitoring, Evaluation and Learning Guidance”.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "I have read, and can meet, the current model Terms and Conditions for this fund.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "I have provided actual start and end dates for the project.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "I have provided the budget based on UK government financial years i.e. 1 April – 31 March and in GBP.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "I have checked that the budget correctly adds up and I have included the correct final total at the start of the application.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "The application has been signed by a suitably authorised individual.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "I have attached the below documents to my application:\n• a Theory of Change (no more than 2-page A4 PDF)\n• A Logframe (template provided)\n• Standard Indicators (template provided)\n• Risk register (template provided)\n• Evidence of the legal status of the lead organisation (i.e., registration certificate)\n• a signed copy of the last 3 years of annual report and accounts for the Lead Organisation, or provided an explanation if not",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "The audio/visual and additional supporting evidence is in line with the requirements.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "(If copying and pasting into Flexi-Grant) I have checked that all the responses have been successfully copied into the online application form.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "I have read and understood the Privacy Notice on the OCEAN Website.",
+    "section": "organization",
+    "page": "page_30"
+  },
+  {
+    "question": "Ensure you submit this application on Flexi-Grant.",
+    "section": "organization",
+    "page": "page_30"
+  }
+]

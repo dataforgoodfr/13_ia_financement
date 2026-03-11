@@ -1,0 +1,282 @@
+[
+  {
+    "question": "Organization Name",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Organization Type (Please indicate the organization type) ☐ Public (e.g. NGOs/Research Institutions) ☐ Private",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Organization Address (e.g. Address 1, Address 2, City, Country)",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Focal Person Name / Position (Please indicate the name and position of the focal person of the project.)",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Telephone Number",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Email Address",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Project Title (Please keep the project title clear and concise)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Target Country(ies) ☐ Brunei Darussalam ☐ Malaysia ☐ Indonesia ☐ Philippines",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Target Geographic Location(s) (Please tick the box and indicate the specific target location (province/city) accordingly.)\n* BIMP-EAGA covers the entire sultanate of Brunei Darussalam, the provinces of Kalimantan, Sulawesi, Maluku and Papua in Indonesia; the states of Sabah, Sarawak and the federal territory of Labuan in Malaysia; and the entire island of Mindanao and the island province of Palawan in Philippines\n☐ BIMP-EAGA\n  - Location:\n☐ Not within BIMP-EAGA\n  - Location:",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Project Duration ☐ 1 year ☐ 2 years",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Proposed Project Start Date (mm.yyyy)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Proposed Project Completion Date (mm.yyyy)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Proposed Project Budget (total in USD)\nYear 1: USD\nYear 2: USD\nTotal Budget: USD",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Potential Project Co-Financing (optional)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Goal and Objective (200 words max)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Project Objectives (Please provide the summary of Project Objectives)",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "Project Beneficiaries (100 words max) (Please provide the summary of Project Beneficiaries)",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "Project Implementation Partners",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "Primary Project Sector & Areas (Please tick ONE most relevant sector and indicate its area(s).)\n☐ Environment\n  – Area(s):\n☐ Tourism\n  – Area(s):\n☐ Connectivity\n  – Area(s):\n☐ Agriculture and Fisheries\n  – Area(s):",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "Secondary Project Sector & Areas (Please tick AT LEAST ONE relevant sector(s) and indicate its area(s).)\n☐ Environment\n  – Area(s):\n☐ Tourism\n  – Area(s):\n☐ Connectivity\n  – Area(s):\n☐ Agriculture and Fisheries\n  – Area(s):",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "Category of Project to be Implemented\n☐ Policy and regulatory framework\n☐ Sector master plan\n☐ Pre-feasibility or feasibility study\n☐ A small-scale demonstration\n☐ National Determined Contribution implementation\n☐ Green recovery and green employment\n☐ Capacity building and public awareness\n☐ Others (50 words max.):",
+    "section": "project",
+    "page": [
+      1,
+      2
+    ]
+  },
+  {
+    "question": "Problem Analysis (max. 600 words)\nPlease provide:\n  1) a description of the current situation or issue related to the project (background, geographic region, and beneficiaries, etc.),\n  2) an analysis of the problem the project is trying to address. Develop a Problem Tree by defining the core problem and identifying its causes and effects. The description must be clearly linked to the project's objectives and how the project will address the problem.",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ],
+    "analyse": {
+      "fuzzy_eval": 90,
+      "llm_eval": {
+        "label": "NOT_DUPLICATE",
+        "confidence": 0.95
+      },
+      "candidate_duplicate": "Project Beneficiaries (100 words max) (Please provide the summary of Project Beneficiaries)"
+    }
+  },
+  {
+    "question": "Project History (max. 200 words)\nList any related projects or activities, whether current or complete. Describe how this new proposal would complement them. Details of any related current or complete projects may also be included, as well as lessons learned.",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "Project Beneficiaries (max. 250 words)\nPlease state who and approximately how many people would directly and indirectly benefit from this project, how many of these beneficiaries would be men, and how many would be women.",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "Project Objective (max. 300 words)\nPlease indicate and describe the overall objective, the expected outcomes, and the outputs of the project in detail. It should be consistent with the Logical Framework (Appendix 1).",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "Main Activities (max. 300 words)\nList and describe the main activities that the project will implement to achieve the above outputs and outcomes. The project breakdown should be consistent with the Logical Framework (Appendix 1).",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "Management Arrangements (max. 200 words)\nDescribe and visualize the project's management structure, coordination mechanisms, and the project management reporting line.",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "Project Team Composition (max. 200 words)\nDescribe briefly the type and number of personnel involved in the project. Include and specify the terms of reference for each position in Annex 3 (Institutional Portfolio and Terms of Reference for Human Resources).",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "Monitoring and Evaluation Arrangements (max. 300 words)\nDescribe the monitoring and evaluation arrangement of the project.",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "Gender (max. 200 words)\nIndicate how gender-related issues will be taken into account during project implementation, specifically addressing how women and men would equally benefit from the project and whether the proposed project has allocated resources for this purpose. Proposals must ensure that projects provide equal opportunities for participation, where appropriate, and how this will be monitored.",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "Other Cross-Cutting Issues (max. 200 words)\nIndicate cross-cutting issues and state how these issues will be addressed by the project, as applicable.",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "Potential Risks & Mitigation Strategy and Measures\nOutline all potential risks or threats in the Project Results and corresponding mitigation strategies. The table below can be adjusted as necessary.\n• Potential Risks\n• Probability (Low/Mid/High)\n• Impact (Low/Mid/High)\n• Mitigation Strategy",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "2.6 Project Sustainability and Scale-up (max. 300 words)\nState how the outputs and benefits of the project will be 1) sustained after the proponent’s exit and 2) scaled up (expansion or replication) after the project is completed. The project is encouraged to be further developed into an upscalable and influential project that would economically or socially benefit the target country(ies).",
+    "section": "project",
+    "page": [
+      4,
+      5
+    ]
+  },
+  {
+    "question": "Appendix 1. LOGICAL FRAMEWORK\nUsing the provided template, please provide a comprehensive description of the project’s logical framework. If additional rows are required, ensure the structure remains consistent by copying and pasting an existing row into the respective section. Note that this section will not be included in the page count of the Proposal.",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  }
+]

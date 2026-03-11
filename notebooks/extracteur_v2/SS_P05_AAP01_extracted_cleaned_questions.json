@@ -1,0 +1,308 @@
+[
+  {
+    "question": "Bureau de l’UNICEF",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Intitulé du ProDoc",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Date de soumission",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Nom de l’organisation*",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Acronyme",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Nom du responsable accrédité de l’OSC et fonction*",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Courriel du Directeur Pays*",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "N° de tél. du Directeur Pays*",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Nom du point focal de ce programme",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Titre du point focal",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Courriel (point focal)",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Téléphone (point focal)",
+    "section": "organization",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Durée",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Couverture géographique",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Population cible",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Part de l’OSC (budget du programme)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Part de l’UNICEF (budget du programme)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Total (budget du programme)",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "Justification du programme",
+    "section": "project",
+    "page": [
+      0,
+      1
+    ]
+  },
+  {
+    "question": "2.2 Genre, équité et Développement durable",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ],
+    "analyse": {
+      "fuzzy_eval": 100,
+      "llm_eval": {
+        "label": "DUPLICATE",
+        "confidence": 0.95
+      },
+      "candidate_duplicate": "Genre, équité, et Développement durable"
+    },
+    "prefered_question": "2.2 Genre, équité et Développement durable",
+    "real_duplicate": false
+  },
+  {
+    "question": "2.3 Contribution du partenaire",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "2.4 Autres partenaires concernés",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "2.5 Redevabilité envers les Personnes Affectées",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "2.6 Autres documents",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "2.7 Résultats escomptés",
+    "section": "project",
+    "page": [
+      2,
+      3
+    ]
+  },
+  {
+    "question": "Résultats : Output(s) correspondant(s) défini(s) dans le programme de pays auquel ce PCA contribue – Output 1 et 2 ; Résultat 1, Résultat 2, Résultat 3, Résultat 4 \nIndicateur(s) de performance (*désagrégé par Région) \nSituation de base (*) \nCible (*) \nMoyens de vérification¹",
+    "section": "project",
+    "page": [
+      3,
+      4
+    ]
+  },
+  {
+    "question": "3. HACT Évaluation du partenaire (à remplir avec l’UNICEF dans le cadre de la finalisation du document de programme)",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "4.1 Recommandations majeures pour le partenaire impliquant l’action d’UNICEF (sources possibles : rapports de Micro-Évaluation, d’audit, de Spotcheck, de Visite Programmatique)",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "4.2 Micro-Évaluation de la Gestion financière (si applicable) :\n- Date prévue, ou exécuté (si déjà fait) / Non évalué\n- Niveau de risque : Faible / modéré / significatif / élevé / non évalué",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "4.3 Activités d’Assurance planifiées pendant toute la durée du programme :\nType / Nombre / Mois planifié(e)(s)\n- Visites programmatiques\n- Spot checks\n- Audit",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "4.4 Autres : Revue du partenariat",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "4.5 Modalité(s) de Transfert en espèces : Direct Cash Transfer / Paiement Direct / Remboursement",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "5.1 Rapports supplémentaires à fournir : Tous les rapports de programme pour ce partenariat doivent être soumis via le portail de rapports des partenaires (PRP) eTools",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "5.2 Spécification ou orientations techniques applicables",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "5.3 Questions en rapport avec les fournitures, le cas échéant :\n- L’approvisionnement des fournitures achetées par l’UNICEF sera achevé et livré dans les 3 mois suivant le début du projet\n- UNICEF aura le droit de demander que tout équipement et fourniture transféré ou mis à disposition de l’OSC, ou acheté par l’OSC sous financement de ce Document de Programme soit transféré à UNICEF ou à un autre partenaire à la fin du Programme ou à sa résiliation",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "5.4 Autres",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  },
+  {
+    "question": "5. Signatures et date :\n- Nom et fonction du/de la Président(e) de l’OSC, Date\n- Nom et fonction du/de la Représentant(e) de l’UNICEF Madagascar, Date",
+    "section": "project",
+    "page": [
+      5,
+      6
+    ]
+  }
+]

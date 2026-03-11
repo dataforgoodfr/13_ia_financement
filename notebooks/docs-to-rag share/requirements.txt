@@ -1,0 +1,46 @@
+accelerate
+aioboto3
+aiohttp
+
+# database packages
+graspologic
+hnswlib
+nano-vectordb
+neo4j
+networkx
+ollama
+openai
+oracledb
+psycopg[binary,pool]
+pymilvus
+pymongo
+pymysql
+pyvis
+# lmdeploy[all]
+sqlalchemy
+tenacity
+
+
+# LLM packages
+tiktoken
+torch
+transformers
+xxhash
+
+
+# project specific
+python-dotenv
+pandas
+streamlit
+faiss-cpu
+sentence-transformers # pour reranker
+pypdf==5.4.0
+docx
+unstructured
+unstructured[docx]
+langchain
+langchain-openai
+langchain-unstructured
+langchain-community
+langchain-ollama
+chromadb

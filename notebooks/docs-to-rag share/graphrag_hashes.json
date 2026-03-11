@@ -1,0 +1,91 @@
+{
+  "6eb62bb393f33532a59e24b774045344e61fdc93747de585e719bc100467d2a0": {
+    "Nom du doc": "PP mahakam light",
+    "Titre auto": null,
+    "Taille du texte (en car)": 4069,
+    "Date de cr\u00e9ation": "2025-08-20 17:56:49.023217",
+    "doc_category": null,
+    "rag_type": "graph",
+    "graph_attrs": {
+      "LLM utilis\u00e9": "google/gemma-3-27b-it:free",
+      "Taille du graphe": {
+        "Nombre de noeuds": 33,
+        "Nombre de liens": 16
+      },
+      "Diversit\u00e9": {
+        "Type de noeuds": 5,
+        "Liste des noeuds": [
+          "CONCEPT",
+          "CATEGORY",
+          "GEO",
+          "PERSON",
+          "EVENT",
+          "ORGANIZATION"
+        ],
+        "Taille des noeuds": {
+          "min": 0,
+          "median": 2.0,
+          "max": 6
+        },
+        "Force des liens": {
+          "min": 8.0,
+          "median": 16.0,
+          "max": 18.0
+        }
+      },
+      "nodes_sizes": [
+        6,
+        6,
+        2,
+        2,
+        4,
+        2,
+        4,
+        4,
+        4,
+        2,
+        6,
+        2,
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "edges_widths": [
+        18.0,
+        16.0,
+        9.0,
+        14.0,
+        18.0,
+        18.0,
+        18.0,
+        16.0,
+        14.0,
+        18.0,
+        18.0,
+        9.0,
+        16.0,
+        16.0,
+        8.0,
+        8.0
+      ]
+    }
+  }
+}
